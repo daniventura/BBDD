@@ -10,3 +10,54 @@ body {
 
         /* ROMBO */
   /* width: 100px; height: 100px; background: #428bca; border: 3px solid #555; transform: rotate(135deg) skew(15deg, 15deg); display: inline-block; margin: 0px 0; */
+
+  /* Importación de la fuente de texto
+     ========================================================================== */
+
+
+@font-face {
+    font-family: 'Operator Mono';
+    src: url('fonts/FontsFree-Net-OperatorMono-Bold.woff') format('woff');
+    font-style: normal;
+    font-weight: 900;
+}
+@font-face {
+    font-family: 'Operator Mono';
+    src: url('fonts/FontsFree-Net-OperatorMono-BoldItalic.woff') format('woff');
+    font-style: italic;
+    font-weight: 900;
+}
+@font-face {
+    font-family: 'Operator Mono';
+    src: url('fonts/FontsFree-Net-OperatorMono-Book.woff') format('woff');
+    font-style: normal;
+    font-weight: normal;
+}
+@font-face {
+    font-family: 'Operator Mono';
+    src: url('fonts/FontsFree-Net-OperatorMono-BookItalic.woff') format('woff');
+    font-style: italic;
+    font-weight: normal;
+}
+@font-face {
+    font-family: 'Operator Mono';
+    src: url('fonts/FontsFree-Net-OperatorMono-light.woff') format('woff');
+    font-style: normal;
+    font-weight: 300;
+}
+@font-face {
+    font-family: 'Operator Mono';
+    src: url('fonts/FontsFree-Net-OperatorMono-Medium.woff') format('woff');
+    font-style: normal;
+    font-weight: bold;
+}
+@font-face {
+    font-family: 'Operator Mono';
+    src: url('fonts/FontsFree-Net-OperatorMono-XLight.woff') format('woff');
+    font-style: normal;
+    font-weight: 200;
+}
+
+* {
+    font-family: 'Operator Mono';
+}
