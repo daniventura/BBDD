@@ -29,7 +29,7 @@
                 <h2>Diagrama Entidad-Relación</h2>
             </div>
             <div class="bloque_img">
-                <img src="" alt="diagrama_Entidad-Relación" id="idiagramaER">
+                <img src="media/diagramaER.svg" alt="diagrama_Entidad-Relación" id="idiagramaER">
             </div>
             <div class="bloque_texto fade fade-right">
                 <p>
@@ -144,7 +144,7 @@
                         <p><strong>Tipo de Entidad:</strong> <i>Etiqueta Comercial</i> <strong>|| Hereda de: </strong><i>Recipiente, Líquido {debilidad or identificación</i></p>
                         <ul>
                             <li class="tn2">
-                                <p>Atributo<i>volumen</i></p>
+                                <p>Atributo: <i>volumen</i></p>
                                 <ul>
                                     <li class="tn3">
                                         <p>Dominio: <i>valor numérico natural (mL)</i></p>
@@ -155,7 +155,7 @@
                                 </ul>
                             </li>
                             <li class="tn2">
-                                <p>Atributo<i>cod. líquido</i></p>
+                                <p>Atributo: <i>cod. líquido</i></p>
                                 <ul>
                                     <li class="tn3">
                                         <p>Dominio: <i>cadena de caracteres</i></p>
@@ -215,108 +215,117 @@
                         <p><strong>Tipo de Entidad: </strong><i>Cristal con pipeta </i><strong>|| Hereda de: </strong><i>Recipiente {especificación total excluyente}</i><</p>
                     </li>
                 </ul>
-                <h3></h3>
+                <h3>Descripción de los Tipos de Interrelaciones</h3>
                 <ul>
                     <li class="tn1">
-                        <p><strong></strong><i></i></p>
+                        <p><strong>Tipo de Interrelación: </strong><i>Se mezcla</i></p>
                         <ul>
                             <li class="tn2">
+                                <p>Tipo de entidad: <i>aroma</i></p>                                
                                 <ul>
                                     <li class="tn3">
-                                        
+                                        <p>Cardinalidad mínima: <i>n</i></p>
                                     </li>
                                     <li class="tn3">
-                                        
+                                        <p>Cardinalidad máxima: <i>n</i></p>
                                     </li>
                                 </ul>
                             </li>
                             <li class="tn2">
+                                <p>Tipo de entidad: <i>base</i></p>
                                 <ul>
                                     <li class="tn3">
-                                        
+                                        <p>Cardinalidad mínima: <i>n</i></p>
                                     </li>
                                     <li class="tn3">
-                                        
+                                        <p>Cardinalidad máxima: <i>n</i></p>
                                     </li>
                                 </ul>
                             </li>
                             <li class="tn2">
+                                <p>Atributo: <i>concentración de nicotina</i></p>
                                 <ul>
                                     <li class="tn3">
-                                        
+                                        <p>Dominio: <i>valor númerico racional positivo (mg/mL)</i></p>
                                     </li>
                                     <li class="tn3">
-                                        
+                                        <p>Restricciones: Lista de valores: <i>0,3; 0,6; 1,2 mg/mL</i></p>
                                     </li>
                                 </ul>
                             </li>
                             <li class="tn2">
+                                <p>Atributo: <i>t. macerado</i></p>
                                 <ul>
                                     <li class="tn3">
-                                        
+                                        <p>Dominio: <i>valor númerico natural (días)</i></p>
                                     </li>
                                     <li class="tn3">
-                                        
+                                        <p>Restricciones: Intervalo de valores: <i>5~30</i></p>
                                     </li>
                                 </ul>
                             </li>
                         </ul>
                     </li>
                     <li class="tn1">
-                        <p><strong></strong><i></i></p>
+                        <p><strong>Tipo de Interrelación: </strong><i>Compone</i></p>
                         <ul>
                             <li class="tn2">
+                                <p>Tipo de entidad: <i>aroma</i></p>
                                 <ul>
                                     <li class="tn3">
-                                        
+                                        <p>Cardinalidad mínima: <i>0</i></p>
                                     </li>
                                     <li class="tn3">
-                                        
+                                        <p>Cardinalidad máxima: <i>n</i></p>
                                     </li>
                                 </ul>
                             </li>
                             <li class="tn2">
+                                <p>Tipo de entidad: <i>aroma</i></p>
                                 <ul>
                                     <li class="tn3">
-                                        
+                                        <p>Cardinalidad mínima: <i>0</i></p>
                                     </li>
                                     <li class="tn3">
-                                        
+                                        <p>Cardinalidad máxima: <i>n</i></p>
                                     </li>
                                 </ul>
                             </li>
                         </ul>
                     </li>
                     <li class="tn1">
-                        <p><strong></strong><i></i></p>
+                        <p><strong>Tipo de Interrelación: </strong><i>Se envasa</i></p>
                         <ul>
                             <li class="tn2">
+                                <p>Tipo de entidad: <i>líquido</i></p>
                                 <ul>
                                     <li class="tn3">
-                                        
+                                        <p>Cardinalidad mínima: <i>1</i></p>
                                     </li>
                                     <li class="tn3">
-                                        
+                                        <p>Cardinalidad máxima: <i>n</i></p>
                                     </li>
                                 </ul>
                             </li>
                             <li class="tn2">
+                                <p>Tipo de entidad: <i>Recipiente</i></p>
                                 <ul>
                                     <li class="tn3">
-                                        
+                                        <p>Cardinalidad mínima: <i>1</i></p>
                                     </li>
                                     <li class="tn3">
-                                        
+                                        <p>Cardinalidad máxima: <i>n</i></p>
                                     </li>
                                 </ul>
                             </li>
                             <li class="tn2">
+                                <p>Tipo de entidad: <i>etiqueta comercial</i></p>
                                 <ul>
                                     <li class="tn3">
-                                        
+                                        <p>Cardinalidad mínima: <i>1</i></p>
                                     </li>
                                     <li class="tn3">
-                                        
+                                        <p>Cardinalidad máxima: <i>1</i></p>
                                     </li>
                                 </ul>
                             </li>

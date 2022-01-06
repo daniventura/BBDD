@@ -61,3 +61,53 @@ body {
 * {
     font-family: 'Operator Mono';
 }
+
+  /* Paleta de colores y valores constantes
+     ========================================================================== */
+
+:root {
+    --primary-color: #836b7f;
+    --secondary-color: #c3c4a2;
+    --back-color: #eee;
+    --base-color: #C3C4A2;
+    --detail-color: #c8b7be;
+    --font: #333;    
+    --font-negative: #eee;
+    --font-contrast: #666;
+    --font-neg-contrast: #bbb;   
+}
+
+
+
+
+
+
+.bloque_img img {
+    backdrop-filter: drop-shadow(10px 1px 5px red);
+}
+
+
+
+body {
+    background-color: var(--back-color);
+}
+
+.titulo {
+    background-color: var(--primary-color);
+    color: var(--font-negative);
+    font-style: italic;
+}
+
+.bloque_texto {
+    background-color: var(--secondary-color);
+    color: var(--font);
+}
+
+
+
+  /* Estilos para la tabla
+     ========================================================================== */
+
+h3 {
+    background-color: var();
+}
