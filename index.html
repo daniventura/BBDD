@@ -33,7 +33,7 @@
             </div>
             <div class="bloque_texto fade fade-right">
                 <p>
-
+                    <strong>*Observaciones:</strong> los atributos de la interrelación “se mezcla, podrían ser pertectamente atributos de la entidad agregada “líquido”, pero con el fin de poder incluir en la tabla E-R ejemplos de entidad con atributos, he decidido representarlos de esta forma.
                 </p>
             </div>
 
@@ -100,141 +100,119 @@
                         </ul>
                     </li>
                     <li class="tn1">
-                        <p><strong></strong><i></i></p>
+                        <p><strong>Tipo de Entidad:</strong> <i>Base</i></p>
                         <ul>
                             <li class="tn2">
+                                <p>Atributo: <i>cod. base</i></p>
                                 <ul>
                                     <li class="tn3">
-                                        
+                                        <p>Dominio: <i>cadena de caracteres</i></p>
                                     </li>
                                 </ul>
                             </li>
                             <li class="tn2">
+                                <p>Atributo: <i>proporción</i></p>
                                 <ul>
                                     <li class="tn3">
-                                        
+                                        <p>Dominio: <i>cadena de caracteres</i></p>
                                     </li>
                                     <li class="tn3">
-                                        
+                                        <p><i>proporción desde 100%~0% hasta 0%~100%</i></p>
                                     </li>
                                 </ul>
                             </li>
                             <li class="tn2">
+                                <p>Atributo: <i>moléculas</i></p>
                                 <ul>
                                     <li class="tn3">
-                                        
+                                        <p>Dominio: <i>cadena de caracteres</i></p>
                                     </li>
                                     <li class="tn3">
-                                        
+                                        <p>Cardinalidad: <i>2</i></p>
                                     </li>
                                     <li class="tn3">
-                                        
+                                        <p>Restricciones: Lista de valores: <i>frescor, golpe de  garganta</i></p>
                                     </li>
                                 </ul>
                             </li>
                             <li class="tn2">
-                                
+                                <p>Identificador principal: <i>cod. base</i></p>
                             </li>
                         </ul>
                     </li>
                     <li class="tn1">
-                        <p><strong></strong><i></i></p>
+                        <p><strong>Tipo de Entidad:</strong> <i>Etiqueta Comercial</i> <strong>|| Hereda de: </strong><i>Recipiente, Líquido {debilidad or identificación</i></p>
                         <ul>
                             <li class="tn2">
+                                <p>Atributo<i>volumen</i></p>
                                 <ul>
                                     <li class="tn3">
-                                        
+                                        <p>Dominio: <i>valor numérico natural (mL)</i></p>
                                     </li>
                                     <li class="tn3">
-                                        
+                                        <p>Restricciones: Lista de valores: <i>5, 10, 50 y 100mL</i></p>
                                     </li>
                                 </ul>
                             </li>
                             <li class="tn2">
+                                <p>Atributo<i>cod. líquido</i></p>
                                 <ul>
                                     <li class="tn3">
-                                        
+                                        <p>Dominio: <i>cadena de caracteres</i></p>
                                     </li>
                                 </ul>
                             </li>
                             <li class="tn2">
+                                <p>Atributo: <i>colores</i></p>
                                 <ul>
                                     <li class="tn3">
-                                        
+                                        <p>Dominio: <i>valores CMYK de los colores; cuatro valores entre 0 y 100 separados por comas</i></p>
                                     </li>
                                     <li class="tn3">
-                                        
+                                        <p>Cardinalidad: <i>si, indefinida</i></p>
                                     </li>
                                     <li class="tn3">
-                                        
+                                        <p>Restricciones: Intervalo de valores: <i>los colores (desde 0,0,0,0 a 100,100,100,100)</i></p>
                                     </li>
                                 </ul>
                             </li>
                             <li class="tn2">
+                                <p>Atributo: <i>diseño *imagen*</i></p>
                                 <ul>
                                     <li class="tn3">
-                                        
+                                        <p>Dominio: <i>archivo png</i></p>
                                     </li>
                                 </ul>
                             </li>
                             <li class="tn2">
-                                
+                                <p>Identificador principal: <i>volumen, cod. líquido</i></p>
                             </li>
                         </ul>
                     </li>
                     <li class="tn1">
-                        <p><strong></strong><i></i></p>
+                        <p><strong>Tipo de Entidad: </strong><i>Recipiente</i></p>
                         <ul>
                             <li class="tn2">
+                                <p>Atributo: <i>volumen</i></p>
                                 <ul>
                                     <li class="tn3">
-                                        
+                                        <p>Dominio: <i>valor númerico natural (mL)</i></p>
                                     </li>
                                     <li class="tn3">
-                                        
+                                        <p>Restricciones: Lista de valores: <i>5, 10, 50 y 100mL</i></p>
                                     </li>
                                 </ul>
                             </li>
                             <li class="tn2">
-                                
+                                <p>Identificador principal: <i>volumen</i></p>
                             </li>
                         </ul>
                     </li>
                     <li class="tn1">
-                        <p><strong></strong><i></i></p>
-                        <ul>
-                            <li class="tn2">
-                                <ul>
-                                    <li class="tn3">
-                                        
-                                    </li>
-                                    <li class="tn3">
-                                        
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="tn2">
-                                
-                            </li>
-                        </ul>
+                        <p><strong>Tipo de Entidad: </strong><i>Chubby </i><strong>|| Hereda de: </strong><i>Recipiente {especificación total excluyente}</i></p>
                     </li>
                     <li class="tn1">
-                        <p><strong></strong><i></i></p>
-                        <ul>
-                            <li class="tn2">
-                                <ul>
-                                    <li class="tn3">
-                                        
-                                    </li>
-                                    <li class="tn3">
-                                        
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="tn2">
-                                
-                            </li>
-                        </ul>
+                        <p><strong>Tipo de Entidad: </strong><i>Cristal con pipeta </i><strong>|| Hereda de: </strong><i>Recipiente {especificación total excluyente}</i><</p>
                     </li>
                 </ul>
                 <h3></h3>
