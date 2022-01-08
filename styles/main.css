@@ -171,6 +171,10 @@ section {
     border-bottom-left-radius: 3em;
     margin-right: -1px;
 }
+    .bloque_texto p {
+        line-height: 1.2em;
+        margin-bottom: 0.7em;
+    }
 
 .bloque_img, .tabla_entidadrelacion {
     margin: 0 1em;
@@ -213,12 +217,31 @@ section {
     section {
         grid-template-columns: 1fr;
     }
-    
+
     .titulo, .bloque_texto, .bloque_img, .tabla_entidadrelacion {
         grid-column: 1/2;
     }
     .fill_right, .fill_left {
         display: none;
+    }
+    .bloque_texto::after, .titulo::after {
+        display: none;
+    }
+}
+
+@media (max-width: 720px) {
+    .bloque_texto {
+        padding: 1em;
+    }
+}
+
+@media (max-width: 600px) {
+    .bloque_texto p {
+        font-size: 0.65em;
+    }
+
+    .titulo {
+        padding: 1em;
     }
 }
 
@@ -369,7 +392,16 @@ section {
     .tabla_comp2 .tn3 p {
         box-shadow: 0px 2px 3px #666, 1px 1px 3px #666;
     }
-}    
+} 
+
+@media (max-width: 350px) {
+    .tn2 p {
+        margin-left: 1em;
+    }
+    .tn3 p {
+        margin-left: 2em;
+    }
+}
  
  
 
