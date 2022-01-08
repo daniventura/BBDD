@@ -1,12 +1,14 @@
-  /* ==========================================================================
+  /* ##########################################################################
+     ==========================================================================
         Normalización
-     ========================================================================== */
+     ==========================================================================
+     ########################################################################## */
 html {
     line-height: 1.15; /* 1 */
     -webkit-text-size-adjust: 100%; /* 2 */
 }
 *, ::after, ::before {
-    margin: 0;
+    margin: 0 auto;
     padding: 0;
 }
 
@@ -15,14 +17,15 @@ ul{
 }
 
 body {
-    overflow-x: hidden;
 }
         /* ROMBO */
   /* width: 100px; height: 100px; background: #428bca; border: 3px solid #555; transform: rotate(135deg) skew(15deg, 15deg); display: inline-block; margin: 0px 0; */
 
-  /* ==========================================================================
+  /* ##########################################################################
+     ==========================================================================
         Importación de la fuente de 2texto
-     ==========================================================================       cesita añadir woff2 y ttf */
+     ==========================================================================
+     ########################################################################## */
 
 
 @font-face {
@@ -86,9 +89,10 @@ body {
     font-family: 'Operator Mono';
 }
 
-  /* ==========================================================================
+  /* ##########################################################################
+     ==========================================================================
         Paleta de colores y valores constantes
-     ========================================================================== */
+     ========================================================================== ########################################################################## */
 
 :root {
     --primary-color: #836b7f;
@@ -102,33 +106,86 @@ body {
     --font-neg-contrast: #ddd;
 }
 
-
-
-
-
-
-.bloque_img img {
-    backdrop-filter: drop-shadow(10px 1px 5px red);
-}
-
-
+  /* ##########################################################################
+     ==========================================================================
+        Maquetación general
+     ========================================================================== 
+     ########################################################################## */
 
 body {
     background-color: var(--back-color);
+    margin: 0 auto;
+}
+
+main {
+    display: grid;
+    gap: 4em;
+    max-width: 100%;
+}
+
+section {
+    margin: 0 auto;
+    width: 100vw;
+    max-width: 1200px;
+    padding: 0 1em;
+    display: grid;
+    gap: 2em;
+    justify-items: center;
 }
 
 .titulo {
     background-color: var(--primary-color);
     color: var(--font-negative);
     font-style: italic;
+    
+    width: 80%;
+    text-align: center;
+    position: relative;
+    padding: 2em 2em;
 }
+
+/* .titulo::before {
+    content: '';
+    position: absolute;
+    background-color: var(--primary-color);
+    display: inline-block;
+    width: 50vw;
+    height: 100%;
+    left: -40vw;
+    top: 0;
+    z-index: -1;
+} */
 
 .bloque_texto {
     background-color: var(--secondary-color);
     color: var(--font);
+
+    line-height: 23px;
+    
+    width: 80%;
+    text-align: justify;
+    position: relative;
+    padding: 2em 2em;
 }
+    .bloque_texto p {
+        margin-bottom: 1em;
+    }
 
+/* .bloque_texto::after {
+    content: '';
+    position: absolute;
+    background-color: var(--secondary-color);
+    display: inline-block;
+    width: 50vw;
+    height: 100%;
+    right: -40vw;
+    top: 0;
+    z-index: -1;
+} */
 
+.bloque_img {
+    width: 100%;
+}
 
   /* ==========================================================================
         Estilos para la tabla
@@ -138,9 +195,6 @@ body {
     display: flex;
     position: relative;
     gap: 0.5em;
-    margin: 0 auto;
-    max-width: 1400px;
-    padding: 0 1em;
 }
 
 .tabla_comp1 {
