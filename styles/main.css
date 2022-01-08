@@ -4,10 +4,14 @@ html {
     line-height: 1.15; /* 1 */
     -webkit-text-size-adjust: 100%; /* 2 */
 }
-body {
+*, ::after, ::before {
     margin: 0;
+    padding: 0;
 } 
 
+ul{
+    list-style: none;
+}
         /* ROMBO */
   /* width: 100px; height: 100px; background: #428bca; border: 3px solid #555; transform: rotate(135deg) skew(15deg, 15deg); display: inline-block; margin: 0px 0; */
 
@@ -69,12 +73,12 @@ body {
     --primary-color: #836b7f;
     --secondary-color: #c3c4a2;
     --back-color: #eee;
-    --base-color: #C3C4A2;
+    --base-color: #9DA076;
     --detail-color: #c8b7be;
     --font: #333;    
     --font-negative: #eee;
     --font-contrast: #666;
-    --font-neg-contrast: #bbb;   
+    --font-neg-contrast: #ddd;   
 }
 
 
@@ -108,6 +112,81 @@ body {
   /* Estilos para la tabla
      ========================================================================== */
 
-h3 {
-    background-color: var();
+.tabla_entidadrelacion {
+    display: flex;
+    position: relative;
+    gap: 0.5em;
 }
+
+.tabla_comp1 {
+    position: relative;
+}
+
+.gap_adapt::after {
+    content: ' ';
+    position: absolute;
+    display: block;
+    height: calc(100% + 2em);
+    width: 1em;
+    right: -1em;
+    top: 0;
+    margin: -1em 0;
+    border-radius: 1em;
+    background-color: var(--base-color);
+    box-shadow: 0px 0px 5px var(--font-contrast);
+}
+
+
+
+.titulo_tabla {
+    color: var(--font-negative);
+    min-height: 70px;
+    background-color: var(--base-color);
+    padding: 0 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-bottom: 1em;
+}
+
+.tn1 p {
+    background-color: var(--primary-color);  
+    color: var(--font-negative); 
+}
+
+.tn2 p {
+    background-color: var(--detail-color);
+    color: var(--font);    
+    margin-left: 2em;
+}
+    /* mediaquery */.tabla_comp2 .tn2 p {   
+        margin-left: 0em;
+        margin-right: 2em;
+    }
+
+.tn3 p {
+    background-color: var(--secondary-color);
+    margin-left: 4em;
+}
+    /* mediaquery */.tabla_comp2 .tn3 p {
+        margin-left: 0em;
+        margin-right: 4em;
+    }
+
+.tn1 p, .tn2 p, .tn3 p {
+    border-top: 1px solid var(--font-contrast);
+    padding: 0.20em 1em;
+    border-bottom-left-radius: 20px;
+    border-top-left-radius: 5px;
+    box-shadow: -1px 2px 3px #666;
+}
+    /* mediaquery */.tabla_comp2 .tn1 p,.tabla_comp2 .tn2 p,.tabla_comp2 .tn3 p {
+        border-bottom-left-radius: 0px;
+        border-bottom-right-radius: 20px;
+        border-top-left-radius: 0px;
+        border-top-right-radius: 5px;
+        box-shadow: 1px 2px 3px #666;
+        text-align: right;
+    }
+    

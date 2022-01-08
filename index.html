@@ -43,295 +43,304 @@
                 <h2>Tabla Entidad-Relación</h2>
             </div>
             <div class="tabla_entidadrelacion">
-                <h3 class="titulo_tabla">Descripción de los Tipos de Entidades</h3>
-                <ul>
-                    <li class="tn1">
-                        <p><strong>Tipo de Entidad:</strong> <i>Líquido</i>   <strong>||   Agregación de:</strong> <i>Aroma, Base {Se mezcla}</i></p>
-                        <ul>
-                            <li class="tn2">
-                                <p>Atributo: <i>cod. líquido</i></p>
+                <div class="tabla_component">
+                    <h3 class="titulo_tabla">Descripción de los Tipos de Entidades</h3>
+                    <div class="tabla_comp1">
+                        <ul class="gap_adapt">
+                            <li class="tn1">
+                                <p><strong>Tipo de Entidad:</strong> <i>Líquido</i>   <strong>||   Agregación de:</strong> <i>Aroma, Base {Se mezcla}</i></p>
                                 <ul>
-                                    <li class="tn3">
-                                        <p>Dominio: <i>cadena de caracteres</i></p>
+                                    <li class="tn2">
+                                        <p>Atributo: <i>cod. líquido</i></p>
+                                        <ul>
+                                            <li class="tn3">
+                                                <p>Dominio: <i>cadena de caracteres</i></p>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="tn2">
+                                        <p>Identificador principal: <i>cod. líquido</i></p>
                                     </li>
                                 </ul>
                             </li>
-                            <li class="tn2">
-                                <p>Identificador principal: <i>cod. líquido</i></p>
+                            <li class="tn1">
+                                <p><strong>Tipo de Entidad:</strong> <i>Aroma</i></p>
+                                <ul>
+                                    <li class="tn2">
+                                        <p>Atributo: <i>cod. aroma</i></p>
+                                        <ul>
+                                            <li class="tn3">
+                                                <p>Dominio: <i>cadena de caracteres</i></p>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="tn2">
+                                        <p>Atributo: <i>aroma</i></p>
+                                        <ul>
+                                            <li class="tn3">
+                                                <p>Dominio: <i>cadena de caracteres</i></p>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="tn2">
+                                        <p>Atributo: <i>categoría</i></p>
+                                        <ul>
+                                            <li class="tn3">
+                                                <p>Dominio: <i>cadena de caracteres</i></p>
+                                            </li>
+                                            <li class="tn3">
+                                                <p>Restricciones: Lista de valores: <i>frutal, postre, tabaquil, artiticial</i></p>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="tn2">
+                                        <p>Identificador principal: <i>cod. aroma</i></p>
+                                    </li>
+                                    <li class="tn2">
+                                        <p>Identificador alternativo: <i>aroma</i></p>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="tn1">
+                                <p><strong>Tipo de Entidad:</strong> <i>Base</i></p>
+                                <ul>
+                                    <li class="tn2">
+                                        <p>Atributo: <i>cod. base</i></p>
+                                        <ul>
+                                            <li class="tn3">
+                                                <p>Dominio: <i>cadena de caracteres</i></p>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="tn2">
+                                        <p>Atributo: <i>proporción</i></p>
+                                        <ul>
+                                            <li class="tn3">
+                                                <p>Dominio: <i>cadena de caracteres</i></p>
+                                            </li>
+                                            <li class="tn3">
+                                                <p><i>proporción desde 100%~0% hasta 0%~100%</i></p>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="tn2">
+                                        <p>Atributo: <i>moléculas</i></p>
+                                        <ul>
+                                            <li class="tn3">
+                                                <p>Dominio: <i>cadena de caracteres</i></p>
+                                            </li>
+                                            <li class="tn3">
+                                                <p>Cardinalidad: <i>2</i></p>
+                                            </li>
+                                            <li class="tn3">
+                                                <p>Restricciones: Lista de valores: <i>frescor, golpe de  garganta</i></p>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="tn2">
+                                        <p>Identificador principal: <i>cod. base</i></p>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="tn1">
+                                <p><strong>Tipo de Entidad:</strong> <i>Etiqueta Comercial</i> <strong>|| Hereda de: </strong><i>Recipiente, Líquido {debilidad or identificación</i></p>
+                                <ul>
+                                    <li class="tn2">
+                                        <p>Atributo: <i>volumen</i></p>
+                                        <ul>
+                                            <li class="tn3">
+                                                <p>Dominio: <i>valor numérico natural (mL)</i></p>
+                                            </li>
+                                            <li class="tn3">
+                                                <p>Restricciones: Lista de valores: <i>5, 10, 50 y 100mL</i></p>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="tn2">
+                                        <p>Atributo: <i>cod. líquido</i></p>
+                                        <ul>
+                                            <li class="tn3">
+                                                <p>Dominio: <i>cadena de caracteres</i></p>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="tn2">
+                                        <p>Atributo: <i>colores</i></p>
+                                        <ul>
+                                            <li class="tn3">
+                                                <p>Dominio: <i>valores CMYK de los colores; cuatro valores entre 0 y 100 separados por comas</i></p>
+                                            </li>
+                                            <li class="tn3">
+                                                <p>Cardinalidad: <i>si, indefinida</i></p>
+                                            </li>
+                                            <li class="tn3">
+                                                <p>Restricciones: Intervalo de valores: <i>los colores (desde 0,0,0,0 a 100,100,100,100)</i></p>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="tn2">
+                                        <p>Atributo: <i>diseño *imagen*</i></p>
+                                        <ul>
+                                            <li class="tn3">
+                                                <p>Dominio: <i>archivo png</i></p>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="tn2">
+                                        <p>Identificador principal: <i>volumen, cod. líquido</i></p>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="tn1">
+                                <p><strong>Tipo de Entidad: </strong><i>Recipiente</i></p>
+                                <ul>
+                                    <li class="tn2">
+                                        <p>Atributo: <i>volumen</i></p>
+                                        <ul>
+                                            <li class="tn3">
+                                                <p>Dominio: <i>valor númerico natural (mL)</i></p>
+                                            </li>
+                                            <li class="tn3">
+                                                <p>Restricciones: Lista de valores: <i>5, 10, 50 y 100mL</i></p>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="tn2">
+                                        <p>Identificador principal: <i>volumen</i></p>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="tn1">
+                                <p><strong>Tipo de Entidad: </strong><i>Chubby </i><strong>|| Hereda de: </strong><i>Recipiente {especificación total excluyente}</i></p>
+                            </li>
+                            <li class="tn1">
+                                <p><strong>Tipo de Entidad: </strong><i>Cristal con pipeta </i><strong>|| Hereda de: </strong><i>Recipiente {especificación total excluyente}</i><</p>
                             </li>
                         </ul>
-                    </li>
-                    <li class="tn1">
-                        <p><strong>Tipo de Entidad:</strong> <i>Aroma</i></p>
+                    </div>
+                </div>
+                <div class="gap"></div>
+                <div class="tabla_component">
+                    <h3 class="titulo_tabla">Descripción de los Tipos de Interrelaciones</h3>
+                    <div class="tabla_comp2">
                         <ul>
-                            <li class="tn2">
-                                <p>Atributo: <i>cod. aroma</i></p>
+                            <li class="tn1">
+                                <p><strong>Tipo de Interrelación: </strong><i>Se mezcla</i></p>
                                 <ul>
-                                    <li class="tn3">
-                                        <p>Dominio: <i>cadena de caracteres</i></p>
+                                    <li class="tn2">
+                                        <p>Tipo de entidad: <i>aroma</i></p>                                
+                                        <ul>
+                                            <li class="tn3">
+                                                <p>Cardinalidad mínima: <i>n</i></p>
+                                            </li>
+                                            <li class="tn3">
+                                                <p>Cardinalidad máxima: <i>n</i></p>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="tn2">
+                                        <p>Tipo de entidad: <i>base</i></p>
+                                        <ul>
+                                            <li class="tn3">
+                                                <p>Cardinalidad mínima: <i>n</i></p>
+                                            </li>
+                                            <li class="tn3">
+                                                <p>Cardinalidad máxima: <i>n</i></p>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="tn2">
+                                        <p>Atributo: <i>concentración de nicotina</i></p>
+                                        <ul>
+                                            <li class="tn3">
+                                                <p>Dominio: <i>valor númerico racional positivo (mg/mL)</i></p>
+                                            </li>
+                                            <li class="tn3">
+                                                <p>Restricciones: Lista de valores: <i>0,3; 0,6; 1,2 mg/mL</i></p>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="tn2">
+                                        <p>Atributo: <i>t. macerado</i></p>
+                                        <ul>
+                                            <li class="tn3">
+                                                <p>Dominio: <i>valor númerico natural (días)</i></p>
+                                            </li>
+                                            <li class="tn3">
+                                                <p>Restricciones: Intervalo de valores: <i>5~30</i></p>
+                                            </li>
+                                        </ul>
                                     </li>
                                 </ul>
                             </li>
-                            <li class="tn2">
-                                <p>Atributo: <i>aroma</i></p>
+                            <li class="tn1">
+                                <p><strong>Tipo de Interrelación: </strong><i>Compone</i></p>
                                 <ul>
-                                    <li class="tn3">
-                                        <p>Dominio: <i>cadena de caracteres</i></p>
+                                    <li class="tn2">
+                                        <p>Tipo de entidad: <i>aroma</i></p>
+                                        <ul>
+                                            <li class="tn3">
+                                                <p>Cardinalidad mínima: <i>0</i></p>
+                                            </li>
+                                            <li class="tn3">
+                                                <p>Cardinalidad máxima: <i>n</i></p>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="tn2">
+                                        <p>Tipo de entidad: <i>aroma</i></p>
+                                        <ul>
+                                            <li class="tn3">
+                                                <p>Cardinalidad mínima: <i>0</i></p>
+                                            </li>
+                                            <li class="tn3">
+                                                <p>Cardinalidad máxima: <i>n</i></p>
+                                            </li>
+                                        </ul>
                                     </li>
                                 </ul>
                             </li>
-                            <li class="tn2">
-                                <p>Atributo: <i>categoría</i></p>
+                            <li class="tn1">
+                                <p><strong>Tipo de Interrelación: </strong><i>Se envasa</i></p>
                                 <ul>
-                                    <li class="tn3">
-                                        <p>Dominio: <i>cadena de caracteres</i></p>
+                                    <li class="tn2">
+                                        <p>Tipo de entidad: <i>líquido</i></p>
+                                        <ul>
+                                            <li class="tn3">
+                                                <p>Cardinalidad mínima: <i>1</i></p>
+                                            </li>
+                                            <li class="tn3">
+                                                <p>Cardinalidad máxima: <i>n</i></p>
+                                            </li>
+                                        </ul>
                                     </li>
-                                    <li class="tn3">
-                                        <p>Restricciones: Lista de valores: <i>frutal, postre, tabaquil, artiticial</i></p>
+                                    <li class="tn2">
+                                        <p>Tipo de entidad: <i>Recipiente</i></p>
+                                        <ul>
+                                            <li class="tn3">
+                                                <p>Cardinalidad mínima: <i>1</i></p>
+                                            </li>
+                                            <li class="tn3">
+                                                <p>Cardinalidad máxima: <i>n</i></p>
+                                            </li>
+                                        </ul>
                                     </li>
-                                </ul>
-                            </li>
-                            <li class="tn2">
-                                <p>Identificador principal: <i>cod. aroma</i></p>
-                            </li>
-                            <li class="tn2">
-                                <p>Identificador alternativo: <i>aroma</i></p>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="tn1">
-                        <p><strong>Tipo de Entidad:</strong> <i>Base</i></p>
-                        <ul>
-                            <li class="tn2">
-                                <p>Atributo: <i>cod. base</i></p>
-                                <ul>
-                                    <li class="tn3">
-                                        <p>Dominio: <i>cadena de caracteres</i></p>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="tn2">
-                                <p>Atributo: <i>proporción</i></p>
-                                <ul>
-                                    <li class="tn3">
-                                        <p>Dominio: <i>cadena de caracteres</i></p>
-                                    </li>
-                                    <li class="tn3">
-                                        <p><i>proporción desde 100%~0% hasta 0%~100%</i></p>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="tn2">
-                                <p>Atributo: <i>moléculas</i></p>
-                                <ul>
-                                    <li class="tn3">
-                                        <p>Dominio: <i>cadena de caracteres</i></p>
-                                    </li>
-                                    <li class="tn3">
-                                        <p>Cardinalidad: <i>2</i></p>
-                                    </li>
-                                    <li class="tn3">
-                                        <p>Restricciones: Lista de valores: <i>frescor, golpe de  garganta</i></p>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="tn2">
-                                <p>Identificador principal: <i>cod. base</i></p>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="tn1">
-                        <p><strong>Tipo de Entidad:</strong> <i>Etiqueta Comercial</i> <strong>|| Hereda de: </strong><i>Recipiente, Líquido {debilidad or identificación</i></p>
-                        <ul>
-                            <li class="tn2">
-                                <p>Atributo: <i>volumen</i></p>
-                                <ul>
-                                    <li class="tn3">
-                                        <p>Dominio: <i>valor numérico natural (mL)</i></p>
-                                    </li>
-                                    <li class="tn3">
-                                        <p>Restricciones: Lista de valores: <i>5, 10, 50 y 100mL</i></p>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="tn2">
-                                <p>Atributo: <i>cod. líquido</i></p>
-                                <ul>
-                                    <li class="tn3">
-                                        <p>Dominio: <i>cadena de caracteres</i></p>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="tn2">
-                                <p>Atributo: <i>colores</i></p>
-                                <ul>
-                                    <li class="tn3">
-                                        <p>Dominio: <i>valores CMYK de los colores; cuatro valores entre 0 y 100 separados por comas</i></p>
-                                    </li>
-                                    <li class="tn3">
-                                        <p>Cardinalidad: <i>si, indefinida</i></p>
-                                    </li>
-                                    <li class="tn3">
-                                        <p>Restricciones: Intervalo de valores: <i>los colores (desde 0,0,0,0 a 100,100,100,100)</i></p>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="tn2">
-                                <p>Atributo: <i>diseño *imagen*</i></p>
-                                <ul>
-                                    <li class="tn3">
-                                        <p>Dominio: <i>archivo png</i></p>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="tn2">
-                                <p>Identificador principal: <i>volumen, cod. líquido</i></p>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="tn1">
-                        <p><strong>Tipo de Entidad: </strong><i>Recipiente</i></p>
-                        <ul>
-                            <li class="tn2">
-                                <p>Atributo: <i>volumen</i></p>
-                                <ul>
-                                    <li class="tn3">
-                                        <p>Dominio: <i>valor númerico natural (mL)</i></p>
-                                    </li>
-                                    <li class="tn3">
-                                        <p>Restricciones: Lista de valores: <i>5, 10, 50 y 100mL</i></p>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="tn2">
-                                <p>Identificador principal: <i>volumen</i></p>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="tn1">
-                        <p><strong>Tipo de Entidad: </strong><i>Chubby </i><strong>|| Hereda de: </strong><i>Recipiente {especificación total excluyente}</i></p>
-                    </li>
-                    <li class="tn1">
-                        <p><strong>Tipo de Entidad: </strong><i>Cristal con pipeta </i><strong>|| Hereda de: </strong><i>Recipiente {especificación total excluyente}</i><</p>
-                    </li>
-                </ul>
-                <h3>Descripción de los Tipos de Interrelaciones</h3>
-                <ul>
-                    <li class="tn1">
-                        <p><strong>Tipo de Interrelación: </strong><i>Se mezcla</i></p>
-                        <ul>
-                            <li class="tn2">
-                                <p>Tipo de entidad: <i>aroma</i></p>                                
-                                <ul>
-                                    <li class="tn3">
-                                        <p>Cardinalidad mínima: <i>n</i></p>
-                                    </li>
-                                    <li class="tn3">
-                                        <p>Cardinalidad máxima: <i>n</i></p>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="tn2">
-                                <p>Tipo de entidad: <i>base</i></p>
-                                <ul>
-                                    <li class="tn3">
-                                        <p>Cardinalidad mínima: <i>n</i></p>
-                                    </li>
-                                    <li class="tn3">
-                                        <p>Cardinalidad máxima: <i>n</i></p>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="tn2">
-                                <p>Atributo: <i>concentración de nicotina</i></p>
-                                <ul>
-                                    <li class="tn3">
-                                        <p>Dominio: <i>valor númerico racional positivo (mg/mL)</i></p>
-                                    </li>
-                                    <li class="tn3">
-                                        <p>Restricciones: Lista de valores: <i>0,3; 0,6; 1,2 mg/mL</i></p>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="tn2">
-                                <p>Atributo: <i>t. macerado</i></p>
-                                <ul>
-                                    <li class="tn3">
-                                        <p>Dominio: <i>valor númerico natural (días)</i></p>
-                                    </li>
-                                    <li class="tn3">
-                                        <p>Restricciones: Intervalo de valores: <i>5~30</i></p>
+                                    <li class="tn2">
+                                        <p>Tipo de entidad: <i>etiqueta comercial</i></p>
+                                        <ul>
+                                            <li class="tn3">
+                                                <p>Cardinalidad mínima: <i>1</i></p>
+                                            </li>
+                                            <li class="tn3">
+                                                <p>Cardinalidad máxima: <i>1</i></p>
+                                            </li>
+                                        </ul>
                                     </li>
                                 </ul>
                             </li>
                         </ul>
-                    </li>
-                    <li class="tn1">
-                        <p><strong>Tipo de Interrelación: </strong><i>Compone</i></p>
-                        <ul>
-                            <li class="tn2">
-                                <p>Tipo de entidad: <i>aroma</i></p>
-                                <ul>
-                                    <li class="tn3">
-                                        <p>Cardinalidad mínima: <i>0</i></p>
-                                    </li>
-                                    <li class="tn3">
-                                        <p>Cardinalidad máxima: <i>n</i></p>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="tn2">
-                                <p>Tipo de entidad: <i>aroma</i></p>
-                                <ul>
-                                    <li class="tn3">
-                                        <p>Cardinalidad mínima: <i>0</i></p>
-                                    </li>
-                                    <li class="tn3">
-                                        <p>Cardinalidad máxima: <i>n</i></p>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="tn1">
-                        <p><strong>Tipo de Interrelación: </strong><i>Se envasa</i></p>
-                        <ul>
-                            <li class="tn2">
-                                <p>Tipo de entidad: <i>líquido</i></p>
-                                <ul>
-                                    <li class="tn3">
-                                        <p>Cardinalidad mínima: <i>1</i></p>
-                                    </li>
-                                    <li class="tn3">
-                                        <p>Cardinalidad máxima: <i>n</i></p>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="tn2">
-                                <p>Tipo de entidad: <i>Recipiente</i></p>
-                                <ul>
-                                    <li class="tn3">
-                                        <p>Cardinalidad mínima: <i>1</i></p>
-                                    </li>
-                                    <li class="tn3">
-                                        <p>Cardinalidad máxima: <i>n</i></p>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="tn2">
-                                <p>Tipo de entidad: <i>etiqueta comercial</i></p>
-                                <ul>
-                                    <li class="tn3">
-                                        <p>Cardinalidad mínima: <i>1</i></p>
-                                    </li>
-                                    <li class="tn3">
-                                        <p>Cardinalidad máxima: <i>1</i></p>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
+                    </div>
+                </div>    
             </div>
         <section id="modelorelacional">
             <div class="titulo fade fade-left">
