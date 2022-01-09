@@ -89,6 +89,10 @@
     --font-neg-contrast: #ddd;
 }
 
+html {
+    background-color: var(--back-color);
+}
+
 
 
 
