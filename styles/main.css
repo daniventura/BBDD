@@ -242,7 +242,7 @@ section {
 
 @media (max-width: 600px) {
     .bloque_texto p, .tabla_entidadrelacion p {
-        font-size: 0.65em;
+        font-size: 0.75em;
     }
 
     .titulo {
