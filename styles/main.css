@@ -199,6 +199,7 @@ section {
     left: 0;
 }
 
+ /* ##### ajuste sombreado entre bloque y fill ##### */
 .bloque_texto::after, .titulo::after {
     content: '';
     position: absolute;
@@ -230,6 +231,7 @@ section {
     }
 }
 
+ /* ##### redimensión de bloques ##### */
 @media (max-width: 720px) {
     .bloque_texto {
         padding: 1em;
@@ -240,6 +242,7 @@ section {
     }
 }
 
+ /* ##### ajuste de fuente en pantallas pequeñas ##### */
 @media (max-width: 600px) {
     .bloque_texto p, .tabla_entidadrelacion p {
         font-size: 0.75em;
