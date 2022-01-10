@@ -149,6 +149,10 @@ section {
     margin: 0 1em;
 }
 
+#drelacional_vertical, #drelacional_horizontal, #idiagramaER {
+    filter: drop-shadow(3px 3px 6px rgba(102, 102, 102, 0.61));
+}
+
 .titulo, .bloque_texto {
     width: calc(80% + 1px);
     padding: 2em;
@@ -349,10 +353,15 @@ section {
     border-bottom-left-radius: 20px;
     border-top-left-radius: 8px;
     line-height: 23px;
+    font-weight: bolder;
     position: relative;
     overflow: hidden;
 }
+    .tn1 p i, .tn2 p i, .tn3 p i {
+        font-weight: 400;
+    }
 
+ /* ##### linea separadora entre bloques ##### */
 .tn1 p::before, .tn2 p::before, .tn3 p::before,
 .tabla_comp2 .tn1 p::before,.tabla_comp2 .tn2 p::before,.tabla_comp2 .tn3 p::before {
     content: ' ';
@@ -432,6 +441,91 @@ section {
         Estilos para la transformación
      ==========================================================================
      ########################################################################## */
+
+.transformaciones {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1em;
+
+    
+} 
+
+.transformacion {
+    display: grid;
+    flex-grow: 1;
+    gap: 0.5em;
+    padding: 1em;
+
+    background-color: var(--secondary-color);
+    box-shadow: 2px 4px 8px #666;
+}
+
+.transformacion, .relacion {
+    border-radius: 1em;
+}
+
+.entidad-relacion, .flechas, .relacion {
+    margin: 0 auto;
+} 
+
+.entidad-relacion {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6em;
+}
+    .elemento {
+        flex-grow: 1;
+        position: relative;
+        
+    }
+        .entidad, .interrelacion {
+            padding: 1.5em 2em;
+            filter: drop-shadow(3px 3px 6px rgba(102, 102, 102, 0.61));
+        }
+        .entidad {
+            background-color: var(--detail-color);
+        }
+        .interrelacion {
+            margin: auto 0;
+            width: 100%;
+
+            background-image: url("../media/rombo.svg");
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+
+        }
+
+.relacion {
+    background-color: var(--primary-color);
+    box-shadow: 3px 3px 6px rgba(102, 102, 102, 0.61);
+    width: 100%;
+    padding: 0.5em 1em;
+
+    color: var(--font-negative);
+}
+    .relacion p {
+        display: inline-block;
+    }
+    .i {
+        font-style: italic;
+        font-weight: bold;
+    }
+
+.flechas {
+    width: 2em;
+}
+    .flecha1, .flecha2, .flecha3 {
+        fill: var(--primary-color);
+    }
+    
+@media (min-width: 1200px) {
+    .transformaciones {
+        justify-self: center;
+        max-width: 1400px;
+        margin: 0 calc(-50vw + 600px + 1em);
+    }
+}
 
 
 
