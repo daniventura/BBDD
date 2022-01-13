@@ -102,7 +102,7 @@ html {
         Normalización
      ==========================================================================
      ########################################################################## */
-    
+
 *, *::before, *::after  {
     margin: 0;
     padding: 0;
@@ -129,7 +129,7 @@ body  {
   /* ##########################################################################
      ==========================================================================
         Maquetación general
-     ========================================================================== 
+     ==========================================================================
      ########################################################################## */
 
 main {
@@ -250,8 +250,8 @@ section {
 
  /* ##### ajuste de fuente en pantallas pequeñas ##### */
 @media (max-width: 600px) {
-    .bloque_texto p, .tabla_entidadrelacion p {
-        font-size: 0.75em;
+    .bloque_texto p, .tabla_entidadrelacion p, .transformacion > p, .normas p {
+        font-size: 0.815em;
     }
 
     .titulo {
@@ -335,7 +335,7 @@ section {
     margin-left: 2em;
     z-index: 2;
     box-shadow: 0px 2px 3px #666, -2px 1px 3px #666;
-}   
+}
 
 .tn3 p {
     background-color: var(--secondary-color);
@@ -343,7 +343,7 @@ section {
     z-index: 1;
     box-shadow: 0px 2px 3px #666, -1px 1px 3px #666;
 }
-    
+
 .tn1, .tn2, .tn3 {
     position: relative;
 }
@@ -374,7 +374,7 @@ section {
     border-top: 1.5px solid var(--font-contrast);
     border-bottom-left-radius: 21px;
     border-top-left-radius: 5px;
-} 
+}
 
  /* ##### mediaquery ##### */
 @media (min-width: 818px) {
@@ -411,7 +411,7 @@ section {
     .tabla_comp2 .tn3 p {
         box-shadow: 0px 2px 3px #666, 1px 1px 3px #666;
     }
-} 
+}
 
 @media (max-width: 600px) {
     .titulo_tabla {
@@ -431,11 +431,11 @@ section {
         margin-left: 2em;
     }
 }
- 
- 
 
 
-    
+
+
+
   /* ##########################################################################
      ==========================================================================
         Estilos para la transformación
@@ -447,8 +447,8 @@ section {
     flex-wrap: wrap;
     gap: 1em;
 
-    
-} 
+
+}
 
 .transformacion {
     display: grid;
@@ -466,7 +466,7 @@ section {
 
 .entidad-relacion, .flechas, .relacion {
     margin: 0 auto;
-} 
+}
 
 .entidad-relacion {
     display: flex;
@@ -476,7 +476,7 @@ section {
     .elemento {
         flex-grow: 1;
         position: relative;
-        
+
     }
         .entidad, .interrelacion {
             padding: 1.5em 2em;
@@ -522,7 +522,7 @@ section {
     .flecha1, .flecha2, .flecha3 {
         fill: var(--primary-color);
     }
-    
+
 @media (min-width: 1200px) {
     .transformaciones {
         justify-self: center;
@@ -541,16 +541,32 @@ section {
      ==========================================================================
      ########################################################################## */
 
+#normalizacion .transformaciones {
+    justify-content: space-around;
+}
+
+.normalizacion:first-of-type{
+    flex-basis: 80%;
+}
+
 .normalizacion {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+    width: min-content;
+    flex-grow: 1;
+
     border-radius: 1em;
     gap: 0.5em;
     padding: 1em;
-    align-items: center;
 
     background: var(--secondary-color);
     box-shadow: 2px 4px 8px #666, inset 0px 0px 10px 0px var(--base-color);
+}
+
+.normalizacion > * {
+    flex-grow: 1;
 }
 
 .relaciones_tabla {
@@ -559,25 +575,55 @@ section {
     align-items: center;
     justify-content: space-around;
     gap: 0.5em;
+    flex-basis: 100%;
 }
 
 .relacion_tabla {
     background-color: var(--back-color);
     border-radius: 0.5em 0.5em 0 0;
-    max-width: 180px;
+    max-width: 300px;
+}
+
+.normalizacion .flechas {
+   flex-grow: 0;
 }
 
 .normas {
-    grid-column: 1/4;
+    flex-basis: 100%;
+
 
     background-color: var(--detail-color);
-    box-shadow: 3px 3px 6px var(--base-color);
     width: 100%;
+    margin-top: 0.5em;
     padding: 0.5em 1em;
     color: var(--font);
     display: flex;
     align-items: center;
     gap: 0.2em;
+}
+
+.normas, .relacion_tabla {
+    box-shadow: 3px 3px 6px var(--base-color);
+
+}
+
+@media (max-width:671px) {
+    .relacion_tabla {
+        max-width: 250px;
+    }
+}
+@media (max-width:574px) {
+    .relacion_tabla {
+        max-width: 200px;
+    }
+    .normalizacion {
+        flex-basis: 100%;
+    }
+}
+@media (max-width:471px) {
+    .relacion_tabla {
+        max-width: 150px;
+    }
 }
 
 
