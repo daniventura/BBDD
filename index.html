@@ -87,11 +87,33 @@
                 <h2>Diagrama Entidad-Relación</h2>
             </div>
             <div class="bloque_img central">
-                <img src="media/diagramaER.svg" alt="diagrama_Entidad-Relación" id="idiagramaER">
+                <img src="media/diagramaERoriginal.svg" alt="diagrama_Entidad-Relación" id="idiagramaER">
             </div>
             <div class="bloque_texto fade fade-right">
                 <p>
                     <strong>*Observaciones:</strong> los atributos de la interrelación <i>"se mezcla"</i>, podrían ser perfectamente atributos de la entidad agregada <i>“líquido”</i>, pero con el fin de poder incluir en la tabla E-R ejemplos de entidad con atributos, he decidido representarlos de esta forma.
+                </p>
+            </div>
+        </section>
+        <section id="diagramaERcorregido">
+            <div class="titulo fade fade-left">
+                <h2>Correcciones y Ajustes Diagrama Entidad-Relación</h2>
+            </div>
+            <div class="bloque_img central">
+                <img src="media/diagramaER.svg" alt="diagrama_Entidad-Relación" id="idiagramaER">
+            </div>
+            <div class="bloque_texto fade fade-right">
+                <p><span class="i">*1:</span>
+                    El nombre del líquido no bastaba para identificar al líquido, ya que un líquido puede tener el mismo nombre con concentraciones de nicotina diferentes. Por tanto, he implementado un atributo cod. de líquido.
+                </p>
+                <p><span class="i">*2:</span>
+                    La cardinalidad era incorrecta en esta interrelación, ahora si se corresponde con nuestro caso, ya que un líquido puede formar parte de ninguno o varios aromas compuesto, de igual forma que un líquido puede formado por otros o por varios.
+                </p>
+                <p><span class="i">*3:</span>
+                    Los atributos de estas entidades estaban puestos forzosamente, ya que en su momento creia que tenían que tener atributos obligatoriamente para que tuviese sentido la jerarquía, pero sabiendo que esto no tiene por que ser así, he decidido eliminarlos porque no tenian mucho sentido.
+                </p>
+                <p><span class="i">*4:</span>
+                    De nuevo he añadido un atribunto código, en este caso para el recipiente, porque el volunen no termina de identificar esta entidad ya que puede haber recipientes de diferente material pero de igual volumen.
                 </p>
             </div>
         </section>
@@ -111,6 +133,14 @@
                                 <ul>
                                     <li class="tn2">
                                         <p>Atributo: <i>cod. líquido</i></p>
+                                        <ul>
+                                            <li class="tn3">
+                                                <p>Dominio: <i>cadena de caracteres</i></p>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="tn2">
+                                        <p>Atributo: <i>nombre de líquido</i></p>
                                         <ul>
                                             <li class="tn3">
                                                 <p>Dominio: <i>cadena de caracteres</i></p>
@@ -205,7 +235,7 @@
                                 <p><strong>Tipo de Entidad:</strong> <i>Etiqueta Comercial</i> <strong>|| Hereda de: </strong><i>Recipiente, Líquido {debilidad or identificación</i></p>
                                 <ul>
                                     <li class="tn2">
-                                        <p>Atributo: <i>volumen</i></p>
+                                        <p>Atributo: <i>cod. recipiente</i></p>
                                         <ul>
                                             <li class="tn3">
                                                 <p>Dominio: <i>valor numérico natural (mL)</i></p>
@@ -246,13 +276,21 @@
                                         </ul>
                                     </li>
                                     <li class="tn2">
-                                        <p>Identificador principal: <i>volumen, cod. líquido</i></p>
+                                        <p>Identificador principal: <i>cod. recipiente, cod. líquido</i></p>
                                     </li>
                                 </ul>
                             </li>
                             <li class="tn1">
                                 <p><strong>Tipo de Entidad: </strong><i>Recipiente</i></p>
                                 <ul>
+                                    <li class="tn2">
+                                        <p>Atributo: <i>cod. recipiente</i></p>
+                                        <ul>
+                                            <li class="tn3">
+                                                <p>Dominio: <i>cadena de caracteres</i></p>
+                                            </li>
+                                        </ul>
+                                    </li>
                                     <li class="tn2">
                                         <p>Atributo: <i>volumen</i></p>
                                         <ul>
@@ -265,7 +303,7 @@
                                         </ul>
                                     </li>
                                     <li class="tn2">
-                                        <p>Identificador principal: <i>volumen</i></p>
+                                        <p>Identificador principal: <i>cod. recipiente</i></p>
                                     </li>
                                 </ul>
                             </li>
@@ -434,8 +472,8 @@
                     </svg>
                 </div>
                 <div class="relacion">
-                    <p class="i">Líquido</p>
-                    <p>:(<u>cod. líquido</u>, concentración de nicotina, t. macerado, cod. base, cod. aroma)</p>
+                    <p class="i">Líquido: </p>
+                    <p>(<u>cod. líquido</u>, nombre de líquido, concentración de nicotina, t. macerado, cod. base, cod. aroma)</p>
                 </div>
             </div>
             <div class="transformacion">
@@ -461,8 +499,8 @@
                     </svg>
                 </div>
                 <div class="relacion">
-                    <p class="i">Aroma</p>
-                    <p>:(<u>cod. aroma</u>, aroma, categoría)</p>
+                    <p class="i">Aroma: </p>
+                    <p>(<u>cod. aroma</u>, aroma, categoría)</p>
                 </div>
             </div>
             <div class="transformacion">
@@ -488,12 +526,12 @@
                     </svg>
                 </div>
                 <div class="relacion">
-                    <p class="i">Base</p>
-                    <p>:(<u>cod. base</u>, proporción)</p>
+                    <p class="i">Base: </p>
+                    <p>(<u>cod. base</u>, proporción)</p>
                 </div>
                 <div class="relacion">
-                    <p class="i">Moléculas</p>
-                    <p>:(<u>molécula, cod. base</u>)</p>
+                    <p class="i">Moléculas: </p>
+                    <p>(<u>molécula, cod. base</u>)</p>
                 </div>
             </div>
             <div class="transformacion">
@@ -501,6 +539,11 @@
                     <div class="elemento">
                         <div class="entidad">
                             <p>Etiqueta</p>
+                        </div>
+                    </div>
+                    <div class="elemento">
+                        <div class="interrelacion">
+                            <p>Se Envasa</p>
                         </div>
                     </div>
                 </div>
@@ -519,12 +562,12 @@
                     </svg>
                 </div>
                 <div class="relacion">
-                    <p class="i">Etiqueta</p>
-                    <p>:(<u>cod. líquido, volumen, tipo</u>), diseño</p>
+                    <p class="i">Envasado: </p>
+                    <p>(<u>cod. líquido, cod. recipiente</u>, diseño)</p>
                 </div>
                 <div class="relacion">
-                    <p class="i">Colores</p>
-                    <p>:(<u>color, cod. líquido, volumen, tipo</u>)</p>
+                    <p class="i">Colores: </p>
+                    <p>(<u>color, cod. líquido, cod. recipiente</u>)</p>
                 </div>
             </div>
             
@@ -551,35 +594,8 @@
                     </svg>
                 </div>
                 <div class="relacion">
-                    <p class="i">Mezcla de aromas</p>
-                    <p>:(<u>aroma compuesto, aroma</u>)</p>
-                </div>
-            </div>
-            <div class="transformacion">
-                <div class="entidad-relacion">
-                    <div class="elemento">
-                        <div class="interrelacion">
-                            <p>Se Envasa</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="flechas">
-                    <svg  viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <rect width="100" height="100" fill="none"/>
-                        <g class="fancyflechas" clip-path="url(#clip0_0_1)">
-                        <rect width="100" height="100" fill="none"/>
-                        <path class="flecha3" d="M50.6999 95.3141C50.3111 95.6951 49.6889 95.6951 49.3001 95.3141L8.88899 55.7112C8.01016 54.85 9.16076 53.4703 10.1658 54.1802L49.4231 81.9078C49.7689 82.1521 50.2311 82.1521 50.5769 81.9078L89.8342 54.1802C90.8392 53.4703 91.9899 54.85 91.111 55.7112L50.6999 95.3141Z"/>
-                        <path class="flecha2" d="M50.6999 48.3141C50.3111 48.6951 49.6889 48.6951 49.3001 48.3141L8.88899 8.71121C8.01016 7.84995 9.16076 6.4703 10.1658 7.18019L49.4231 34.9078C49.7689 35.1521 50.2311 35.1521 50.5769 34.9078L89.8342 7.1802C90.8392 6.47031 91.9899 7.84995 91.111 8.71121L50.6999 48.3141Z"/>
-                        <path class="flecha1" d="M50.7071 72.2929C50.3166 72.6834 49.6834 72.6834 49.2929 72.2929L8.77039 31.7704C7.90054 30.9005 9.06422 29.5328 10.0622 30.252L49.4153 58.6146C49.7645 58.8663 50.2355 58.8663 50.5847 58.6146L89.9378 30.252C90.9358 29.5328 92.0995 30.9005 91.2296 31.7704L50.7071 72.2929Z"/>
-                        </gid="clip0_0_1">
-                        <rect width="100" height="100"/>
-                        </clipPath>
-                        </defs>
-                    </svg>
-                </div>
-                <div class="relacion">
-                    <p class="i">Envasado</p>
-                    <p>:(<u>cod. líquido, volumen, tipo</u>)</p>
+                    <p class="i">Mezcla de aromas: </p>
+                    <p>(<u>aroma compuesto, aroma</u>)</p>
                 </div>
             </div>
             <div class="transformacion">
@@ -615,8 +631,8 @@
                     </svg>
                 </div>
                 <div class="relacion">
-                    <p class="i">Recipiente</p>
-                    <p>:(<u>volumen, tipo</u>)</p>
+                    <p class="i">Recipiente: </p>
+                    <p>(<u>cod. recipiente</u>, volumen, tipo)</p>
                 </div>
             </div>
         </div>
