@@ -443,199 +443,202 @@
             <div class="titulo fade fade-left">
                 <h2>Transformación a Modelo Relacional</h2>
             </div>
-        <div class="transformaciones central">
-            <div class="transformacion">
-                <div class="entidad-relacion">
-                    <div class="elemento">
-                        <div class="entidad">
-                            <p>Líquido</p>
+            <div class="transformaciones central">
+                <div class="transformacion">
+                    <div class="entidad-relacion">
+                        <div class="elemento">
+                            <div class="entidad">
+                                <p>Líquido</p>
+                            </div>
+                        </div>
+                        <div class="elemento">
+                            <div class="interrelacion">
+                                <p>Se Mezcla</p>
+                            </div>
                         </div>
                     </div>
-                    <div class="elemento">
-                        <div class="interrelacion">
-                            <p>Se Mezcla</p>
-                        </div>
+                    <div class="flechas">
+                        <svg  viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="100" height="100" fill="none"/>
+                            <g class="fancyflechas" clip-path="url(#clip0_0_1)">
+                            <rect width="100" height="100" fill="none"/>
+                            <path class="flecha3" d="M50.6999 95.3141C50.3111 95.6951 49.6889 95.6951 49.3001 95.3141L8.88899 55.7112C8.01016 54.85 9.16076 53.4703 10.1658 54.1802L49.4231 81.9078C49.7689 82.1521 50.2311 82.1521 50.5769 81.9078L89.8342 54.1802C90.8392 53.4703 91.9899 54.85 91.111 55.7112L50.6999 95.3141Z"/>
+                            <path class="flecha2" d="M50.6999 48.3141C50.3111 48.6951 49.6889 48.6951 49.3001 48.3141L8.88899 8.71121C8.01016 7.84995 9.16076 6.4703 10.1658 7.18019L49.4231 34.9078C49.7689 35.1521 50.2311 35.1521 50.5769 34.9078L89.8342 7.1802C90.8392 6.47031 91.9899 7.84995 91.111 8.71121L50.6999 48.3141Z"/>
+                            <path class="flecha1" d="M50.7071 72.2929C50.3166 72.6834 49.6834 72.6834 49.2929 72.2929L8.77039 31.7704C7.90054 30.9005 9.06422 29.5328 10.0622 30.252L49.4153 58.6146C49.7645 58.8663 50.2355 58.8663 50.5847 58.6146L89.9378 30.252C90.9358 29.5328 92.0995 30.9005 91.2296 31.7704L50.7071 72.2929Z"/>
+                            </gid="clip0_0_1">
+                            <rect width="100" height="100"/>
+                            </clipPath>
+                            </defs>
+                        </svg>
+                    </div>
+                    <div class="relacion">
+                        <p class="i">Líquido: </p>
+                        <p>(<u>cod. líquido</u>, nombre de líquido, concentración de nicotina, t. macerado, cod. base, cod. aroma)</p>
                     </div>
                 </div>
-                <div class="flechas">
-                    <svg  viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <rect width="100" height="100" fill="none"/>
-                        <g class="fancyflechas" clip-path="url(#clip0_0_1)">
-                        <rect width="100" height="100" fill="none"/>
-                        <path class="flecha3" d="M50.6999 95.3141C50.3111 95.6951 49.6889 95.6951 49.3001 95.3141L8.88899 55.7112C8.01016 54.85 9.16076 53.4703 10.1658 54.1802L49.4231 81.9078C49.7689 82.1521 50.2311 82.1521 50.5769 81.9078L89.8342 54.1802C90.8392 53.4703 91.9899 54.85 91.111 55.7112L50.6999 95.3141Z"/>
-                        <path class="flecha2" d="M50.6999 48.3141C50.3111 48.6951 49.6889 48.6951 49.3001 48.3141L8.88899 8.71121C8.01016 7.84995 9.16076 6.4703 10.1658 7.18019L49.4231 34.9078C49.7689 35.1521 50.2311 35.1521 50.5769 34.9078L89.8342 7.1802C90.8392 6.47031 91.9899 7.84995 91.111 8.71121L50.6999 48.3141Z"/>
-                        <path class="flecha1" d="M50.7071 72.2929C50.3166 72.6834 49.6834 72.6834 49.2929 72.2929L8.77039 31.7704C7.90054 30.9005 9.06422 29.5328 10.0622 30.252L49.4153 58.6146C49.7645 58.8663 50.2355 58.8663 50.5847 58.6146L89.9378 30.252C90.9358 29.5328 92.0995 30.9005 91.2296 31.7704L50.7071 72.2929Z"/>
-                        </gid="clip0_0_1">
-                        <rect width="100" height="100"/>
-                        </clipPath>
-                        </defs>
-                    </svg>
+                <div class="transformacion">
+                    <div class="entidad-relacion">
+                        <div class="elemento">
+                            <div class="entidad">
+                                <p>Aroma</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flechas">
+                        <svg  viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="100" height="100" fill="none"/>
+                            <g class="fancyflechas" clip-path="url(#clip0_0_1)">
+                            <rect width="100" height="100" fill="none"/>
+                            <path class="flecha3" d="M50.6999 95.3141C50.3111 95.6951 49.6889 95.6951 49.3001 95.3141L8.88899 55.7112C8.01016 54.85 9.16076 53.4703 10.1658 54.1802L49.4231 81.9078C49.7689 82.1521 50.2311 82.1521 50.5769 81.9078L89.8342 54.1802C90.8392 53.4703 91.9899 54.85 91.111 55.7112L50.6999 95.3141Z"/>
+                            <path class="flecha2" d="M50.6999 48.3141C50.3111 48.6951 49.6889 48.6951 49.3001 48.3141L8.88899 8.71121C8.01016 7.84995 9.16076 6.4703 10.1658 7.18019L49.4231 34.9078C49.7689 35.1521 50.2311 35.1521 50.5769 34.9078L89.8342 7.1802C90.8392 6.47031 91.9899 7.84995 91.111 8.71121L50.6999 48.3141Z"/>
+                            <path class="flecha1" d="M50.7071 72.2929C50.3166 72.6834 49.6834 72.6834 49.2929 72.2929L8.77039 31.7704C7.90054 30.9005 9.06422 29.5328 10.0622 30.252L49.4153 58.6146C49.7645 58.8663 50.2355 58.8663 50.5847 58.6146L89.9378 30.252C90.9358 29.5328 92.0995 30.9005 91.2296 31.7704L50.7071 72.2929Z"/>
+                            </gid="clip0_0_1">
+                            <rect width="100" height="100"/>
+                            </clipPath>
+                            </defs>
+                        </svg>
+                    </div>
+                    <div class="relacion">
+                        <p class="i">Aroma: </p>
+                        <p>(<u>cod. aroma</u>, aroma, categoría)</p>
+                    </div>
                 </div>
-                <div class="relacion">
-                    <p class="i">Líquido: </p>
-                    <p>(<u>cod. líquido</u>, nombre de líquido, concentración de nicotina, t. macerado, cod. base, cod. aroma)</p>
+                <div class="transformacion">
+                    <div class="entidad-relacion">
+                        <div class="elemento">
+                            <div class="entidad">
+                                <p>Base</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flechas">
+                        <svg  viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="100" height="100" fill="none"/>
+                            <g class="fancyflechas" clip-path="url(#clip0_0_1)">
+                            <rect width="100" height="100" fill="none"/>
+                            <path class="flecha3" d="M50.6999 95.3141C50.3111 95.6951 49.6889 95.6951 49.3001 95.3141L8.88899 55.7112C8.01016 54.85 9.16076 53.4703 10.1658 54.1802L49.4231 81.9078C49.7689 82.1521 50.2311 82.1521 50.5769 81.9078L89.8342 54.1802C90.8392 53.4703 91.9899 54.85 91.111 55.7112L50.6999 95.3141Z"/>
+                            <path class="flecha2" d="M50.6999 48.3141C50.3111 48.6951 49.6889 48.6951 49.3001 48.3141L8.88899 8.71121C8.01016 7.84995 9.16076 6.4703 10.1658 7.18019L49.4231 34.9078C49.7689 35.1521 50.2311 35.1521 50.5769 34.9078L89.8342 7.1802C90.8392 6.47031 91.9899 7.84995 91.111 8.71121L50.6999 48.3141Z"/>
+                            <path class="flecha1" d="M50.7071 72.2929C50.3166 72.6834 49.6834 72.6834 49.2929 72.2929L8.77039 31.7704C7.90054 30.9005 9.06422 29.5328 10.0622 30.252L49.4153 58.6146C49.7645 58.8663 50.2355 58.8663 50.5847 58.6146L89.9378 30.252C90.9358 29.5328 92.0995 30.9005 91.2296 31.7704L50.7071 72.2929Z"/>
+                            </gid="clip0_0_1">
+                            <rect width="100" height="100"/>
+                            </clipPath>
+                            </defs>
+                        </svg>
+                    </div>
+                    <div class="relacion">
+                        <p class="i">Base: </p>
+                        <p>(<u>cod. base</u>, proporción)</p>
+                    </div>
+                    <div class="relacion">
+                        <p class="i">Moléculas: </p>
+                        <p>(<u>molécula, cod. base</u>)</p>
+                    </div>
+                </div>
+                
+                <div class="transformacion">
+                    <div class="entidad-relacion">
+                        <div class="elemento">
+                            <div class="interrelacion">
+                                <p>Compone</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flechas">
+                        <svg  viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="100" height="100" fill="none"/>
+                            <g class="fancyflechas" clip-path="url(#clip0_0_1)">
+                            <rect width="100" height="100" fill="none"/>
+                            <path class="flecha3" d="M50.6999 95.3141C50.3111 95.6951 49.6889 95.6951 49.3001 95.3141L8.88899 55.7112C8.01016 54.85 9.16076 53.4703 10.1658 54.1802L49.4231 81.9078C49.7689 82.1521 50.2311 82.1521 50.5769 81.9078L89.8342 54.1802C90.8392 53.4703 91.9899 54.85 91.111 55.7112L50.6999 95.3141Z"/>
+                            <path class="flecha2" d="M50.6999 48.3141C50.3111 48.6951 49.6889 48.6951 49.3001 48.3141L8.88899 8.71121C8.01016 7.84995 9.16076 6.4703 10.1658 7.18019L49.4231 34.9078C49.7689 35.1521 50.2311 35.1521 50.5769 34.9078L89.8342 7.1802C90.8392 6.47031 91.9899 7.84995 91.111 8.71121L50.6999 48.3141Z"/>
+                            <path class="flecha1" d="M50.7071 72.2929C50.3166 72.6834 49.6834 72.6834 49.2929 72.2929L8.77039 31.7704C7.90054 30.9005 9.06422 29.5328 10.0622 30.252L49.4153 58.6146C49.7645 58.8663 50.2355 58.8663 50.5847 58.6146L89.9378 30.252C90.9358 29.5328 92.0995 30.9005 91.2296 31.7704L50.7071 72.2929Z"/>
+                            </gid="clip0_0_1">
+                            <rect width="100" height="100"/>
+                            </clipPath>
+                            </defs>
+                        </svg>
+                    </div>
+                    <div class="relacion">
+                        <p class="i">Mezcla de aromas: </p>
+                        <p>(<u>aroma compuesto, aroma</u>)</p>
+                    </div>
+                </div>
+                <div class="transformacion">
+                    <div class="entidad-relacion">
+                        <div class="elemento">
+                            <div class="entidad">
+                                <p>Recipiente</p>
+                            </div>
+                        </div>
+                        <div class="elemento">
+                            <div class="entidad">
+                                <p>Chubby</p>
+                            </div>
+                        </div>
+                        <div class="elemento">
+                            <div class="entidad">
+                                <p>Cristal</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flechas">
+                        <svg  viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="100" height="100" fill="none"/>
+                            <g class="fancyflechas" clip-path="url(#clip0_0_1)">
+                            <rect width="100" height="100" fill="none"/>
+                            <path class="flecha3" d="M50.6999 95.3141C50.3111 95.6951 49.6889 95.6951 49.3001 95.3141L8.88899 55.7112C8.01016 54.85 9.16076 53.4703 10.1658 54.1802L49.4231 81.9078C49.7689 82.1521 50.2311 82.1521 50.5769 81.9078L89.8342 54.1802C90.8392 53.4703 91.9899 54.85 91.111 55.7112L50.6999 95.3141Z"/>
+                            <path class="flecha2" d="M50.6999 48.3141C50.3111 48.6951 49.6889 48.6951 49.3001 48.3141L8.88899 8.71121C8.01016 7.84995 9.16076 6.4703 10.1658 7.18019L49.4231 34.9078C49.7689 35.1521 50.2311 35.1521 50.5769 34.9078L89.8342 7.1802C90.8392 6.47031 91.9899 7.84995 91.111 8.71121L50.6999 48.3141Z"/>
+                            <path class="flecha1" d="M50.7071 72.2929C50.3166 72.6834 49.6834 72.6834 49.2929 72.2929L8.77039 31.7704C7.90054 30.9005 9.06422 29.5328 10.0622 30.252L49.4153 58.6146C49.7645 58.8663 50.2355 58.8663 50.5847 58.6146L89.9378 30.252C90.9358 29.5328 92.0995 30.9005 91.2296 31.7704L50.7071 72.2929Z"/>
+                            </gid="clip0_0_1">
+                            <rect width="100" height="100"/>
+                            </clipPath>
+                            </defs>
+                        </svg>
+                    </div>
+                    <div class="relacion">
+                        <p class="i">Recipiente: </p>
+                        <p>(<u>cod. recipiente</u>, volumen, tipo)</p>
+                    </div>
+                </div>
+                <div class="transformacion">
+                    <div class="entidad-relacion">
+                        <div class="elemento">
+                            <div class="entidad">
+                                <p>Etiqueta</p>
+                            </div>
+                        </div>
+                        <div class="elemento">
+                            <div class="interrelacion">
+                                <p>Se Envasa</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flechas">
+                        <svg  viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="100" height="100" fill="none"/>
+                            <g class="fancyflechas" clip-path="url(#clip0_0_1)">
+                            <rect width="100" height="100" fill="none"/>
+                            <path class="flecha3" d="M50.6999 95.3141C50.3111 95.6951 49.6889 95.6951 49.3001 95.3141L8.88899 55.7112C8.01016 54.85 9.16076 53.4703 10.1658 54.1802L49.4231 81.9078C49.7689 82.1521 50.2311 82.1521 50.5769 81.9078L89.8342 54.1802C90.8392 53.4703 91.9899 54.85 91.111 55.7112L50.6999 95.3141Z"/>
+                            <path class="flecha2" d="M50.6999 48.3141C50.3111 48.6951 49.6889 48.6951 49.3001 48.3141L8.88899 8.71121C8.01016 7.84995 9.16076 6.4703 10.1658 7.18019L49.4231 34.9078C49.7689 35.1521 50.2311 35.1521 50.5769 34.9078L89.8342 7.1802C90.8392 6.47031 91.9899 7.84995 91.111 8.71121L50.6999 48.3141Z"/>
+                            <path class="flecha1" d="M50.7071 72.2929C50.3166 72.6834 49.6834 72.6834 49.2929 72.2929L8.77039 31.7704C7.90054 30.9005 9.06422 29.5328 10.0622 30.252L49.4153 58.6146C49.7645 58.8663 50.2355 58.8663 50.5847 58.6146L89.9378 30.252C90.9358 29.5328 92.0995 30.9005 91.2296 31.7704L50.7071 72.2929Z"/>
+                            </gid="clip0_0_1">
+                            <rect width="100" height="100"/>
+                            </clipPath>
+                            </defs>
+                        </svg>
+                    </div>
+                    <div class="relacion">
+                        <p class="i">Envasado: </p>
+                        <p>(<u>cod. líquido, cod. recipiente</u>, diseño)</p>
+                    </div>
+                    <div class="relacion">
+                        <p class="i">Colores: </p>
+                        <p>(<u>color, cod. líquido, cod. recipiente</u>)</p>
+                    </div>
+                    <p>
+                        <span class="i">*</span> La entidad <i>"etiqueta"</i> desde un principio era una convención para no poner demasiados atributos complejos en la interrelación <i>"se envasa"</i>, es por ello que al transformar a modelo relacional nos encontramos que quitando los colores, que es un atributo multivaluado, nos vamos a encontrar con que las tablas de esta entidad e interrelación tienen los mismos atributos. Para evitar duplicidad, usaremos solo una tabla.
+                    </p>
                 </div>
             </div>
-            <div class="transformacion">
-                <div class="entidad-relacion">
-                    <div class="elemento">
-                        <div class="entidad">
-                            <p>Aroma</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="flechas">
-                    <svg  viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <rect width="100" height="100" fill="none"/>
-                        <g class="fancyflechas" clip-path="url(#clip0_0_1)">
-                        <rect width="100" height="100" fill="none"/>
-                        <path class="flecha3" d="M50.6999 95.3141C50.3111 95.6951 49.6889 95.6951 49.3001 95.3141L8.88899 55.7112C8.01016 54.85 9.16076 53.4703 10.1658 54.1802L49.4231 81.9078C49.7689 82.1521 50.2311 82.1521 50.5769 81.9078L89.8342 54.1802C90.8392 53.4703 91.9899 54.85 91.111 55.7112L50.6999 95.3141Z"/>
-                        <path class="flecha2" d="M50.6999 48.3141C50.3111 48.6951 49.6889 48.6951 49.3001 48.3141L8.88899 8.71121C8.01016 7.84995 9.16076 6.4703 10.1658 7.18019L49.4231 34.9078C49.7689 35.1521 50.2311 35.1521 50.5769 34.9078L89.8342 7.1802C90.8392 6.47031 91.9899 7.84995 91.111 8.71121L50.6999 48.3141Z"/>
-                        <path class="flecha1" d="M50.7071 72.2929C50.3166 72.6834 49.6834 72.6834 49.2929 72.2929L8.77039 31.7704C7.90054 30.9005 9.06422 29.5328 10.0622 30.252L49.4153 58.6146C49.7645 58.8663 50.2355 58.8663 50.5847 58.6146L89.9378 30.252C90.9358 29.5328 92.0995 30.9005 91.2296 31.7704L50.7071 72.2929Z"/>
-                        </gid="clip0_0_1">
-                        <rect width="100" height="100"/>
-                        </clipPath>
-                        </defs>
-                    </svg>
-                </div>
-                <div class="relacion">
-                    <p class="i">Aroma: </p>
-                    <p>(<u>cod. aroma</u>, aroma, categoría)</p>
-                </div>
-            </div>
-            <div class="transformacion">
-                <div class="entidad-relacion">
-                    <div class="elemento">
-                        <div class="entidad">
-                            <p>Base</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="flechas">
-                    <svg  viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <rect width="100" height="100" fill="none"/>
-                        <g class="fancyflechas" clip-path="url(#clip0_0_1)">
-                        <rect width="100" height="100" fill="none"/>
-                        <path class="flecha3" d="M50.6999 95.3141C50.3111 95.6951 49.6889 95.6951 49.3001 95.3141L8.88899 55.7112C8.01016 54.85 9.16076 53.4703 10.1658 54.1802L49.4231 81.9078C49.7689 82.1521 50.2311 82.1521 50.5769 81.9078L89.8342 54.1802C90.8392 53.4703 91.9899 54.85 91.111 55.7112L50.6999 95.3141Z"/>
-                        <path class="flecha2" d="M50.6999 48.3141C50.3111 48.6951 49.6889 48.6951 49.3001 48.3141L8.88899 8.71121C8.01016 7.84995 9.16076 6.4703 10.1658 7.18019L49.4231 34.9078C49.7689 35.1521 50.2311 35.1521 50.5769 34.9078L89.8342 7.1802C90.8392 6.47031 91.9899 7.84995 91.111 8.71121L50.6999 48.3141Z"/>
-                        <path class="flecha1" d="M50.7071 72.2929C50.3166 72.6834 49.6834 72.6834 49.2929 72.2929L8.77039 31.7704C7.90054 30.9005 9.06422 29.5328 10.0622 30.252L49.4153 58.6146C49.7645 58.8663 50.2355 58.8663 50.5847 58.6146L89.9378 30.252C90.9358 29.5328 92.0995 30.9005 91.2296 31.7704L50.7071 72.2929Z"/>
-                        </gid="clip0_0_1">
-                        <rect width="100" height="100"/>
-                        </clipPath>
-                        </defs>
-                    </svg>
-                </div>
-                <div class="relacion">
-                    <p class="i">Base: </p>
-                    <p>(<u>cod. base</u>, proporción)</p>
-                </div>
-                <div class="relacion">
-                    <p class="i">Moléculas: </p>
-                    <p>(<u>molécula, cod. base</u>)</p>
-                </div>
-            </div>
-            <div class="transformacion">
-                <div class="entidad-relacion">
-                    <div class="elemento">
-                        <div class="entidad">
-                            <p>Etiqueta</p>
-                        </div>
-                    </div>
-                    <div class="elemento">
-                        <div class="interrelacion">
-                            <p>Se Envasa</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="flechas">
-                    <svg  viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <rect width="100" height="100" fill="none"/>
-                        <g class="fancyflechas" clip-path="url(#clip0_0_1)">
-                        <rect width="100" height="100" fill="none"/>
-                        <path class="flecha3" d="M50.6999 95.3141C50.3111 95.6951 49.6889 95.6951 49.3001 95.3141L8.88899 55.7112C8.01016 54.85 9.16076 53.4703 10.1658 54.1802L49.4231 81.9078C49.7689 82.1521 50.2311 82.1521 50.5769 81.9078L89.8342 54.1802C90.8392 53.4703 91.9899 54.85 91.111 55.7112L50.6999 95.3141Z"/>
-                        <path class="flecha2" d="M50.6999 48.3141C50.3111 48.6951 49.6889 48.6951 49.3001 48.3141L8.88899 8.71121C8.01016 7.84995 9.16076 6.4703 10.1658 7.18019L49.4231 34.9078C49.7689 35.1521 50.2311 35.1521 50.5769 34.9078L89.8342 7.1802C90.8392 6.47031 91.9899 7.84995 91.111 8.71121L50.6999 48.3141Z"/>
-                        <path class="flecha1" d="M50.7071 72.2929C50.3166 72.6834 49.6834 72.6834 49.2929 72.2929L8.77039 31.7704C7.90054 30.9005 9.06422 29.5328 10.0622 30.252L49.4153 58.6146C49.7645 58.8663 50.2355 58.8663 50.5847 58.6146L89.9378 30.252C90.9358 29.5328 92.0995 30.9005 91.2296 31.7704L50.7071 72.2929Z"/>
-                        </gid="clip0_0_1">
-                        <rect width="100" height="100"/>
-                        </clipPath>
-                        </defs>
-                    </svg>
-                </div>
-                <div class="relacion">
-                    <p class="i">Envasado: </p>
-                    <p>(<u>cod. líquido, cod. recipiente</u>, diseño)</p>
-                </div>
-                <div class="relacion">
-                    <p class="i">Colores: </p>
-                    <p>(<u>color, cod. líquido, cod. recipiente</u>)</p>
-                </div>
-            </div>
-            
-            <div class="transformacion">
-                <div class="entidad-relacion">
-                    <div class="elemento">
-                        <div class="interrelacion">
-                            <p>Compone</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="flechas">
-                    <svg  viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <rect width="100" height="100" fill="none"/>
-                        <g class="fancyflechas" clip-path="url(#clip0_0_1)">
-                        <rect width="100" height="100" fill="none"/>
-                        <path class="flecha3" d="M50.6999 95.3141C50.3111 95.6951 49.6889 95.6951 49.3001 95.3141L8.88899 55.7112C8.01016 54.85 9.16076 53.4703 10.1658 54.1802L49.4231 81.9078C49.7689 82.1521 50.2311 82.1521 50.5769 81.9078L89.8342 54.1802C90.8392 53.4703 91.9899 54.85 91.111 55.7112L50.6999 95.3141Z"/>
-                        <path class="flecha2" d="M50.6999 48.3141C50.3111 48.6951 49.6889 48.6951 49.3001 48.3141L8.88899 8.71121C8.01016 7.84995 9.16076 6.4703 10.1658 7.18019L49.4231 34.9078C49.7689 35.1521 50.2311 35.1521 50.5769 34.9078L89.8342 7.1802C90.8392 6.47031 91.9899 7.84995 91.111 8.71121L50.6999 48.3141Z"/>
-                        <path class="flecha1" d="M50.7071 72.2929C50.3166 72.6834 49.6834 72.6834 49.2929 72.2929L8.77039 31.7704C7.90054 30.9005 9.06422 29.5328 10.0622 30.252L49.4153 58.6146C49.7645 58.8663 50.2355 58.8663 50.5847 58.6146L89.9378 30.252C90.9358 29.5328 92.0995 30.9005 91.2296 31.7704L50.7071 72.2929Z"/>
-                        </gid="clip0_0_1">
-                        <rect width="100" height="100"/>
-                        </clipPath>
-                        </defs>
-                    </svg>
-                </div>
-                <div class="relacion">
-                    <p class="i">Mezcla de aromas: </p>
-                    <p>(<u>aroma compuesto, aroma</u>)</p>
-                </div>
-            </div>
-            <div class="transformacion">
-                <div class="entidad-relacion">
-                    <div class="elemento">
-                        <div class="entidad">
-                            <p>Recipiente</p>
-                        </div>
-                    </div>
-                    <div class="elemento">
-                        <div class="entidad">
-                            <p>Chubby</p>
-                        </div>
-                    </div>
-                    <div class="elemento">
-                        <div class="entidad">
-                            <p>Cristal</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="flechas">
-                    <svg  viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <rect width="100" height="100" fill="none"/>
-                        <g class="fancyflechas" clip-path="url(#clip0_0_1)">
-                        <rect width="100" height="100" fill="none"/>
-                        <path class="flecha3" d="M50.6999 95.3141C50.3111 95.6951 49.6889 95.6951 49.3001 95.3141L8.88899 55.7112C8.01016 54.85 9.16076 53.4703 10.1658 54.1802L49.4231 81.9078C49.7689 82.1521 50.2311 82.1521 50.5769 81.9078L89.8342 54.1802C90.8392 53.4703 91.9899 54.85 91.111 55.7112L50.6999 95.3141Z"/>
-                        <path class="flecha2" d="M50.6999 48.3141C50.3111 48.6951 49.6889 48.6951 49.3001 48.3141L8.88899 8.71121C8.01016 7.84995 9.16076 6.4703 10.1658 7.18019L49.4231 34.9078C49.7689 35.1521 50.2311 35.1521 50.5769 34.9078L89.8342 7.1802C90.8392 6.47031 91.9899 7.84995 91.111 8.71121L50.6999 48.3141Z"/>
-                        <path class="flecha1" d="M50.7071 72.2929C50.3166 72.6834 49.6834 72.6834 49.2929 72.2929L8.77039 31.7704C7.90054 30.9005 9.06422 29.5328 10.0622 30.252L49.4153 58.6146C49.7645 58.8663 50.2355 58.8663 50.5847 58.6146L89.9378 30.252C90.9358 29.5328 92.0995 30.9005 91.2296 31.7704L50.7071 72.2929Z"/>
-                        </gid="clip0_0_1">
-                        <rect width="100" height="100"/>
-                        </clipPath>
-                        </defs>
-                    </svg>
-                </div>
-                <div class="relacion">
-                    <p class="i">Recipiente: </p>
-                    <p>(<u>cod. recipiente</u>, volumen, tipo)</p>
-                </div>
-            </div>
-        </div>
         </section>
         <section id="diagramarelacional">
             <div class="titulo fade fade-left">
@@ -644,6 +647,285 @@
             <div class="bloque_img central">
                 <img id="drelacional_horizontal" src="media/diagramarelacional.svg" alt="diagrama_relacional">
                 <img id="drelacional_vertical" src="media/diagramarelacional_vertical.svg" alt="diagrama_relacional_vertical">
+            </div>
+        </section>
+        <section id="normalizacion">
+            <div class="titulo fade fade-left">
+                <h2>Normalización Modelo Relacional</h2>
+            </div>
+            <div class="transformaciones central">
+                <div class="normalizacion">
+                    <div class="relaciones_tabla">
+                        <img class="relacion_tabla" src="media/aroma.svg" alt="aroma">
+                    </div>
+                    <div class="flechas">
+                        <svg  viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="100" height="100" fill="none"/>
+                            <g class="fancyflechas" clip-path="url(#clip0_0_1)">
+                            <rect width="100" height="100" fill="none"/>
+                            <path class="flecha3" d="M50.6999 95.3141C50.3111 95.6951 49.6889 95.6951 49.3001 95.3141L8.88899 55.7112C8.01016 54.85 9.16076 53.4703 10.1658 54.1802L49.4231 81.9078C49.7689 82.1521 50.2311 82.1521 50.5769 81.9078L89.8342 54.1802C90.8392 53.4703 91.9899 54.85 91.111 55.7112L50.6999 95.3141Z"/>
+                            <path class="flecha2" d="M50.6999 48.3141C50.3111 48.6951 49.6889 48.6951 49.3001 48.3141L8.88899 8.71121C8.01016 7.84995 9.16076 6.4703 10.1658 7.18019L49.4231 34.9078C49.7689 35.1521 50.2311 35.1521 50.5769 34.9078L89.8342 7.1802C90.8392 6.47031 91.9899 7.84995 91.111 8.71121L50.6999 48.3141Z"/>
+                            <path class="flecha1" d="M50.7071 72.2929C50.3166 72.6834 49.6834 72.6834 49.2929 72.2929L8.77039 31.7704C7.90054 30.9005 9.06422 29.5328 10.0622 30.252L49.4153 58.6146C49.7645 58.8663 50.2355 58.8663 50.5847 58.6146L89.9378 30.252C90.9358 29.5328 92.0995 30.9005 91.2296 31.7704L50.7071 72.2929Z"/>
+                            </gid="clip0_0_1">
+                            <rect width="100" height="100"/>
+                            </clipPath>
+                            </defs>
+                        </svg>
+                    </div>
+                    <div class="relaciones_tabla">
+                        <img class="relacion_tabla" src="media/aroma.svg" alt="aroma">
+                    </div>
+                    <div class="normas">
+                        <p>
+
+                        </p>
+                    </div>
+                </div>
+                <div class="normalizacion">
+                    <div class="relaciones_tabla">
+                        <img class="relacion_tabla" src="media/aroma.svg" alt="aroma">
+                    </div>
+                    <div class="flechas">
+                        <svg  viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="100" height="100" fill="none"/>
+                            <g class="fancyflechas" clip-path="url(#clip0_0_1)">
+                            <rect width="100" height="100" fill="none"/>
+                            <path class="flecha3" d="M50.6999 95.3141C50.3111 95.6951 49.6889 95.6951 49.3001 95.3141L8.88899 55.7112C8.01016 54.85 9.16076 53.4703 10.1658 54.1802L49.4231 81.9078C49.7689 82.1521 50.2311 82.1521 50.5769 81.9078L89.8342 54.1802C90.8392 53.4703 91.9899 54.85 91.111 55.7112L50.6999 95.3141Z"/>
+                            <path class="flecha2" d="M50.6999 48.3141C50.3111 48.6951 49.6889 48.6951 49.3001 48.3141L8.88899 8.71121C8.01016 7.84995 9.16076 6.4703 10.1658 7.18019L49.4231 34.9078C49.7689 35.1521 50.2311 35.1521 50.5769 34.9078L89.8342 7.1802C90.8392 6.47031 91.9899 7.84995 91.111 8.71121L50.6999 48.3141Z"/>
+                            <path class="flecha1" d="M50.7071 72.2929C50.3166 72.6834 49.6834 72.6834 49.2929 72.2929L8.77039 31.7704C7.90054 30.9005 9.06422 29.5328 10.0622 30.252L49.4153 58.6146C49.7645 58.8663 50.2355 58.8663 50.5847 58.6146L89.9378 30.252C90.9358 29.5328 92.0995 30.9005 91.2296 31.7704L50.7071 72.2929Z"/>
+                            </gid="clip0_0_1">
+                            <rect width="100" height="100"/>
+                            </clipPath>
+                            </defs>
+                        </svg>
+                    </div>
+                    <div class="relaciones_tabla">
+                        <img class="relacion_tabla" src="media/aroma.svg" alt="aroma">
+                    </div>
+                    <div class="normas">
+                        <p>
+                            
+                        </p>
+                    </div>
+                </div>
+                <div class="normalizacion">
+                    <div class="relaciones_tabla">
+                        <img class="relacion_tabla" src="media/aroma.svg" alt="aroma">
+                    </div>
+                    <div class="flechas">
+                        <svg  viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="100" height="100" fill="none"/>
+                            <g class="fancyflechas" clip-path="url(#clip0_0_1)">
+                            <rect width="100" height="100" fill="none"/>
+                            <path class="flecha3" d="M50.6999 95.3141C50.3111 95.6951 49.6889 95.6951 49.3001 95.3141L8.88899 55.7112C8.01016 54.85 9.16076 53.4703 10.1658 54.1802L49.4231 81.9078C49.7689 82.1521 50.2311 82.1521 50.5769 81.9078L89.8342 54.1802C90.8392 53.4703 91.9899 54.85 91.111 55.7112L50.6999 95.3141Z"/>
+                            <path class="flecha2" d="M50.6999 48.3141C50.3111 48.6951 49.6889 48.6951 49.3001 48.3141L8.88899 8.71121C8.01016 7.84995 9.16076 6.4703 10.1658 7.18019L49.4231 34.9078C49.7689 35.1521 50.2311 35.1521 50.5769 34.9078L89.8342 7.1802C90.8392 6.47031 91.9899 7.84995 91.111 8.71121L50.6999 48.3141Z"/>
+                            <path class="flecha1" d="M50.7071 72.2929C50.3166 72.6834 49.6834 72.6834 49.2929 72.2929L8.77039 31.7704C7.90054 30.9005 9.06422 29.5328 10.0622 30.252L49.4153 58.6146C49.7645 58.8663 50.2355 58.8663 50.5847 58.6146L89.9378 30.252C90.9358 29.5328 92.0995 30.9005 91.2296 31.7704L50.7071 72.2929Z"/>
+                            </gid="clip0_0_1">
+                            <rect width="100" height="100"/>
+                            </clipPath>
+                            </defs>
+                        </svg>
+                    </div>
+                    <div class="relaciones_tabla">
+                        <img class="relacion_tabla" src="media/aroma.svg" alt="aroma">
+                    </div>
+                    <div class="normas">
+                        <p>
+                            
+                        </p>
+                    </div>
+                </div>
+                <div class="normalizacion">
+                    <div class="relaciones_tabla">
+                        <img class="relacion_tabla" src="media/aroma.svg" alt="aroma">
+                    </div>
+                    <div class="flechas">
+                        <svg  viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="100" height="100" fill="none"/>
+                            <g class="fancyflechas" clip-path="url(#clip0_0_1)">
+                            <rect width="100" height="100" fill="none"/>
+                            <path class="flecha3" d="M50.6999 95.3141C50.3111 95.6951 49.6889 95.6951 49.3001 95.3141L8.88899 55.7112C8.01016 54.85 9.16076 53.4703 10.1658 54.1802L49.4231 81.9078C49.7689 82.1521 50.2311 82.1521 50.5769 81.9078L89.8342 54.1802C90.8392 53.4703 91.9899 54.85 91.111 55.7112L50.6999 95.3141Z"/>
+                            <path class="flecha2" d="M50.6999 48.3141C50.3111 48.6951 49.6889 48.6951 49.3001 48.3141L8.88899 8.71121C8.01016 7.84995 9.16076 6.4703 10.1658 7.18019L49.4231 34.9078C49.7689 35.1521 50.2311 35.1521 50.5769 34.9078L89.8342 7.1802C90.8392 6.47031 91.9899 7.84995 91.111 8.71121L50.6999 48.3141Z"/>
+                            <path class="flecha1" d="M50.7071 72.2929C50.3166 72.6834 49.6834 72.6834 49.2929 72.2929L8.77039 31.7704C7.90054 30.9005 9.06422 29.5328 10.0622 30.252L49.4153 58.6146C49.7645 58.8663 50.2355 58.8663 50.5847 58.6146L89.9378 30.252C90.9358 29.5328 92.0995 30.9005 91.2296 31.7704L50.7071 72.2929Z"/>
+                            </gid="clip0_0_1">
+                            <rect width="100" height="100"/>
+                            </clipPath>
+                            </defs>
+                        </svg>
+                    </div>
+                    <div class="relaciones_tabla">
+                        <img class="relacion_tabla" src="media/aroma.svg" alt="aroma">
+                    </div>
+                    <div class="normas">
+                        <p>
+                            
+                        </p>
+                    </div>
+                </div>
+                <div class="normalizacion">
+                    <div class="relaciones_tabla">
+                        <img class="relacion_tabla" src="media/aroma.svg" alt="aroma">
+                    </div>
+                    <div class="flechas">
+                        <svg  viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="100" height="100" fill="none"/>
+                            <g class="fancyflechas" clip-path="url(#clip0_0_1)">
+                            <rect width="100" height="100" fill="none"/>
+                            <path class="flecha3" d="M50.6999 95.3141C50.3111 95.6951 49.6889 95.6951 49.3001 95.3141L8.88899 55.7112C8.01016 54.85 9.16076 53.4703 10.1658 54.1802L49.4231 81.9078C49.7689 82.1521 50.2311 82.1521 50.5769 81.9078L89.8342 54.1802C90.8392 53.4703 91.9899 54.85 91.111 55.7112L50.6999 95.3141Z"/>
+                            <path class="flecha2" d="M50.6999 48.3141C50.3111 48.6951 49.6889 48.6951 49.3001 48.3141L8.88899 8.71121C8.01016 7.84995 9.16076 6.4703 10.1658 7.18019L49.4231 34.9078C49.7689 35.1521 50.2311 35.1521 50.5769 34.9078L89.8342 7.1802C90.8392 6.47031 91.9899 7.84995 91.111 8.71121L50.6999 48.3141Z"/>
+                            <path class="flecha1" d="M50.7071 72.2929C50.3166 72.6834 49.6834 72.6834 49.2929 72.2929L8.77039 31.7704C7.90054 30.9005 9.06422 29.5328 10.0622 30.252L49.4153 58.6146C49.7645 58.8663 50.2355 58.8663 50.5847 58.6146L89.9378 30.252C90.9358 29.5328 92.0995 30.9005 91.2296 31.7704L50.7071 72.2929Z"/>
+                            </gid="clip0_0_1">
+                            <rect width="100" height="100"/>
+                            </clipPath>
+                            </defs>
+                        </svg>
+                    </div>
+                    <div class="relaciones_tabla">
+                        <img class="relacion_tabla" src="media/aroma.svg" alt="aroma">
+                    </div>
+                    <div class="normas">
+                        <p>
+                            normalización patatín patatán Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur, earum cum. Voluptates, veritatis. Maiores quisquam dolorum sunt eum nesciunt labore reprehenderit recusandae ex, consectetur explicabo? In quos voluptate molestias! Minus.
+                        </p>
+                    </div>
+                </div>
+                <div class="normalizacion">
+                    <div class="relaciones_tabla">
+                        <img class="relacion_tabla" src="media/aroma.svg" alt="aroma">
+                    </div>
+                    <div class="flechas">
+                        <svg  viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="100" height="100" fill="none"/>
+                            <g class="fancyflechas" clip-path="url(#clip0_0_1)">
+                            <rect width="100" height="100" fill="none"/>
+                            <path class="flecha3" d="M50.6999 95.3141C50.3111 95.6951 49.6889 95.6951 49.3001 95.3141L8.88899 55.7112C8.01016 54.85 9.16076 53.4703 10.1658 54.1802L49.4231 81.9078C49.7689 82.1521 50.2311 82.1521 50.5769 81.9078L89.8342 54.1802C90.8392 53.4703 91.9899 54.85 91.111 55.7112L50.6999 95.3141Z"/>
+                            <path class="flecha2" d="M50.6999 48.3141C50.3111 48.6951 49.6889 48.6951 49.3001 48.3141L8.88899 8.71121C8.01016 7.84995 9.16076 6.4703 10.1658 7.18019L49.4231 34.9078C49.7689 35.1521 50.2311 35.1521 50.5769 34.9078L89.8342 7.1802C90.8392 6.47031 91.9899 7.84995 91.111 8.71121L50.6999 48.3141Z"/>
+                            <path class="flecha1" d="M50.7071 72.2929C50.3166 72.6834 49.6834 72.6834 49.2929 72.2929L8.77039 31.7704C7.90054 30.9005 9.06422 29.5328 10.0622 30.252L49.4153 58.6146C49.7645 58.8663 50.2355 58.8663 50.5847 58.6146L89.9378 30.252C90.9358 29.5328 92.0995 30.9005 91.2296 31.7704L50.7071 72.2929Z"/>
+                            </gid="clip0_0_1">
+                            <rect width="100" height="100"/>
+                            </clipPath>
+                            </defs>
+                        </svg>
+                    </div>
+                    <div class="relaciones_tabla">
+                        <img class="relacion_tabla" src="media/aroma.svg" alt="aroma">
+                    </div>
+                    <div class="normas">
+                        <p>
+                            
+                        </p>
+                    </div>
+                </div>
+                <div class="normalizacion">
+                    <div class="relaciones_tabla">
+                        <img class="relacion_tabla" src="media/aroma.svg" alt="aroma">
+                    </div>
+                    <div class="flechas">
+                        <svg  viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="100" height="100" fill="none"/>
+                            <g class="fancyflechas" clip-path="url(#clip0_0_1)">
+                            <rect width="100" height="100" fill="none"/>
+                            <path class="flecha3" d="M50.6999 95.3141C50.3111 95.6951 49.6889 95.6951 49.3001 95.3141L8.88899 55.7112C8.01016 54.85 9.16076 53.4703 10.1658 54.1802L49.4231 81.9078C49.7689 82.1521 50.2311 82.1521 50.5769 81.9078L89.8342 54.1802C90.8392 53.4703 91.9899 54.85 91.111 55.7112L50.6999 95.3141Z"/>
+                            <path class="flecha2" d="M50.6999 48.3141C50.3111 48.6951 49.6889 48.6951 49.3001 48.3141L8.88899 8.71121C8.01016 7.84995 9.16076 6.4703 10.1658 7.18019L49.4231 34.9078C49.7689 35.1521 50.2311 35.1521 50.5769 34.9078L89.8342 7.1802C90.8392 6.47031 91.9899 7.84995 91.111 8.71121L50.6999 48.3141Z"/>
+                            <path class="flecha1" d="M50.7071 72.2929C50.3166 72.6834 49.6834 72.6834 49.2929 72.2929L8.77039 31.7704C7.90054 30.9005 9.06422 29.5328 10.0622 30.252L49.4153 58.6146C49.7645 58.8663 50.2355 58.8663 50.5847 58.6146L89.9378 30.252C90.9358 29.5328 92.0995 30.9005 91.2296 31.7704L50.7071 72.2929Z"/>
+                            </gid="clip0_0_1">
+                            <rect width="100" height="100"/>
+                            </clipPath>
+                            </defs>
+                        </svg>
+                    </div>
+                    <div class="relaciones_tabla">
+                        <img class="relacion_tabla" src="media/aroma.svg" alt="aroma">
+                    </div>
+                    <div class="normas">
+                        <p>
+                            
+                        </p>
+                    </div>
+                </div>
+                <div class="normalizacion">
+                    <div class="relaciones_tabla">
+                        <img class="relacion_tabla" src="media/aroma.svg" alt="aroma">
+                    </div>
+                    <div class="flechas">
+                        <svg  viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="100" height="100" fill="none"/>
+                            <g class="fancyflechas" clip-path="url(#clip0_0_1)">
+                            <rect width="100" height="100" fill="none"/>
+                            <path class="flecha3" d="M50.6999 95.3141C50.3111 95.6951 49.6889 95.6951 49.3001 95.3141L8.88899 55.7112C8.01016 54.85 9.16076 53.4703 10.1658 54.1802L49.4231 81.9078C49.7689 82.1521 50.2311 82.1521 50.5769 81.9078L89.8342 54.1802C90.8392 53.4703 91.9899 54.85 91.111 55.7112L50.6999 95.3141Z"/>
+                            <path class="flecha2" d="M50.6999 48.3141C50.3111 48.6951 49.6889 48.6951 49.3001 48.3141L8.88899 8.71121C8.01016 7.84995 9.16076 6.4703 10.1658 7.18019L49.4231 34.9078C49.7689 35.1521 50.2311 35.1521 50.5769 34.9078L89.8342 7.1802C90.8392 6.47031 91.9899 7.84995 91.111 8.71121L50.6999 48.3141Z"/>
+                            <path class="flecha1" d="M50.7071 72.2929C50.3166 72.6834 49.6834 72.6834 49.2929 72.2929L8.77039 31.7704C7.90054 30.9005 9.06422 29.5328 10.0622 30.252L49.4153 58.6146C49.7645 58.8663 50.2355 58.8663 50.5847 58.6146L89.9378 30.252C90.9358 29.5328 92.0995 30.9005 91.2296 31.7704L50.7071 72.2929Z"/>
+                            </gid="clip0_0_1">
+                            <rect width="100" height="100"/>
+                            </clipPath>
+                            </defs>
+                        </svg>
+                    </div>
+                    <div class="relaciones_tabla">
+                        <img class="relacion_tabla" src="media/aroma.svg" alt="aroma">
+                    </div>
+                    <div class="normas">
+                        <p>
+                            
+                        </p>
+                    </div>
+                </div>
+                <div class="normalizacion">
+                    <div class="relaciones_tabla">
+                        <img class="relacion_tabla" src="media/aroma.svg" alt="aroma">
+                    </div>
+                    <div class="flechas">
+                        <svg  viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="100" height="100" fill="none"/>
+                            <g class="fancyflechas" clip-path="url(#clip0_0_1)">
+                            <rect width="100" height="100" fill="none"/>
+                            <path class="flecha3" d="M50.6999 95.3141C50.3111 95.6951 49.6889 95.6951 49.3001 95.3141L8.88899 55.7112C8.01016 54.85 9.16076 53.4703 10.1658 54.1802L49.4231 81.9078C49.7689 82.1521 50.2311 82.1521 50.5769 81.9078L89.8342 54.1802C90.8392 53.4703 91.9899 54.85 91.111 55.7112L50.6999 95.3141Z"/>
+                            <path class="flecha2" d="M50.6999 48.3141C50.3111 48.6951 49.6889 48.6951 49.3001 48.3141L8.88899 8.71121C8.01016 7.84995 9.16076 6.4703 10.1658 7.18019L49.4231 34.9078C49.7689 35.1521 50.2311 35.1521 50.5769 34.9078L89.8342 7.1802C90.8392 6.47031 91.9899 7.84995 91.111 8.71121L50.6999 48.3141Z"/>
+                            <path class="flecha1" d="M50.7071 72.2929C50.3166 72.6834 49.6834 72.6834 49.2929 72.2929L8.77039 31.7704C7.90054 30.9005 9.06422 29.5328 10.0622 30.252L49.4153 58.6146C49.7645 58.8663 50.2355 58.8663 50.5847 58.6146L89.9378 30.252C90.9358 29.5328 92.0995 30.9005 91.2296 31.7704L50.7071 72.2929Z"/>
+                            </gid="clip0_0_1">
+                            <rect width="100" height="100"/>
+                            </clipPath>
+                            </defs>
+                        </svg>
+                    </div>
+                    <div class="relaciones_tabla">
+                        <img class="relacion_tabla" src="media/aroma.svg" alt="aroma">
+                    </div>
+                    <div class="normas">
+                        <p>
+                            
+                        </p>
+                    </div>
+                </div>
+                <div class="normalizacion">
+                    <div class="relaciones_tabla">
+                        <img class="relacion_tabla" src="media/liquido.svg" alt="líquido">
+                    </div>
+                    <div class="flechas">
+                        <svg  viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="100" height="100" fill="none"/>
+                            <g class="fancyflechas" clip-path="url(#clip0_0_1)">
+                            <rect width="100" height="100" fill="none"/>
+                            <path class="flecha3" d="M50.6999 95.3141C50.3111 95.6951 49.6889 95.6951 49.3001 95.3141L8.88899 55.7112C8.01016 54.85 9.16076 53.4703 10.1658 54.1802L49.4231 81.9078C49.7689 82.1521 50.2311 82.1521 50.5769 81.9078L89.8342 54.1802C90.8392 53.4703 91.9899 54.85 91.111 55.7112L50.6999 95.3141Z"/>
+                            <path class="flecha2" d="M50.6999 48.3141C50.3111 48.6951 49.6889 48.6951 49.3001 48.3141L8.88899 8.71121C8.01016 7.84995 9.16076 6.4703 10.1658 7.18019L49.4231 34.9078C49.7689 35.1521 50.2311 35.1521 50.5769 34.9078L89.8342 7.1802C90.8392 6.47031 91.9899 7.84995 91.111 8.71121L50.6999 48.3141Z"/>
+                            <path class="flecha1" d="M50.7071 72.2929C50.3166 72.6834 49.6834 72.6834 49.2929 72.2929L8.77039 31.7704C7.90054 30.9005 9.06422 29.5328 10.0622 30.252L49.4153 58.6146C49.7645 58.8663 50.2355 58.8663 50.5847 58.6146L89.9378 30.252C90.9358 29.5328 92.0995 30.9005 91.2296 31.7704L50.7071 72.2929Z"/>
+                            </gid="clip0_0_1">
+                            <rect width="100" height="100"/>
+                            </clipPath>
+                            </defs>
+                        </svg>
+                    </div>
+                    <div class="relaciones_tabla">
+                        <img class="relacion_tabla" src="media/liquido basico.svg" alt="líquido básico">
+                        <img class="relacion_tabla" src="media/maceracion.svg" alt="maceracion">
+                        <img class="relacion_tabla" src="media/liquido final.svg" alt="liquido final">
+                    </div>
+                    <div class="normas">
+                        <p>
+                            
+                        </p>
+                    </div>
+                </div>    
             </div>
         </section>
     </main>
