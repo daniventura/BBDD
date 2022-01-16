@@ -518,6 +518,7 @@ section {
 
 .flechas {
     width: 2em;
+    min-width: 2em;
 }
     .flecha1, .flecha2, .flecha3 {
         fill: var(--primary-color);
@@ -541,90 +542,63 @@ section {
      ==========================================================================
      ########################################################################## */
 
-#normalizacion .transformaciones {
-    justify-content: space-around;
-}
-
-.normalizacion:first-of-type{
-    flex-basis: 80%;
+.normalizaciones {
+    display: grid;
+    gap: 3em;
+    padding: 1em;
 }
 
 .normalizacion {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-around;
-    width: min-content;
-    flex-grow: 1;
-
-    border-radius: 1em;
-    gap: 0.5em;
-    padding: 1em;
-
-    background: var(--secondary-color);
-    box-shadow: 2px 4px 8px #666, inset 0px 0px 10px 0px var(--base-color);
+    display: grid;
+    gap: 1em;
 }
 
-.normalizacion > * {
-    flex-grow: 1;
+.tablas, .relaciones_tabla {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 0.5em;
 }
 
 .relaciones_tabla {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-around;
-    gap: 0.5em;
-    flex-basis: 100%;
+    flex-wrap: wrap;  
+    justify-content: center;
 }
+   @media (max-width: 987px) {
+       .relaciones_tabla{
+           flex-basis: min-content;
+       }
+   }
 
 .relacion_tabla {
-    background-color: var(--back-color);
-    border-radius: 0.5em 0.5em 0 0;
     max-width: 300px;
 }
 
-.normalizacion .flechas {
-   flex-grow: 0;
+.rtt {
+    flex-grow: 2;
+}
+
+.flechas_normalizacion {
+    margin: 0;
+    transform: rotate(-90deg);
 }
 
 .normas {
-    flex-basis: 100%;
-
-
-    background-color: var(--detail-color);
-    width: 100%;
-    margin-top: 0.5em;
-    padding: 0.5em 1em;
-    color: var(--font);
-    display: flex;
-    align-items: center;
-    gap: 0.2em;
+    background-color: var(--secondary-color);
+    padding: 1em;
+    box-shadow: 2px 4px 8px #666, inset 0px 0px 10px 0px var(--base-color);
 }
-
-.normas, .relacion_tabla {
-    box-shadow: 3px 3px 6px var(--base-color);
-
-}
-
-@media (max-width:671px) {
-    .relacion_tabla {
-        max-width: 250px;
+    .normas h4 {
+        background-color: var(--primary-color);
+        color: var(--font-negative);
+        padding: 0.5em 2em;
+        margin: 0.5em;
+        width: fit-content;
+        border-radius: 20px 8px 20px 8px;
+       box-shadow: 3px 3px 6px var(--base-color);
     }
-}
-@media (max-width:574px) {
-    .relacion_tabla {
-        max-width: 200px;
-    }
-    .normalizacion {
-        flex-basis: 100%;
-    }
-}
-@media (max-width:471px) {
-    .relacion_tabla {
-        max-width: 150px;
-    }
-}
+
+
 
 
 

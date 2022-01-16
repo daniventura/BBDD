@@ -1,5 +1,5 @@
 <svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-<rect width="100" height="100" fill="#E5E5E5"/>
+<rect width="100" height="100" fill="none"/>
 <g id="flechas" clip-path="url(#clip0_0_1)">
 <rect width="100" height="100" fill="white"/>
 <path id="flecha3" d="M50.6999 95.3141C50.3111 95.6951 49.6889 95.6951 49.3001 95.3141L8.88899 55.7112C8.01016 54.85 9.16076 53.4703 10.1658 54.1802L49.4231 81.9078C49.7689 82.1521 50.2311 82.1521 50.5769 81.9078L89.8342 54.1802C90.8392 53.4703 91.9899 54.85 91.111 55.7112L50.6999 95.3141Z"/>
