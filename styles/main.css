@@ -646,7 +646,7 @@ section {
 
   /* ##########################################################################
      ==========================================================================
-        Estilos para la transformación y normalización
+        Estilos para la normalización
      ==========================================================================
      ########################################################################## */
 
@@ -663,10 +663,17 @@ section {
 
 .tablas {
     display: grid;
-    grid-template-columns: auto auto auto;
+    grid-template-columns: 1fr auto 1fr;
     align-items: center;
     justify-items: center;
     gap: 0.5em;
+}
+
+@media (min-width: 720px) {
+    .tablas_triple {
+        grid-template-columns: 35% auto 55%;
+
+    }
 }
 
 .relaciones_tabla {
