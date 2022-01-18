@@ -65,615 +65,414 @@
     }
     </style>
 </head>
-<body>
-    <header>
-        <div class="cabecera_global">
-            <div class="upper_cabecera cabecera">
-                <div class="titulo_box">
-                    <h1>Desarrollo de una Base de Datos</h1>
-                    <p class="subtitulo">Fábrica E-Liquid</p>
-                </div>
-            </div>
-            <div class="lower_cabecera cabecera">
-                <div class="lower_cabecera_img_cont">
-                    <img class="lower_cabecera_img imgcab" src="media/bote_cabecera.png" alt="">      
-                </div>
-                
-            </div>
-        </div>
-    </header>
-    <div class="separator"></div>
-    <main>
-        <section id="planteamiento">
-            <div class="titulo fade fade-left">
-                <h2>Planteamiento</h2>
-            </div>
-            <div class="bloque_texto fade fade-right">
-                <p>Una fábrica de líquidos para vapear quiere guardar información e inventario de sus productos.</p>
-                <p>Los propios líquidos son el resultado de mezclar un aroma y una base, a esta composición se le puede añadir nicotina, la cual se registra según su concentración en mg por mL de líquido. Según la base y el aroma que mezclemos, el producto necesitará un determinado tiempo de maceración para conseguir un estado óptimo de consistencia y sabor. Los aromas pueden ser simples; registrados como aromas alimenticios, o pueden ser una mezcla de varios para conseguir sabores y matices distintos. A los aromas se les asigna un código breve que lo defina y se define dentro de una categoría entre frutal, postre, tabaquil o artificial.</p>
-                <p>Las bases son una mezcla de dos compuestos de los que se quiere saber la proporción entre ellos; glicerina vegetal para generar vapor y propilenglicol en calidad alimenticia para absorber el aroma. Además se le puede añadir ciertas “moléculas” que añadan sensaciones al vapear, como una sensación mentolada o un golpe de garganta para asemejarse a fumar tabaco. Un código identificará las distintas bases.</p>
-                <p>La fábrica maneja varios estándares de volúmenes en sus recipientes comerciales como son 5, 10, 50 y 100 mL, para todos los tamaños tienen una versión en plástico (chubby) y otra de cristal con una pipeta.</p>
-                <p>Al envasar el producto, ha de etiquetarse identificando al líquido por su nombre, como cada líquido puede ser comercializado en distintos recipientes, habrá etiquetas para cada líquido en los tamaños adecuados para el correspondiente envase. De esta etiqueta interesa saber los colores en CMYK que se necesitan para imprimirlas y la imagen de su diseño.</p>
-            </div>
-        </section>
-        <section id="diagramaER">
-            <div class="titulo fade fade-left">
-                <h2>Diagrama Entidad-Relación</h2>
-            </div>
-            <div class="bloque_img fade central">
-                <img src="media/diagramaERoriginal.svg" alt="diagrama_Entidad-Relación" id="idiagramaER">
-            </div>
-            <div class="bloque_texto fade fade-right">
-                <p>
-                    <strong>*Observaciones:</strong> los atributos de la interrelación <i>"se mezcla"</i>, podrían ser perfectamente atributos de la entidad agregada <i>“líquido”</i>, pero con el fin de poder incluir en la tabla E-R ejemplos de entidad con atributos, he decidido representarlos de esta forma.
-                </p>
-            </div>
-        </section>
-        <section id="diagramaERcorregido">
-            <div class="titulo fade fade-left">
-                <h2>Correcciones y Ajustes Diagrama Entidad-Relación</h2>
-            </div>
-            <div class="bloque_img central">
-                <img src="media/diagramaER.svg" alt="diagrama_Entidad-Relación" id="idiagramaER">
-            </div>
-            <div class="bloque_texto fade fade-right">
-                <p><span class="i">*1:</span>
-                    El nombre del líquido no bastaba para identificar al líquido, ya que un líquido puede tener el mismo nombre con concentraciones de nicotina diferentes. Por tanto, he implementado un atributo cod. de líquido.
-                </p>
-                <p><span class="i">*2:</span>
-                    La cardinalidad era incorrecta en esta interrelación, ahora si se corresponde con nuestro caso, ya que un líquido puede formar parte de ninguno o varios aromas compuesto, de igual forma que un líquido puede formado por otros o por varios.
-                </p>
-                <p><span class="i">*3:</span>
-                    Los atributos de estas entidades estaban puestos forzosamente, ya que en su momento creia que tenían que tener atributos obligatoriamente para que tuviese sentido la jerarquía, pero sabiendo que esto no tiene por que ser así, he decidido eliminarlos porque no tenian mucho sentido.
-                </p>
-                <p><span class="i">*4:</span>
-                    De nuevo he añadido un atribunto código, en este caso para el recipiente, porque el volunen no termina de identificar esta entidad ya que puede haber recipientes de diferente material pero de igual volumen.
-                </p>
-            </div>
-        </section>
-        <section id="tablaER">
-            <div class="titulo fade fade-left">
-                <h2>Tabla Entidad-Relación</h2>
-            </div>
-            <div class="tabla_entidadrelacion central">
-                <div class="tabla_component">
-                    <div class="titulo_tabla">
-                        <h3>Descripción de los Tipos de Entidades</h3>
-                    </div>
-                    <div class="tabla_comp1">
-                        <ul class="gap_adapt">
-                            <li class="tn1 fade">
-                                <p><strong>Tipo de Entidad:</strong> <i>Líquido</i>   <strong>||   Agregación de:</strong> <i>Aroma, Base {Se mezcla}</i></p>
-                                <ul>
-                                    <li class="tn2 fade">
-                                        <p>Atributo: <i>cod. líquido</i></p>
-                                        <ul>
-                                            <li class="tn3 fade">
-                                                <p>Dominio: <i>cadena de caracteres</i></p>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li class="tn2 fade">
-                                        <p>Atributo: <i>nombre de líquido</i></p>
-                                        <ul>
-                                            <li class="tn3 fade">
-                                                <p>Dominio: <i>cadena de caracteres</i></p>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li class="tn2 fade">
-                                        <p>Identificador principal: <i>cod. líquido</i></p>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="tn1 fade">
-                                <p><strong>Tipo de Entidad:</strong> <i>Aroma</i></p>
-                                <ul>
-                                    <li class="tn2 fade">
-                                        <p>Atributo: <i>cod. aroma</i></p>
-                                        <ul>
-                                            <li class="tn3 fade">
-                                                <p>Dominio: <i>cadena de caracteres</i></p>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li class="tn2 fade">
-                                        <p>Atributo: <i>aroma</i></p>
-                                        <ul>
-                                            <li class="tn3 fade">
-                                                <p>Dominio: <i>cadena de caracteres</i></p>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li class="tn2 fade">
-                                        <p>Atributo: <i>categoría</i></p>
-                                        <ul>
-                                            <li class="tn3 fade">
-                                                <p>Dominio: <i>cadena de caracteres</i></p>
-                                            </li>
-                                            <li class="tn3 fade">
-                                                <p>Restricciones: Lista de valores: <i>frutal, postre, tabaquil, artiticial</i></p>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li class="tn2 fade">
-                                        <p>Identificador principal: <i>cod. aroma</i></p>
-                                    </li>
-                                    <li class="tn2 fade">
-                                        <p>Identificador alternativo: <i>aroma</i></p>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="tn1 fade">
-                                <p><strong>Tipo de Entidad:</strong> <i>Base</i></p>
-                                <ul>
-                                    <li class="tn2 fade">
-                                        <p>Atributo: <i>cod. base</i></p>
-                                        <ul>
-                                            <li class="tn3 fade">
-                                                <p>Dominio: <i>cadena de caracteres</i></p>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li class="tn2 fade">
-                                        <p>Atributo: <i>proporción</i></p>
-                                        <ul>
-                                            <li class="tn3 fade">
-                                                <p>Dominio: <i>cadena de caracteres</i></p>
-                                            </li>
-                                            <li class="tn3 fade">
-                                                <p><i>proporción desde 100%~0% hasta 0%~100%</i></p>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li class="tn2 fade">
-                                        <p>Atributo: <i>moléculas</i></p>
-                                        <ul>
-                                            <li class="tn3 fade">
-                                                <p>Dominio: <i>cadena de caracteres</i></p>
-                                            </li>
-                                            <li class="tn3 fade">
-                                                <p>Cardinalidad: <i>2</i></p>
-                                            </li>
-                                            <li class="tn3 fade">
-                                                <p>Restricciones: Lista de valores: <i>frescor, golpe de  garganta</i></p>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li class="tn2 fade">
-                                        <p>Identificador principal: <i>cod. base</i></p>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="tn1 fade">
-                                <p><strong>Tipo de Entidad:</strong> <i>Etiqueta Comercial</i> <strong>|| Hereda de: </strong><i>Recipiente, Líquido {debilidad or identificación</i></p>
-                                <ul>
-                                    <li class="tn2 fade">
-                                        <p>Atributo: <i>cod. recipiente</i></p>
-                                        <ul>
-                                            <li class="tn3 fade">
-                                                <p>Dominio: <i>valor numérico natural (mL)</i></p>
-                                            </li>
-                                            <li class="tn3 fade">
-                                                <p>Restricciones: Lista de valores: <i>5, 10, 50 y 100mL</i></p>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li class="tn2 fade">
-                                        <p>Atributo: <i>cod. líquido</i></p>
-                                        <ul>
-                                            <li class="tn3 fade">
-                                                <p>Dominio: <i>cadena de caracteres</i></p>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li class="tn2 fade">
-                                        <p>Atributo: <i>colores</i></p>
-                                        <ul>
-                                            <li class="tn3 fade">
-                                                <p>Dominio: <i>valores CMYK de los colores; cuatro valores entre 0 y 100 separados por comas</i></p>
-                                            </li>
-                                            <li class="tn3 fade">
-                                                <p>Cardinalidad: <i>si, indefinida</i></p>
-                                            </li>
-                                            <li class="tn3 fade">
-                                                <p>Restricciones: Intervalo de valores: <i>los colores (desde 0,0,0,0 a 100,100,100,100)</i></p>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li class="tn2 fade">
-                                        <p>Atributo: <i>diseño *imagen*</i></p>
-                                        <ul>
-                                            <li class="tn3 fade">
-                                                <p>Dominio: <i>archivo png</i></p>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li class="tn2 fade">
-                                        <p>Identificador principal: <i>cod. recipiente, cod. líquido</i></p>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="tn1 fade">
-                                <p><strong>Tipo de Entidad: </strong><i>Recipiente</i></p>
-                                <ul>
-                                    <li class="tn2 fade">
-                                        <p>Atributo: <i>cod. recipiente</i></p>
-                                        <ul>
-                                            <li class="tn3 fade">
-                                                <p>Dominio: <i>cadena de caracteres</i></p>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li class="tn2 fade">
-                                        <p>Atributo: <i>volumen</i></p>
-                                        <ul>
-                                            <li class="tn3 fade">
-                                                <p>Dominio: <i>valor númerico natural (mL)</i></p>
-                                            </li>
-                                            <li class="tn3 fade">
-                                                <p>Restricciones: Lista de valores: <i>5, 10, 50 y 100mL</i></p>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li class="tn2 fade">
-                                        <p>Identificador principal: <i>cod. recipiente</i></p>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="tn1 fade">
-                                <p><strong>Tipo de Entidad: </strong><i>Chubby </i><strong>|| Hereda de: </strong><i>Recipiente {especificación total excluyente}</i></p>
-                            </li>
-                            <li class="tn1 fade">
-                                <p><strong>Tipo de Entidad: </strong><i>Cristal con pipeta </i><strong>|| Hereda de: </strong><i>Recipiente {especificación total excluyente}</i></p>
-                            </li>
-                        </ul>
+<div class="all-content">
+    <body>
+        <header>
+            <div class="cabecera_global">
+                <div class="upper_cabecera cabecera">
+                    <div class="titulo_box">
+                        <h1>Desarrollo de una Base de Datos</h1>
+                        <p class="subtitulo">Fábrica E-Liquid</p>
                     </div>
                 </div>
-                <div class="tabla_component">
-                    <h3 class="titulo_tabla">Descripción de los Tipos de Interrelaciones</h3>
-                    <div class="tabla_comp2">
-                        <ul class="gap_adapt2">
-                            <li class="tn1 fade">
-                                <p><strong>Tipo de Interrelación: </strong><i>Se mezcla</i></p>
-                                <ul>
-                                    <li class="tn2 fade">
-                                        <p>Tipo de entidad: <i>aroma</i></p>                                
-                                        <ul>
-                                            <li class="tn3 fade">
-                                                <p>Cardinalidad mínima: <i>n</i></p>
-                                            </li>
-                                            <li class="tn3 fade">
-                                                <p>Cardinalidad máxima: <i>n</i></p>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li class="tn2 fade">
-                                        <p>Tipo de entidad: <i>base</i></p>
-                                        <ul>
-                                            <li class="tn3 fade">
-                                                <p>Cardinalidad mínima: <i>n</i></p>
-                                            </li>
-                                            <li class="tn3 fade">
-                                                <p>Cardinalidad máxima: <i>n</i></p>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li class="tn2 fade">
-                                        <p>Atributo: <i>concentración de nicotina</i></p>
-                                        <ul>
-                                            <li class="tn3 fade">
-                                                <p>Dominio: <i>valor númerico racional positivo (mg/mL)</i></p>
-                                            </li>
-                                            <li class="tn3 fade">
-                                                <p>Restricciones: Lista de valores: <i>0,3; 0,6; 1,2 mg/mL</i></p>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li class="tn2 fade">
-                                        <p>Atributo: <i>t. macerado</i></p>
-                                        <ul>
-                                            <li class="tn3 fade">
-                                                <p>Dominio: <i>valor númerico natural (días)</i></p>
-                                            </li>
-                                            <li class="tn3 fade">
-                                                <p>Restricciones: Intervalo de valores: <i>5~30</i></p>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="tn1 fade">
-                                <p><strong>Tipo de Interrelación: </strong><i>Compone</i></p>
-                                <ul>
-                                    <li class="tn2 fade">
-                                        <p>Tipo de entidad: <i>aroma</i></p>
-                                        <ul>
-                                            <li class="tn3 fade">
-                                                <p>Cardinalidad mínima: <i>0</i></p>
-                                            </li>
-                                            <li class="tn3 fade">
-                                                <p>Cardinalidad máxima: <i>n</i></p>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li class="tn2 fade">
-                                        <p>Tipo de entidad: <i>aroma</i></p>
-                                        <ul>
-                                            <li class="tn3 fade">
-                                                <p>Cardinalidad mínima: <i>0</i></p>
-                                            </li>
-                                            <li class="tn3 fade">
-                                                <p>Cardinalidad máxima: <i>n</i></p>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="tn1 fade">
-                                <p><strong>Tipo de Interrelación: </strong><i>Se envasa</i></p>
-                                <ul>
-                                    <li class="tn2 fade">
-                                        <p>Tipo de entidad: <i>líquido</i></p>
-                                        <ul>
-                                            <li class="tn3 fade">
-                                                <p>Cardinalidad mínima: <i>1</i></p>
-                                            </li>
-                                            <li class="tn3 fade">
-                                                <p>Cardinalidad máxima: <i>n</i></p>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li class="tn2 fade">
-                                        <p>Tipo de entidad: <i>Recipiente</i></p>
-                                        <ul>
-                                            <li class="tn3 fade">
-                                                <p>Cardinalidad mínima: <i>1</i></p>
-                                            </li>
-                                            <li class="tn3 fade">
-                                                <p>Cardinalidad máxima: <i>n</i></p>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li class="tn2 fade">
-                                        <p>Tipo de entidad: <i>etiqueta comercial</i></p>
-                                        <ul>
-                                            <li class="tn3 fade">
-                                                <p>Cardinalidad mínima: <i>1</i></p>
-                                            </li>
-                                            <li class="tn3 fade">
-                                                <p>Cardinalidad máxima: <i>1</i></p>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
+                <div class="lower_cabecera cabecera">
+                    <div class="lower_cabecera_img_cont">
+                        <img class="lower_cabecera_img imgcab" src="media/bote_cabecera.png" alt="">      
                     </div>
-                </div>    
+                    
+                </div>
             </div>
-        </section>
-        <section id="modelorelacional">
-            <div class="titulo fade fade-left">
-                <h2>Transformación a Modelo Relacional</h2>
-            </div>
-            <div class="transformaciones central">
-                <div class="transformacion">
-                    <div class="entidad-relacion">
-                        <div class="elemento">
-                            <div class="entidad">
-                                <p>Líquido</p>
-                            </div>
-                        </div>
-                        <div class="elemento">
-                            <div class="interrelacion">
-                                <p>Se Mezcla</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="flechas">
-                        <svg  viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <rect width="100" height="100" fill="none"/>
-                            <g class="fancyflechas" clip-path="url(#clip0_0_1)">
-                            <rect width="100" height="100" fill="none"/>
-                            <path class="flecha3" d="M50.6999 95.3141C50.3111 95.6951 49.6889 95.6951 49.3001 95.3141L8.88899 55.7112C8.01016 54.85 9.16076 53.4703 10.1658 54.1802L49.4231 81.9078C49.7689 82.1521 50.2311 82.1521 50.5769 81.9078L89.8342 54.1802C90.8392 53.4703 91.9899 54.85 91.111 55.7112L50.6999 95.3141Z"/>
-                            <path class="flecha2" d="M50.6999 48.3141C50.3111 48.6951 49.6889 48.6951 49.3001 48.3141L8.88899 8.71121C8.01016 7.84995 9.16076 6.4703 10.1658 7.18019L49.4231 34.9078C49.7689 35.1521 50.2311 35.1521 50.5769 34.9078L89.8342 7.1802C90.8392 6.47031 91.9899 7.84995 91.111 8.71121L50.6999 48.3141Z"/>
-                            <path class="flecha1" d="M50.7071 72.2929C50.3166 72.6834 49.6834 72.6834 49.2929 72.2929L8.77039 31.7704C7.90054 30.9005 9.06422 29.5328 10.0622 30.252L49.4153 58.6146C49.7645 58.8663 50.2355 58.8663 50.5847 58.6146L89.9378 30.252C90.9358 29.5328 92.0995 30.9005 91.2296 31.7704L50.7071 72.2929Z"/>
-                            </gid="clip0_0_1">
-                            <rect width="100" height="100"/>
-                            </clipPath>
-                            </defs>
-                        </svg>
-                    </div>
-                    <div class="relacion">
-                        <p class="i">Líquido: </p>
-                        <p>(<u>cod. líquido</u>, nombre de líquido, concentración de nicotina, t. macerado, cod. base, cod. aroma)</p>
-                    </div>
+        </header>
+        <div class="separator"></div>
+        <main>
+            <section id="planteamiento">
+                <div class="titulo fade fade-left">
+                    <h2>Planteamiento</h2>
                 </div>
-                <div class="transformacion">
-                    <div class="entidad-relacion">
-                        <div class="elemento">
-                            <div class="entidad">
-                                <p>Aroma</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="flechas">
-                        <svg  viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <rect width="100" height="100" fill="none"/>
-                            <g class="fancyflechas" clip-path="url(#clip0_0_1)">
-                            <rect width="100" height="100" fill="none"/>
-                            <path class="flecha3" d="M50.6999 95.3141C50.3111 95.6951 49.6889 95.6951 49.3001 95.3141L8.88899 55.7112C8.01016 54.85 9.16076 53.4703 10.1658 54.1802L49.4231 81.9078C49.7689 82.1521 50.2311 82.1521 50.5769 81.9078L89.8342 54.1802C90.8392 53.4703 91.9899 54.85 91.111 55.7112L50.6999 95.3141Z"/>
-                            <path class="flecha2" d="M50.6999 48.3141C50.3111 48.6951 49.6889 48.6951 49.3001 48.3141L8.88899 8.71121C8.01016 7.84995 9.16076 6.4703 10.1658 7.18019L49.4231 34.9078C49.7689 35.1521 50.2311 35.1521 50.5769 34.9078L89.8342 7.1802C90.8392 6.47031 91.9899 7.84995 91.111 8.71121L50.6999 48.3141Z"/>
-                            <path class="flecha1" d="M50.7071 72.2929C50.3166 72.6834 49.6834 72.6834 49.2929 72.2929L8.77039 31.7704C7.90054 30.9005 9.06422 29.5328 10.0622 30.252L49.4153 58.6146C49.7645 58.8663 50.2355 58.8663 50.5847 58.6146L89.9378 30.252C90.9358 29.5328 92.0995 30.9005 91.2296 31.7704L50.7071 72.2929Z"/>
-                            </gid="clip0_0_1">
-                            <rect width="100" height="100"/>
-                            </clipPath>
-                            </defs>
-                        </svg>
-                    </div>
-                    <div class="relacion">
-                        <p class="i">Aroma: </p>
-                        <p>(<u>cod. aroma</u>, aroma, categoría)</p>
-                    </div>
+                <div class="bloque_texto fade fade-right">
+                    <p>Una fábrica de líquidos para vapear quiere guardar información e inventario de sus productos.</p>
+                    <p>Los propios líquidos son el resultado de mezclar un aroma y una base, a esta composición se le puede añadir nicotina, la cual se registra según su concentración en mg por mL de líquido. Según la base y el aroma que mezclemos, el producto necesitará un determinado tiempo de maceración para conseguir un estado óptimo de consistencia y sabor. Los aromas pueden ser simples; registrados como aromas alimenticios, o pueden ser una mezcla de varios para conseguir sabores y matices distintos. A los aromas se les asigna un código breve que lo defina y se define dentro de una categoría entre frutal, postre, tabaquil o artificial.</p>
+                    <p>Las bases son una mezcla de dos compuestos de los que se quiere saber la proporción entre ellos; glicerina vegetal para generar vapor y propilenglicol en calidad alimenticia para absorber el aroma. Además se le puede añadir ciertas “moléculas” que añadan sensaciones al vapear, como una sensación mentolada o un golpe de garganta para asemejarse a fumar tabaco. Un código identificará las distintas bases.</p>
+                    <p>La fábrica maneja varios estándares de volúmenes en sus recipientes comerciales como son 5, 10, 50 y 100 mL, para todos los tamaños tienen una versión en plástico (chubby) y otra de cristal con una pipeta.</p>
+                    <p>Al envasar el producto, ha de etiquetarse identificando al líquido por su nombre, como cada líquido puede ser comercializado en distintos recipientes, habrá etiquetas para cada líquido en los tamaños adecuados para el correspondiente envase. De esta etiqueta interesa saber los colores en CMYK que se necesitan para imprimirlas y la imagen de su diseño.</p>
                 </div>
-                <div class="transformacion">
-                    <div class="entidad-relacion">
-                        <div class="elemento">
-                            <div class="entidad">
-                                <p>Base</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="flechas">
-                        <svg  viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <rect width="100" height="100" fill="none"/>
-                            <g class="fancyflechas" clip-path="url(#clip0_0_1)">
-                            <rect width="100" height="100" fill="none"/>
-                            <path class="flecha3" d="M50.6999 95.3141C50.3111 95.6951 49.6889 95.6951 49.3001 95.3141L8.88899 55.7112C8.01016 54.85 9.16076 53.4703 10.1658 54.1802L49.4231 81.9078C49.7689 82.1521 50.2311 82.1521 50.5769 81.9078L89.8342 54.1802C90.8392 53.4703 91.9899 54.85 91.111 55.7112L50.6999 95.3141Z"/>
-                            <path class="flecha2" d="M50.6999 48.3141C50.3111 48.6951 49.6889 48.6951 49.3001 48.3141L8.88899 8.71121C8.01016 7.84995 9.16076 6.4703 10.1658 7.18019L49.4231 34.9078C49.7689 35.1521 50.2311 35.1521 50.5769 34.9078L89.8342 7.1802C90.8392 6.47031 91.9899 7.84995 91.111 8.71121L50.6999 48.3141Z"/>
-                            <path class="flecha1" d="M50.7071 72.2929C50.3166 72.6834 49.6834 72.6834 49.2929 72.2929L8.77039 31.7704C7.90054 30.9005 9.06422 29.5328 10.0622 30.252L49.4153 58.6146C49.7645 58.8663 50.2355 58.8663 50.5847 58.6146L89.9378 30.252C90.9358 29.5328 92.0995 30.9005 91.2296 31.7704L50.7071 72.2929Z"/>
-                            </gid="clip0_0_1">
-                            <rect width="100" height="100"/>
-                            </clipPath>
-                            </defs>
-                        </svg>
-                    </div>
-                    <div class="relacion">
-                        <p class="i">Base: </p>
-                        <p>(<u>cod. base</u>, proporción)</p>
-                    </div>
-                    <div class="relacion">
-                        <p class="i">Moléculas: </p>
-                        <p>(<u>molécula, cod. base</u>)</p>
-                    </div>
+            </section>
+            <section id="diagramaER">
+                <div class="titulo fade fade-left">
+                    <h2>Diagrama Entidad-Relación</h2>
                 </div>
-                
-                <div class="transformacion">
-                    <div class="entidad-relacion">
-                        <div class="elemento">
-                            <div class="interrelacion">
-                                <p>Compone</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="flechas">
-                        <svg  viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <rect width="100" height="100" fill="none"/>
-                            <g class="fancyflechas" clip-path="url(#clip0_0_1)">
-                            <rect width="100" height="100" fill="none"/>
-                            <path class="flecha3" d="M50.6999 95.3141C50.3111 95.6951 49.6889 95.6951 49.3001 95.3141L8.88899 55.7112C8.01016 54.85 9.16076 53.4703 10.1658 54.1802L49.4231 81.9078C49.7689 82.1521 50.2311 82.1521 50.5769 81.9078L89.8342 54.1802C90.8392 53.4703 91.9899 54.85 91.111 55.7112L50.6999 95.3141Z"/>
-                            <path class="flecha2" d="M50.6999 48.3141C50.3111 48.6951 49.6889 48.6951 49.3001 48.3141L8.88899 8.71121C8.01016 7.84995 9.16076 6.4703 10.1658 7.18019L49.4231 34.9078C49.7689 35.1521 50.2311 35.1521 50.5769 34.9078L89.8342 7.1802C90.8392 6.47031 91.9899 7.84995 91.111 8.71121L50.6999 48.3141Z"/>
-                            <path class="flecha1" d="M50.7071 72.2929C50.3166 72.6834 49.6834 72.6834 49.2929 72.2929L8.77039 31.7704C7.90054 30.9005 9.06422 29.5328 10.0622 30.252L49.4153 58.6146C49.7645 58.8663 50.2355 58.8663 50.5847 58.6146L89.9378 30.252C90.9358 29.5328 92.0995 30.9005 91.2296 31.7704L50.7071 72.2929Z"/>
-                            </gid="clip0_0_1">
-                            <rect width="100" height="100"/>
-                            </clipPath>
-                            </defs>
-                        </svg>
-                    </div>
-                    <div class="relacion">
-                        <p class="i">Mezcla de aromas: </p>
-                        <p>(<u>aroma compuesto, aroma</u>)</p>
-                    </div>
+                <div class="bloque_img fade central">
+                    <img src="media/diagramaERoriginal.svg" alt="diagrama_Entidad-Relación" id="idiagramaER">
                 </div>
-                <div class="transformacion">
-                    <div class="entidad-relacion">
-                        <div class="elemento">
-                            <div class="entidad">
-                                <p>Recipiente</p>
-                            </div>
-                        </div>
-                        <div class="elemento">
-                            <div class="entidad">
-                                <p>Chubby</p>
-                            </div>
-                        </div>
-                        <div class="elemento">
-                            <div class="entidad">
-                                <p>Cristal</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="flechas">
-                        <svg  viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <rect width="100" height="100" fill="none"/>
-                            <g class="fancyflechas" clip-path="url(#clip0_0_1)">
-                            <rect width="100" height="100" fill="none"/>
-                            <path class="flecha3" d="M50.6999 95.3141C50.3111 95.6951 49.6889 95.6951 49.3001 95.3141L8.88899 55.7112C8.01016 54.85 9.16076 53.4703 10.1658 54.1802L49.4231 81.9078C49.7689 82.1521 50.2311 82.1521 50.5769 81.9078L89.8342 54.1802C90.8392 53.4703 91.9899 54.85 91.111 55.7112L50.6999 95.3141Z"/>
-                            <path class="flecha2" d="M50.6999 48.3141C50.3111 48.6951 49.6889 48.6951 49.3001 48.3141L8.88899 8.71121C8.01016 7.84995 9.16076 6.4703 10.1658 7.18019L49.4231 34.9078C49.7689 35.1521 50.2311 35.1521 50.5769 34.9078L89.8342 7.1802C90.8392 6.47031 91.9899 7.84995 91.111 8.71121L50.6999 48.3141Z"/>
-                            <path class="flecha1" d="M50.7071 72.2929C50.3166 72.6834 49.6834 72.6834 49.2929 72.2929L8.77039 31.7704C7.90054 30.9005 9.06422 29.5328 10.0622 30.252L49.4153 58.6146C49.7645 58.8663 50.2355 58.8663 50.5847 58.6146L89.9378 30.252C90.9358 29.5328 92.0995 30.9005 91.2296 31.7704L50.7071 72.2929Z"/>
-                            </gid="clip0_0_1">
-                            <rect width="100" height="100"/>
-                            </clipPath>
-                            </defs>
-                        </svg>
-                    </div>
-                    <div class="relacion">
-                        <p class="i">Recipiente: </p>
-                        <p>(<u>cod. recipiente</u>, volumen, tipo)</p>
-                    </div>
-                </div>
-                <div class="transformacion">
-                    <div class="entidad-relacion">
-                        <div class="elemento">
-                            <div class="entidad">
-                                <p>Etiqueta</p>
-                            </div>
-                        </div>
-                        <div class="elemento">
-                            <div class="interrelacion">
-                                <p>Se Envasa</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="flechas">
-                        <svg  viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <rect width="100" height="100" fill="none"/>
-                            <g class="fancyflechas" clip-path="url(#clip0_0_1)">
-                            <rect width="100" height="100" fill="none"/>
-                            <path class="flecha3" d="M50.6999 95.3141C50.3111 95.6951 49.6889 95.6951 49.3001 95.3141L8.88899 55.7112C8.01016 54.85 9.16076 53.4703 10.1658 54.1802L49.4231 81.9078C49.7689 82.1521 50.2311 82.1521 50.5769 81.9078L89.8342 54.1802C90.8392 53.4703 91.9899 54.85 91.111 55.7112L50.6999 95.3141Z"/>
-                            <path class="flecha2" d="M50.6999 48.3141C50.3111 48.6951 49.6889 48.6951 49.3001 48.3141L8.88899 8.71121C8.01016 7.84995 9.16076 6.4703 10.1658 7.18019L49.4231 34.9078C49.7689 35.1521 50.2311 35.1521 50.5769 34.9078L89.8342 7.1802C90.8392 6.47031 91.9899 7.84995 91.111 8.71121L50.6999 48.3141Z"/>
-                            <path class="flecha1" d="M50.7071 72.2929C50.3166 72.6834 49.6834 72.6834 49.2929 72.2929L8.77039 31.7704C7.90054 30.9005 9.06422 29.5328 10.0622 30.252L49.4153 58.6146C49.7645 58.8663 50.2355 58.8663 50.5847 58.6146L89.9378 30.252C90.9358 29.5328 92.0995 30.9005 91.2296 31.7704L50.7071 72.2929Z"/>
-                            </gid="clip0_0_1">
-                            <rect width="100" height="100"/>
-                            </clipPath>
-                            </defs>
-                        </svg>
-                    </div>
-                    <div class="relacion">
-                        <p class="i">Envasado: </p>
-                        <p>(<u>cod. líquido, cod. recipiente</u>, diseño)</p>
-                    </div>
-                    <div class="relacion">
-                        <p class="i">Colores: </p>
-                        <p>(<u>color, cod. líquido, cod. recipiente</u>)</p>
-                    </div>
+                <div class="bloque_texto fade fade-right">
                     <p>
-                        <span class="i">*</span> La entidad <i>"etiqueta"</i> desde un principio era una convención para no poner demasiados atributos complejos en la interrelación <i>"se envasa"</i>, es por ello que al transformar a modelo relacional nos encontramos que quitando los colores, que es un atributo multivaluado, nos vamos a encontrar con que las tablas de esta entidad e interrelación tienen los mismos atributos. Para evitar duplicidad, usaremos solo una tabla.
+                        <strong>*Observaciones:</strong> los atributos de la interrelación <i>"se mezcla"</i>, podrían ser perfectamente atributos de la entidad agregada <i>“líquido”</i>, pero con el fin de poder incluir en la tabla E-R ejemplos de entidad con atributos, he decidido representarlos de esta forma.
                     </p>
                 </div>
-            </div>
-        </section>
-        <section id="diagramarelacional">
-            <div class="titulo fade fade-left">
-                <h2>Diagrama Relacional</h2>
-            </div>
-            <div class="bloque_img central">
-                <img id="drelacional_horizontal" src="media/diagramarelacional.svg" alt="diagrama_relacional">
-                <img id="drelacional_vertical" src="media/diagramarelacional_vertical.svg" alt="diagrama_relacional_vertical">
-            </div>
-        </section>
-        <section id="normalizacion">
-            <div class="titulo fade fade-left">
-                <h2>Normalización Modelo Relacional</h2>
-            </div>
-            <div class="normalizaciones">
-                <div class="normalizacion">
-                    <div class="tablas tablas_triple">
-                        <div class="relaciones_tabla rtt">
-                            <img src="media/liquido.svg" alt="liquido" class="relacion_tabla">
+            </section>
+            <section id="diagramaERcorregido">
+                <div class="titulo fade fade-left">
+                    <h2>Correcciones y Ajustes Diagrama Entidad-Relación</h2>
+                </div>
+                <div class="bloque_img central">
+                    <img src="media/diagramaER.svg" alt="diagrama_Entidad-Relación" id="idiagramaER">
+                </div>
+                <div class="bloque_texto fade fade-right">
+                    <p><span class="i">*1:</span>
+                        El nombre del líquido no bastaba para identificar al líquido, ya que un líquido puede tener el mismo nombre con concentraciones de nicotina diferentes. Por tanto, he implementado un atributo cod. de líquido.
+                    </p>
+                    <p><span class="i">*2:</span>
+                        La cardinalidad era incorrecta en esta interrelación, ahora si se corresponde con nuestro caso, ya que un líquido puede formar parte de ninguno o varios aromas compuesto, de igual forma que un líquido puede formado por otros o por varios.
+                    </p>
+                    <p><span class="i">*3:</span>
+                        Los atributos de estas entidades estaban puestos forzosamente, ya que en su momento creia que tenían que tener atributos obligatoriamente para que tuviese sentido la jerarquía, pero sabiendo que esto no tiene por que ser así, he decidido eliminarlos porque no tenian mucho sentido.
+                    </p>
+                    <p><span class="i">*4:</span>
+                        De nuevo he añadido un atribunto código, en este caso para el recipiente, porque el volunen no termina de identificar esta entidad ya que puede haber recipientes de diferente material pero de igual volumen.
+                    </p>
+                </div>
+            </section>
+            <section id="tablaER">
+                <div class="titulo fade fade-left">
+                    <h2>Tabla Entidad-Relación</h2>
+                </div>
+                <div class="tabla_entidadrelacion central">
+                    <div class="tabla_component">
+                        <div class="titulo_tabla">
+                            <h3>Descripción de los Tipos de Entidades</h3>
                         </div>
-                        <div class="flechas flechas_normalizacion">
+                        <div class="tabla_comp1">
+                            <ul class="gap_adapt">
+                                <li class="tn1 fade">
+                                    <p><strong>Tipo de Entidad:</strong> <i>Líquido</i>   <strong>||   Agregación de:</strong> <i>Aroma, Base {Se mezcla}</i></p>
+                                    <ul>
+                                        <li class="tn2 fade">
+                                            <p>Atributo: <i>cod. líquido</i></p>
+                                            <ul>
+                                                <li class="tn3 fade">
+                                                    <p>Dominio: <i>cadena de caracteres</i></p>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li class="tn2 fade">
+                                            <p>Atributo: <i>nombre de líquido</i></p>
+                                            <ul>
+                                                <li class="tn3 fade">
+                                                    <p>Dominio: <i>cadena de caracteres</i></p>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li class="tn2 fade">
+                                            <p>Identificador principal: <i>cod. líquido</i></p>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="tn1 fade">
+                                    <p><strong>Tipo de Entidad:</strong> <i>Aroma</i></p>
+                                    <ul>
+                                        <li class="tn2 fade">
+                                            <p>Atributo: <i>cod. aroma</i></p>
+                                            <ul>
+                                                <li class="tn3 fade">
+                                                    <p>Dominio: <i>cadena de caracteres</i></p>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li class="tn2 fade">
+                                            <p>Atributo: <i>aroma</i></p>
+                                            <ul>
+                                                <li class="tn3 fade">
+                                                    <p>Dominio: <i>cadena de caracteres</i></p>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li class="tn2 fade">
+                                            <p>Atributo: <i>categoría</i></p>
+                                            <ul>
+                                                <li class="tn3 fade">
+                                                    <p>Dominio: <i>cadena de caracteres</i></p>
+                                                </li>
+                                                <li class="tn3 fade">
+                                                    <p>Restricciones: Lista de valores: <i>frutal, postre, tabaquil, artiticial</i></p>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li class="tn2 fade">
+                                            <p>Identificador principal: <i>cod. aroma</i></p>
+                                        </li>
+                                        <li class="tn2 fade">
+                                            <p>Identificador alternativo: <i>aroma</i></p>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="tn1 fade">
+                                    <p><strong>Tipo de Entidad:</strong> <i>Base</i></p>
+                                    <ul>
+                                        <li class="tn2 fade">
+                                            <p>Atributo: <i>cod. base</i></p>
+                                            <ul>
+                                                <li class="tn3 fade">
+                                                    <p>Dominio: <i>cadena de caracteres</i></p>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li class="tn2 fade">
+                                            <p>Atributo: <i>proporción</i></p>
+                                            <ul>
+                                                <li class="tn3 fade">
+                                                    <p>Dominio: <i>cadena de caracteres</i></p>
+                                                </li>
+                                                <li class="tn3 fade">
+                                                    <p><i>proporción desde 100%~0% hasta 0%~100%</i></p>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li class="tn2 fade">
+                                            <p>Atributo: <i>moléculas</i></p>
+                                            <ul>
+                                                <li class="tn3 fade">
+                                                    <p>Dominio: <i>cadena de caracteres</i></p>
+                                                </li>
+                                                <li class="tn3 fade">
+                                                    <p>Cardinalidad: <i>2</i></p>
+                                                </li>
+                                                <li class="tn3 fade">
+                                                    <p>Restricciones: Lista de valores: <i>frescor, golpe de  garganta</i></p>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li class="tn2 fade">
+                                            <p>Identificador principal: <i>cod. base</i></p>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="tn1 fade">
+                                    <p><strong>Tipo de Entidad:</strong> <i>Etiqueta Comercial</i> <strong>|| Hereda de: </strong><i>Recipiente, Líquido {debilidad or identificación</i></p>
+                                    <ul>
+                                        <li class="tn2 fade">
+                                            <p>Atributo: <i>cod. recipiente</i></p>
+                                            <ul>
+                                                <li class="tn3 fade">
+                                                    <p>Dominio: <i>valor numérico natural (mL)</i></p>
+                                                </li>
+                                                <li class="tn3 fade">
+                                                    <p>Restricciones: Lista de valores: <i>5, 10, 50 y 100mL</i></p>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li class="tn2 fade">
+                                            <p>Atributo: <i>cod. líquido</i></p>
+                                            <ul>
+                                                <li class="tn3 fade">
+                                                    <p>Dominio: <i>cadena de caracteres</i></p>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li class="tn2 fade">
+                                            <p>Atributo: <i>colores</i></p>
+                                            <ul>
+                                                <li class="tn3 fade">
+                                                    <p>Dominio: <i>valores CMYK de los colores; cuatro valores entre 0 y 100 separados por comas</i></p>
+                                                </li>
+                                                <li class="tn3 fade">
+                                                    <p>Cardinalidad: <i>si, indefinida</i></p>
+                                                </li>
+                                                <li class="tn3 fade">
+                                                    <p>Restricciones: Intervalo de valores: <i>los colores (desde 0,0,0,0 a 100,100,100,100)</i></p>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li class="tn2 fade">
+                                            <p>Atributo: <i>diseño *imagen*</i></p>
+                                            <ul>
+                                                <li class="tn3 fade">
+                                                    <p>Dominio: <i>archivo png</i></p>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li class="tn2 fade">
+                                            <p>Identificador principal: <i>cod. recipiente, cod. líquido</i></p>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="tn1 fade">
+                                    <p><strong>Tipo de Entidad: </strong><i>Recipiente</i></p>
+                                    <ul>
+                                        <li class="tn2 fade">
+                                            <p>Atributo: <i>cod. recipiente</i></p>
+                                            <ul>
+                                                <li class="tn3 fade">
+                                                    <p>Dominio: <i>cadena de caracteres</i></p>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li class="tn2 fade">
+                                            <p>Atributo: <i>volumen</i></p>
+                                            <ul>
+                                                <li class="tn3 fade">
+                                                    <p>Dominio: <i>valor númerico natural (mL)</i></p>
+                                                </li>
+                                                <li class="tn3 fade">
+                                                    <p>Restricciones: Lista de valores: <i>5, 10, 50 y 100mL</i></p>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li class="tn2 fade">
+                                            <p>Identificador principal: <i>cod. recipiente</i></p>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="tn1 fade">
+                                    <p><strong>Tipo de Entidad: </strong><i>Chubby </i><strong>|| Hereda de: </strong><i>Recipiente {especificación total excluyente}</i></p>
+                                </li>
+                                <li class="tn1 fade">
+                                    <p><strong>Tipo de Entidad: </strong><i>Cristal con pipeta </i><strong>|| Hereda de: </strong><i>Recipiente {especificación total excluyente}</i></p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="tabla_component">
+                        <h3 class="titulo_tabla">Descripción de los Tipos de Interrelaciones</h3>
+                        <div class="tabla_comp2">
+                            <ul class="gap_adapt2">
+                                <li class="tn1 fade">
+                                    <p><strong>Tipo de Interrelación: </strong><i>Se mezcla</i></p>
+                                    <ul>
+                                        <li class="tn2 fade">
+                                            <p>Tipo de entidad: <i>aroma</i></p>                                
+                                            <ul>
+                                                <li class="tn3 fade">
+                                                    <p>Cardinalidad mínima: <i>n</i></p>
+                                                </li>
+                                                <li class="tn3 fade">
+                                                    <p>Cardinalidad máxima: <i>n</i></p>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li class="tn2 fade">
+                                            <p>Tipo de entidad: <i>base</i></p>
+                                            <ul>
+                                                <li class="tn3 fade">
+                                                    <p>Cardinalidad mínima: <i>n</i></p>
+                                                </li>
+                                                <li class="tn3 fade">
+                                                    <p>Cardinalidad máxima: <i>n</i></p>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li class="tn2 fade">
+                                            <p>Atributo: <i>concentración de nicotina</i></p>
+                                            <ul>
+                                                <li class="tn3 fade">
+                                                    <p>Dominio: <i>valor númerico racional positivo (mg/mL)</i></p>
+                                                </li>
+                                                <li class="tn3 fade">
+                                                    <p>Restricciones: Lista de valores: <i>0,3; 0,6; 1,2 mg/mL</i></p>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li class="tn2 fade">
+                                            <p>Atributo: <i>t. macerado</i></p>
+                                            <ul>
+                                                <li class="tn3 fade">
+                                                    <p>Dominio: <i>valor númerico natural (días)</i></p>
+                                                </li>
+                                                <li class="tn3 fade">
+                                                    <p>Restricciones: Intervalo de valores: <i>5~30</i></p>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="tn1 fade">
+                                    <p><strong>Tipo de Interrelación: </strong><i>Compone</i></p>
+                                    <ul>
+                                        <li class="tn2 fade">
+                                            <p>Tipo de entidad: <i>aroma</i></p>
+                                            <ul>
+                                                <li class="tn3 fade">
+                                                    <p>Cardinalidad mínima: <i>0</i></p>
+                                                </li>
+                                                <li class="tn3 fade">
+                                                    <p>Cardinalidad máxima: <i>n</i></p>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li class="tn2 fade">
+                                            <p>Tipo de entidad: <i>aroma</i></p>
+                                            <ul>
+                                                <li class="tn3 fade">
+                                                    <p>Cardinalidad mínima: <i>0</i></p>
+                                                </li>
+                                                <li class="tn3 fade">
+                                                    <p>Cardinalidad máxima: <i>n</i></p>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="tn1 fade">
+                                    <p><strong>Tipo de Interrelación: </strong><i>Se envasa</i></p>
+                                    <ul>
+                                        <li class="tn2 fade">
+                                            <p>Tipo de entidad: <i>líquido</i></p>
+                                            <ul>
+                                                <li class="tn3 fade">
+                                                    <p>Cardinalidad mínima: <i>1</i></p>
+                                                </li>
+                                                <li class="tn3 fade">
+                                                    <p>Cardinalidad máxima: <i>n</i></p>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li class="tn2 fade">
+                                            <p>Tipo de entidad: <i>Recipiente</i></p>
+                                            <ul>
+                                                <li class="tn3 fade">
+                                                    <p>Cardinalidad mínima: <i>1</i></p>
+                                                </li>
+                                                <li class="tn3 fade">
+                                                    <p>Cardinalidad máxima: <i>n</i></p>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li class="tn2 fade">
+                                            <p>Tipo de entidad: <i>etiqueta comercial</i></p>
+                                            <ul>
+                                                <li class="tn3 fade">
+                                                    <p>Cardinalidad mínima: <i>1</i></p>
+                                                </li>
+                                                <li class="tn3 fade">
+                                                    <p>Cardinalidad máxima: <i>1</i></p>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>    
+                </div>
+            </section>
+            <section id="modelorelacional">
+                <div class="titulo fade fade-left">
+                    <h2>Transformación a Modelo Relacional</h2>
+                </div>
+                <div class="transformaciones central">
+                    <div class="transformacion">
+                        <div class="entidad-relacion">
+                            <div class="elemento">
+                                <div class="entidad">
+                                    <p>Líquido</p>
+                                </div>
+                            </div>
+                            <div class="elemento">
+                                <div class="interrelacion">
+                                    <p>Se Mezcla</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flechas">
                             <svg  viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <rect width="100" height="100" fill="none"/>
                                 <g class="fancyflechas" clip-path="url(#clip0_0_1)">
@@ -687,27 +486,20 @@
                                 </defs>
                             </svg>
                         </div>
-                        <div class="relaciones_tabla relacion_tabla_triple">
-                            <img src="media/liquido basico.svg" alt="líquido básico" class="relacion_tabla">
-                            <img src="media/maceracion.svg" alt="maceración" class="relacion_tabla">
-                            <img src="media/liquido final.svg" alt="líquido final" class="relacion_tabla">
+                        <div class="relacion">
+                            <p class="i">Líquido: </p>
+                            <p>(<u>cod. líquido</u>, nombre de líquido, concentración de nicotina, t. macerado, cod. base, cod. aroma)</p>
                         </div>
                     </div>
-                    <div class="normas">
-                        <h4>Dependencias funcionales válidas</h4>
-                        <p><strong>cod. líquido </strong>→ todos los atributos de la relación menos claves primarias</p>
-                        <h4>Dependencias funcionales inválidas</h4>
-                        <p><strong>nombre de líquido </strong>→ cod. base, cod.aroma</p>
-                        <p><strong>nombre de líquido, concentración de nicotina </strong>→ t. macerado</p>
-                        <p>Se incumple la forma normal de Boyce-Codd en ambos casos</p>
-                    </div>
-                </div>
-                <div class="normalizacion">
-                    <div class="tablas">
-                        <div class="relaciones_tabla">
-                            <img src="media/aroma.svg" alt="aroma" class="relacion_tabla">
+                    <div class="transformacion">
+                        <div class="entidad-relacion">
+                            <div class="elemento">
+                                <div class="entidad">
+                                    <p>Aroma</p>
+                                </div>
+                            </div>
                         </div>
-                        <div class="flechas flechas_normalizacion">
+                        <div class="flechas">
                             <svg  viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <rect width="100" height="100" fill="none"/>
                                 <g class="fancyflechas" clip-path="url(#clip0_0_1)">
@@ -721,21 +513,20 @@
                                 </defs>
                             </svg>
                         </div>
-                        <div class="relaciones_tabla">
-                            <img src="media/aroma.svg" alt="aroma" class="relacion_tabla">
+                        <div class="relacion">
+                            <p class="i">Aroma: </p>
+                            <p>(<u>cod. aroma</u>, aroma, categoría)</p>
                         </div>
                     </div>
-                    <div class="normas">
-                        <h4>Dependencias funcionales válidas</h4>
-                        <p><strong>cod. aroma </strong>→ todos los atributos de la relación menos claves primarias</p>
-                        <h4>Dependencias funcionales inválidas</h4>
-                        <p>No hay, se cumple la forma normal de Boyce-Codd, es decir, todos los atributos de la relación solo pueden tomar valores atómicos y cada determinante funcional es una clave candidata</p>
-                    </div>
-                </div>
-                <div class="normalizacion">
-                    <div class="tablas">
-                        <div class="relaciones_tabla"><img src="media/base.svg" alt="base" class="relacion_tabla"></div>
-                        <div class="flechas flechas_normalizacion">
+                    <div class="transformacion">
+                        <div class="entidad-relacion">
+                            <div class="elemento">
+                                <div class="entidad">
+                                    <p>Base</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flechas">
                             <svg  viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <rect width="100" height="100" fill="none"/>
                                 <g class="fancyflechas" clip-path="url(#clip0_0_1)">
@@ -749,19 +540,25 @@
                                 </defs>
                             </svg>
                         </div>
-                        <div class="relaciones_tabla"><img src="media/base.svg" alt="base" class="relacion_tabla"></div>
+                        <div class="relacion">
+                            <p class="i">Base: </p>
+                            <p>(<u>cod. base</u>, proporción)</p>
+                        </div>
+                        <div class="relacion">
+                            <p class="i">Moléculas: </p>
+                            <p>(<u>molécula, cod. base</u>)</p>
+                        </div>
                     </div>
-                    <div class="normas">
-                        <h4>Dependencias funcionales válidas</h4>
-                        <p><strong>cod. base </strong>→ todos los atributos de la relación menos claves primarias</p>
-                        <h4>Dependencias funcionales inválidas</h4>
-                        <p>No hay, se cumple la forma normal de Boyce-Codd, es decir, todos los atributos de la relación solo pueden tomar valores atómicos y cada determinante funcional es una clave candidata</p>
-                    </div>
-                </div>
-                <div class="normalizacion">
-                    <div class="tablas">
-                        <div class="relaciones_tabla"><img src="media/moleculas.svg" alt="moléculas" class="relacion_tabla"></div>
-                        <div class="flechas flechas_normalizacion">
+                    
+                    <div class="transformacion">
+                        <div class="entidad-relacion">
+                            <div class="elemento">
+                                <div class="interrelacion">
+                                    <p>Compone</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flechas">
                             <svg  viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <rect width="100" height="100" fill="none"/>
                                 <g class="fancyflechas" clip-path="url(#clip0_0_1)">
@@ -775,19 +572,30 @@
                                 </defs>
                             </svg>
                         </div>
-                        <div class="relaciones_tabla"><img src="media/moleculas.svg" alt="moléculas" class="relacion_tabla"></div>
+                        <div class="relacion">
+                            <p class="i">Mezcla de aromas: </p>
+                            <p>(<u>aroma compuesto, aroma</u>)</p>
+                        </div>
                     </div>
-                    <div class="normas">
-                        <h4>Dependencias funcionales válidas</h4>
-                        <p>No hay atributos no primos</p>
-                        <h4>Dependencias funcionales inválidas</h4>
-                        <p>No hay, se cumple la forma normal de Boyce-Codd, es decir, todos los atributos de la relación solo pueden tomar valores atómicos y cada determinante funcional es una clave candidata</p>
-                    </div>
-                </div>
-                <div class="normalizacion">
-                    <div class="tablas">
-                        <div class="relaciones_tabla"><img src="media/mezcla de aromas.svg" alt="mezcla de aromas" class="relacion_tabla"></div>
-                        <div class="flechas flechas_normalizacion">
+                    <div class="transformacion">
+                        <div class="entidad-relacion">
+                            <div class="elemento">
+                                <div class="entidad">
+                                    <p>Recipiente</p>
+                                </div>
+                            </div>
+                            <div class="elemento">
+                                <div class="entidad">
+                                    <p>Chubby</p>
+                                </div>
+                            </div>
+                            <div class="elemento">
+                                <div class="entidad">
+                                    <p>Cristal</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flechas">
                             <svg  viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <rect width="100" height="100" fill="none"/>
                                 <g class="fancyflechas" clip-path="url(#clip0_0_1)">
@@ -801,19 +609,25 @@
                                 </defs>
                             </svg>
                         </div>
-                        <div class="relaciones_tabla"><img src="media/mezcla de aromas.svg" alt="mezcla de aromas" class="relacion_tabla"></div>
+                        <div class="relacion">
+                            <p class="i">Recipiente: </p>
+                            <p>(<u>cod. recipiente</u>, volumen, tipo)</p>
+                        </div>
                     </div>
-                    <div class="normas">
-                        <h4>Dependencias funcionales válidas</h4>
-                        <p>No hay atributos no primos</p>
-                        <h4>Dependencias funcionales inválidas</h4>
-                        <p>No hay, se cumple la forma normal de Boyce-Codd, es decir, todos los atributos de la relación solo pueden tomar valores atómicos y cada determinante funcional es una clave candidata</p>
-                    </div>
-                </div>
-                <div class="normalizacion">
-                    <div class="tablas">
-                        <div class="relaciones_tabla"><img src="media/recipiente.svg" alt="recipiente" class="relacion_tabla"></div>
-                        <div class="flechas flechas_normalizacion">
+                    <div class="transformacion">
+                        <div class="entidad-relacion">
+                            <div class="elemento">
+                                <div class="entidad">
+                                    <p>Etiqueta</p>
+                                </div>
+                            </div>
+                            <div class="elemento">
+                                <div class="interrelacion">
+                                    <p>Se Envasa</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flechas">
                             <svg  viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <rect width="100" height="100" fill="none"/>
                                 <g class="fancyflechas" clip-path="url(#clip0_0_1)">
@@ -827,81 +641,268 @@
                                 </defs>
                             </svg>
                         </div>
-                        <div class="relaciones_tabla"><img src="media/recipiente.svg" alt="recipiente" class="relacion_tabla"></div>
-                    </div>
-                    <div class="normas">
-                        <h4>Dependencias funcionales válidas</h4>
-                        <p><strong>cod. recipiente </strong>→ todos los atributos de la relación menos claves primarias</p>
-                        <h4>Dependencias funcionales inválidas</h4>
-                        <p>No hay, se cumple la forma normal de Boyce-Codd, es decir, todos los atributos de la relación solo pueden tomar valores atómicos y cada determinante funcional es una clave candidata</p>
-                    </div>
-                </div>
-                <div class="normalizacion">
-                    <div class="tablas">
-                        <div class="relaciones_tabla"><img src="media/envasado.svg" alt="envasado" class="relacion_tabla"></div>
-                        <div class="flechas flechas_normalizacion">
-                            <svg  viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <rect width="100" height="100" fill="none"/>
-                                <g class="fancyflechas" clip-path="url(#clip0_0_1)">
-                                <rect width="100" height="100" fill="none"/>
-                                <path class="flecha3" d="M50.6999 95.3141C50.3111 95.6951 49.6889 95.6951 49.3001 95.3141L8.88899 55.7112C8.01016 54.85 9.16076 53.4703 10.1658 54.1802L49.4231 81.9078C49.7689 82.1521 50.2311 82.1521 50.5769 81.9078L89.8342 54.1802C90.8392 53.4703 91.9899 54.85 91.111 55.7112L50.6999 95.3141Z"/>
-                                <path class="flecha2" d="M50.6999 48.3141C50.3111 48.6951 49.6889 48.6951 49.3001 48.3141L8.88899 8.71121C8.01016 7.84995 9.16076 6.4703 10.1658 7.18019L49.4231 34.9078C49.7689 35.1521 50.2311 35.1521 50.5769 34.9078L89.8342 7.1802C90.8392 6.47031 91.9899 7.84995 91.111 8.71121L50.6999 48.3141Z"/>
-                                <path class="flecha1" d="M50.7071 72.2929C50.3166 72.6834 49.6834 72.6834 49.2929 72.2929L8.77039 31.7704C7.90054 30.9005 9.06422 29.5328 10.0622 30.252L49.4153 58.6146C49.7645 58.8663 50.2355 58.8663 50.5847 58.6146L89.9378 30.252C90.9358 29.5328 92.0995 30.9005 91.2296 31.7704L50.7071 72.2929Z"/>
-                                </gid="clip0_0_1">
-                                <rect width="100" height="100"/>
-                                </clipPath>
-                                </defs>
-                            </svg>
+                        <div class="relacion">
+                            <p class="i">Envasado: </p>
+                            <p>(<u>cod. líquido, cod. recipiente</u>, diseño)</p>
                         </div>
-                        <div class="relaciones_tabla"><img src="media/envasado.svg" alt="envasado" class="relacion_tabla"></div>
-                    </div>
-                    <div class="normas">
-                        <h4>Dependencias funcionales válidas</h4>
-                        <p><strong>cod. líquido, cod. recipiente </strong>→ todos los atributos de la relación menos claves primarias</p>
-                        <h4>Dependencias funcionales inválidas</h4>
-                        <p>No hay, se cumple la forma normal de Boyce-Codd, es decir, todos los atributos de la relación solo pueden tomar valores atómicos y cada determinante funcional es una clave candidata</p>
-                    </div>
-                </div>
-                <div class="normalizacion">
-                    <div class="tablas">
-                        <div class="relaciones_tabla"><img src="media/colores.svg" alt="colores" class="relacion_tabla"></div>
-                        <div class="flechas flechas_normalizacion">
-                            <svg  viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <rect width="100" height="100" fill="none"/>
-                                <g class="fancyflechas" clip-path="url(#clip0_0_1)">
-                                <rect width="100" height="100" fill="none"/>
-                                <path class="flecha3" d="M50.6999 95.3141C50.3111 95.6951 49.6889 95.6951 49.3001 95.3141L8.88899 55.7112C8.01016 54.85 9.16076 53.4703 10.1658 54.1802L49.4231 81.9078C49.7689 82.1521 50.2311 82.1521 50.5769 81.9078L89.8342 54.1802C90.8392 53.4703 91.9899 54.85 91.111 55.7112L50.6999 95.3141Z"/>
-                                <path class="flecha2" d="M50.6999 48.3141C50.3111 48.6951 49.6889 48.6951 49.3001 48.3141L8.88899 8.71121C8.01016 7.84995 9.16076 6.4703 10.1658 7.18019L49.4231 34.9078C49.7689 35.1521 50.2311 35.1521 50.5769 34.9078L89.8342 7.1802C90.8392 6.47031 91.9899 7.84995 91.111 8.71121L50.6999 48.3141Z"/>
-                                <path class="flecha1" d="M50.7071 72.2929C50.3166 72.6834 49.6834 72.6834 49.2929 72.2929L8.77039 31.7704C7.90054 30.9005 9.06422 29.5328 10.0622 30.252L49.4153 58.6146C49.7645 58.8663 50.2355 58.8663 50.5847 58.6146L89.9378 30.252C90.9358 29.5328 92.0995 30.9005 91.2296 31.7704L50.7071 72.2929Z"/>
-                                </gid="clip0_0_1">
-                                <rect width="100" height="100"/>
-                                </clipPath>
-                                </defs>
-                            </svg>
+                        <div class="relacion">
+                            <p class="i">Colores: </p>
+                            <p>(<u>color, cod. líquido, cod. recipiente</u>)</p>
                         </div>
-                        <div class="relaciones_tabla"><img src="media/colores.svg" alt="colores" class="relacion_tabla"></div>
-                    </div>
-                    <div class="normas">
-                        <h4>Dependencias funcionales válidas</h4>
-                        <p>No hay atributos no primos</p>
-                        <h4>Dependencias funcionales inválidas</h4>
-                        <p>No hay, se cumple la forma normal de Boyce-Codd, es decir, todos los atributos de la relación solo pueden tomar valores atómicos y cada determinante funcional es una clave candidata</p>
+                        <p>
+                            <span class="i">*</span> La entidad <i>"etiqueta"</i> desde un principio era una convención para no poner demasiados atributos complejos en la interrelación <i>"se envasa"</i>, es por ello que al transformar a modelo relacional nos encontramos que quitando los colores, que es un atributo multivaluado, nos vamos a encontrar con que las tablas de esta entidad e interrelación tienen los mismos atributos. Para evitar duplicidad, usaremos solo una tabla.
+                        </p>
                     </div>
                 </div>
-            </div>
-            <p></p>
-        </section>
-        <section id="diagramanormalizado">
-            <div class="titulo fade fade-left">
-                <h2>Diagrama Relacional Normalizado</h2>
-            </div>
-            <div class="bloque_img central">
-                <img id="drelacional_horizontal" src="media/diagramanormalizado.svg" alt="diagrama_relacional_normalizado">
-                <img id="drelacional_vertical" src="media/diagramanormalizado_vertical.svg" alt="diagrama_relacional_normalizado">
-            </div>
-        </section>
-    </main>
-    <script src="script/main.js"></script>
-</body>
+            </section>
+            <section id="diagramarelacional">
+                <div class="titulo fade fade-left">
+                    <h2>Diagrama Relacional</h2>
+                </div>
+                <div class="bloque_img central">
+                    <img id="drelacional_horizontal" src="media/diagramarelacional.svg" alt="diagrama_relacional">
+                    <img id="drelacional_vertical" src="media/diagramarelacional_vertical.svg" alt="diagrama_relacional_vertical">
+                </div>
+            </section>
+            <section id="normalizacion">
+                <div class="titulo fade fade-left">
+                    <h2>Normalización Modelo Relacional</h2>
+                </div>
+                <div class="normalizaciones">
+                    <div class="normalizacion">
+                        <div class="tablas tablas_triple">
+                            <div class="relaciones_tabla rtt">
+                                <img src="media/liquido.svg" alt="liquido" class="relacion_tabla">
+                            </div>
+                            <div class="flechas flechas_normalizacion">
+                                <svg  viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <rect width="100" height="100" fill="none"/>
+                                    <g class="fancyflechas" clip-path="url(#clip0_0_1)">
+                                    <rect width="100" height="100" fill="none"/>
+                                    <path class="flecha3" d="M50.6999 95.3141C50.3111 95.6951 49.6889 95.6951 49.3001 95.3141L8.88899 55.7112C8.01016 54.85 9.16076 53.4703 10.1658 54.1802L49.4231 81.9078C49.7689 82.1521 50.2311 82.1521 50.5769 81.9078L89.8342 54.1802C90.8392 53.4703 91.9899 54.85 91.111 55.7112L50.6999 95.3141Z"/>
+                                    <path class="flecha2" d="M50.6999 48.3141C50.3111 48.6951 49.6889 48.6951 49.3001 48.3141L8.88899 8.71121C8.01016 7.84995 9.16076 6.4703 10.1658 7.18019L49.4231 34.9078C49.7689 35.1521 50.2311 35.1521 50.5769 34.9078L89.8342 7.1802C90.8392 6.47031 91.9899 7.84995 91.111 8.71121L50.6999 48.3141Z"/>
+                                    <path class="flecha1" d="M50.7071 72.2929C50.3166 72.6834 49.6834 72.6834 49.2929 72.2929L8.77039 31.7704C7.90054 30.9005 9.06422 29.5328 10.0622 30.252L49.4153 58.6146C49.7645 58.8663 50.2355 58.8663 50.5847 58.6146L89.9378 30.252C90.9358 29.5328 92.0995 30.9005 91.2296 31.7704L50.7071 72.2929Z"/>
+                                    </gid="clip0_0_1">
+                                    <rect width="100" height="100"/>
+                                    </clipPath>
+                                    </defs>
+                                </svg>
+                            </div>
+                            <div class="relaciones_tabla relacion_tabla_triple">
+                                <img src="media/liquido basico.svg" alt="líquido básico" class="relacion_tabla">
+                                <img src="media/maceracion.svg" alt="maceración" class="relacion_tabla">
+                                <img src="media/liquido final.svg" alt="líquido final" class="relacion_tabla">
+                            </div>
+                        </div>
+                        <div class="normas">
+                            <h4>Dependencias funcionales válidas</h4>
+                            <p><strong>cod. líquido </strong>→ todos los atributos de la relación menos claves primarias</p>
+                            <h4>Dependencias funcionales inválidas</h4>
+                            <p><strong>nombre de líquido </strong>→ cod. base, cod.aroma</p>
+                            <p><strong>nombre de líquido, concentración de nicotina </strong>→ t. macerado</p>
+                            <p>Se incumple la forma normal de Boyce-Codd en ambos casos</p>
+                        </div>
+                    </div>
+                    <div class="normalizacion">
+                        <div class="tablas">
+                            <div class="relaciones_tabla">
+                                <img src="media/aroma.svg" alt="aroma" class="relacion_tabla">
+                            </div>
+                            <div class="flechas flechas_normalizacion">
+                                <svg  viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <rect width="100" height="100" fill="none"/>
+                                    <g class="fancyflechas" clip-path="url(#clip0_0_1)">
+                                    <rect width="100" height="100" fill="none"/>
+                                    <path class="flecha3" d="M50.6999 95.3141C50.3111 95.6951 49.6889 95.6951 49.3001 95.3141L8.88899 55.7112C8.01016 54.85 9.16076 53.4703 10.1658 54.1802L49.4231 81.9078C49.7689 82.1521 50.2311 82.1521 50.5769 81.9078L89.8342 54.1802C90.8392 53.4703 91.9899 54.85 91.111 55.7112L50.6999 95.3141Z"/>
+                                    <path class="flecha2" d="M50.6999 48.3141C50.3111 48.6951 49.6889 48.6951 49.3001 48.3141L8.88899 8.71121C8.01016 7.84995 9.16076 6.4703 10.1658 7.18019L49.4231 34.9078C49.7689 35.1521 50.2311 35.1521 50.5769 34.9078L89.8342 7.1802C90.8392 6.47031 91.9899 7.84995 91.111 8.71121L50.6999 48.3141Z"/>
+                                    <path class="flecha1" d="M50.7071 72.2929C50.3166 72.6834 49.6834 72.6834 49.2929 72.2929L8.77039 31.7704C7.90054 30.9005 9.06422 29.5328 10.0622 30.252L49.4153 58.6146C49.7645 58.8663 50.2355 58.8663 50.5847 58.6146L89.9378 30.252C90.9358 29.5328 92.0995 30.9005 91.2296 31.7704L50.7071 72.2929Z"/>
+                                    </gid="clip0_0_1">
+                                    <rect width="100" height="100"/>
+                                    </clipPath>
+                                    </defs>
+                                </svg>
+                            </div>
+                            <div class="relaciones_tabla">
+                                <img src="media/aroma.svg" alt="aroma" class="relacion_tabla">
+                            </div>
+                        </div>
+                        <div class="normas">
+                            <h4>Dependencias funcionales válidas</h4>
+                            <p><strong>cod. aroma </strong>→ todos los atributos de la relación menos claves primarias</p>
+                            <h4>Dependencias funcionales inválidas</h4>
+                            <p>No hay, se cumple la forma normal de Boyce-Codd, es decir, todos los atributos de la relación solo pueden tomar valores atómicos y cada determinante funcional es una clave candidata</p>
+                        </div>
+                    </div>
+                    <div class="normalizacion">
+                        <div class="tablas">
+                            <div class="relaciones_tabla"><img src="media/base.svg" alt="base" class="relacion_tabla"></div>
+                            <div class="flechas flechas_normalizacion">
+                                <svg  viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <rect width="100" height="100" fill="none"/>
+                                    <g class="fancyflechas" clip-path="url(#clip0_0_1)">
+                                    <rect width="100" height="100" fill="none"/>
+                                    <path class="flecha3" d="M50.6999 95.3141C50.3111 95.6951 49.6889 95.6951 49.3001 95.3141L8.88899 55.7112C8.01016 54.85 9.16076 53.4703 10.1658 54.1802L49.4231 81.9078C49.7689 82.1521 50.2311 82.1521 50.5769 81.9078L89.8342 54.1802C90.8392 53.4703 91.9899 54.85 91.111 55.7112L50.6999 95.3141Z"/>
+                                    <path class="flecha2" d="M50.6999 48.3141C50.3111 48.6951 49.6889 48.6951 49.3001 48.3141L8.88899 8.71121C8.01016 7.84995 9.16076 6.4703 10.1658 7.18019L49.4231 34.9078C49.7689 35.1521 50.2311 35.1521 50.5769 34.9078L89.8342 7.1802C90.8392 6.47031 91.9899 7.84995 91.111 8.71121L50.6999 48.3141Z"/>
+                                    <path class="flecha1" d="M50.7071 72.2929C50.3166 72.6834 49.6834 72.6834 49.2929 72.2929L8.77039 31.7704C7.90054 30.9005 9.06422 29.5328 10.0622 30.252L49.4153 58.6146C49.7645 58.8663 50.2355 58.8663 50.5847 58.6146L89.9378 30.252C90.9358 29.5328 92.0995 30.9005 91.2296 31.7704L50.7071 72.2929Z"/>
+                                    </gid="clip0_0_1">
+                                    <rect width="100" height="100"/>
+                                    </clipPath>
+                                    </defs>
+                                </svg>
+                            </div>
+                            <div class="relaciones_tabla"><img src="media/base.svg" alt="base" class="relacion_tabla"></div>
+                        </div>
+                        <div class="normas">
+                            <h4>Dependencias funcionales válidas</h4>
+                            <p><strong>cod. base </strong>→ todos los atributos de la relación menos claves primarias</p>
+                            <h4>Dependencias funcionales inválidas</h4>
+                            <p>No hay, se cumple la forma normal de Boyce-Codd, es decir, todos los atributos de la relación solo pueden tomar valores atómicos y cada determinante funcional es una clave candidata</p>
+                        </div>
+                    </div>
+                    <div class="normalizacion">
+                        <div class="tablas">
+                            <div class="relaciones_tabla"><img src="media/moleculas.svg" alt="moléculas" class="relacion_tabla"></div>
+                            <div class="flechas flechas_normalizacion">
+                                <svg  viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <rect width="100" height="100" fill="none"/>
+                                    <g class="fancyflechas" clip-path="url(#clip0_0_1)">
+                                    <rect width="100" height="100" fill="none"/>
+                                    <path class="flecha3" d="M50.6999 95.3141C50.3111 95.6951 49.6889 95.6951 49.3001 95.3141L8.88899 55.7112C8.01016 54.85 9.16076 53.4703 10.1658 54.1802L49.4231 81.9078C49.7689 82.1521 50.2311 82.1521 50.5769 81.9078L89.8342 54.1802C90.8392 53.4703 91.9899 54.85 91.111 55.7112L50.6999 95.3141Z"/>
+                                    <path class="flecha2" d="M50.6999 48.3141C50.3111 48.6951 49.6889 48.6951 49.3001 48.3141L8.88899 8.71121C8.01016 7.84995 9.16076 6.4703 10.1658 7.18019L49.4231 34.9078C49.7689 35.1521 50.2311 35.1521 50.5769 34.9078L89.8342 7.1802C90.8392 6.47031 91.9899 7.84995 91.111 8.71121L50.6999 48.3141Z"/>
+                                    <path class="flecha1" d="M50.7071 72.2929C50.3166 72.6834 49.6834 72.6834 49.2929 72.2929L8.77039 31.7704C7.90054 30.9005 9.06422 29.5328 10.0622 30.252L49.4153 58.6146C49.7645 58.8663 50.2355 58.8663 50.5847 58.6146L89.9378 30.252C90.9358 29.5328 92.0995 30.9005 91.2296 31.7704L50.7071 72.2929Z"/>
+                                    </gid="clip0_0_1">
+                                    <rect width="100" height="100"/>
+                                    </clipPath>
+                                    </defs>
+                                </svg>
+                            </div>
+                            <div class="relaciones_tabla"><img src="media/moleculas.svg" alt="moléculas" class="relacion_tabla"></div>
+                        </div>
+                        <div class="normas">
+                            <h4>Dependencias funcionales válidas</h4>
+                            <p>No hay atributos no primos</p>
+                            <h4>Dependencias funcionales inválidas</h4>
+                            <p>No hay, se cumple la forma normal de Boyce-Codd, es decir, todos los atributos de la relación solo pueden tomar valores atómicos y cada determinante funcional es una clave candidata</p>
+                        </div>
+                    </div>
+                    <div class="normalizacion">
+                        <div class="tablas">
+                            <div class="relaciones_tabla"><img src="media/mezcla de aromas.svg" alt="mezcla de aromas" class="relacion_tabla"></div>
+                            <div class="flechas flechas_normalizacion">
+                                <svg  viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <rect width="100" height="100" fill="none"/>
+                                    <g class="fancyflechas" clip-path="url(#clip0_0_1)">
+                                    <rect width="100" height="100" fill="none"/>
+                                    <path class="flecha3" d="M50.6999 95.3141C50.3111 95.6951 49.6889 95.6951 49.3001 95.3141L8.88899 55.7112C8.01016 54.85 9.16076 53.4703 10.1658 54.1802L49.4231 81.9078C49.7689 82.1521 50.2311 82.1521 50.5769 81.9078L89.8342 54.1802C90.8392 53.4703 91.9899 54.85 91.111 55.7112L50.6999 95.3141Z"/>
+                                    <path class="flecha2" d="M50.6999 48.3141C50.3111 48.6951 49.6889 48.6951 49.3001 48.3141L8.88899 8.71121C8.01016 7.84995 9.16076 6.4703 10.1658 7.18019L49.4231 34.9078C49.7689 35.1521 50.2311 35.1521 50.5769 34.9078L89.8342 7.1802C90.8392 6.47031 91.9899 7.84995 91.111 8.71121L50.6999 48.3141Z"/>
+                                    <path class="flecha1" d="M50.7071 72.2929C50.3166 72.6834 49.6834 72.6834 49.2929 72.2929L8.77039 31.7704C7.90054 30.9005 9.06422 29.5328 10.0622 30.252L49.4153 58.6146C49.7645 58.8663 50.2355 58.8663 50.5847 58.6146L89.9378 30.252C90.9358 29.5328 92.0995 30.9005 91.2296 31.7704L50.7071 72.2929Z"/>
+                                    </gid="clip0_0_1">
+                                    <rect width="100" height="100"/>
+                                    </clipPath>
+                                    </defs>
+                                </svg>
+                            </div>
+                            <div class="relaciones_tabla"><img src="media/mezcla de aromas.svg" alt="mezcla de aromas" class="relacion_tabla"></div>
+                        </div>
+                        <div class="normas">
+                            <h4>Dependencias funcionales válidas</h4>
+                            <p>No hay atributos no primos</p>
+                            <h4>Dependencias funcionales inválidas</h4>
+                            <p>No hay, se cumple la forma normal de Boyce-Codd, es decir, todos los atributos de la relación solo pueden tomar valores atómicos y cada determinante funcional es una clave candidata</p>
+                        </div>
+                    </div>
+                    <div class="normalizacion">
+                        <div class="tablas">
+                            <div class="relaciones_tabla"><img src="media/recipiente.svg" alt="recipiente" class="relacion_tabla"></div>
+                            <div class="flechas flechas_normalizacion">
+                                <svg  viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <rect width="100" height="100" fill="none"/>
+                                    <g class="fancyflechas" clip-path="url(#clip0_0_1)">
+                                    <rect width="100" height="100" fill="none"/>
+                                    <path class="flecha3" d="M50.6999 95.3141C50.3111 95.6951 49.6889 95.6951 49.3001 95.3141L8.88899 55.7112C8.01016 54.85 9.16076 53.4703 10.1658 54.1802L49.4231 81.9078C49.7689 82.1521 50.2311 82.1521 50.5769 81.9078L89.8342 54.1802C90.8392 53.4703 91.9899 54.85 91.111 55.7112L50.6999 95.3141Z"/>
+                                    <path class="flecha2" d="M50.6999 48.3141C50.3111 48.6951 49.6889 48.6951 49.3001 48.3141L8.88899 8.71121C8.01016 7.84995 9.16076 6.4703 10.1658 7.18019L49.4231 34.9078C49.7689 35.1521 50.2311 35.1521 50.5769 34.9078L89.8342 7.1802C90.8392 6.47031 91.9899 7.84995 91.111 8.71121L50.6999 48.3141Z"/>
+                                    <path class="flecha1" d="M50.7071 72.2929C50.3166 72.6834 49.6834 72.6834 49.2929 72.2929L8.77039 31.7704C7.90054 30.9005 9.06422 29.5328 10.0622 30.252L49.4153 58.6146C49.7645 58.8663 50.2355 58.8663 50.5847 58.6146L89.9378 30.252C90.9358 29.5328 92.0995 30.9005 91.2296 31.7704L50.7071 72.2929Z"/>
+                                    </gid="clip0_0_1">
+                                    <rect width="100" height="100"/>
+                                    </clipPath>
+                                    </defs>
+                                </svg>
+                            </div>
+                            <div class="relaciones_tabla"><img src="media/recipiente.svg" alt="recipiente" class="relacion_tabla"></div>
+                        </div>
+                        <div class="normas">
+                            <h4>Dependencias funcionales válidas</h4>
+                            <p><strong>cod. recipiente </strong>→ todos los atributos de la relación menos claves primarias</p>
+                            <h4>Dependencias funcionales inválidas</h4>
+                            <p>No hay, se cumple la forma normal de Boyce-Codd, es decir, todos los atributos de la relación solo pueden tomar valores atómicos y cada determinante funcional es una clave candidata</p>
+                        </div>
+                    </div>
+                    <div class="normalizacion">
+                        <div class="tablas">
+                            <div class="relaciones_tabla"><img src="media/envasado.svg" alt="envasado" class="relacion_tabla"></div>
+                            <div class="flechas flechas_normalizacion">
+                                <svg  viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <rect width="100" height="100" fill="none"/>
+                                    <g class="fancyflechas" clip-path="url(#clip0_0_1)">
+                                    <rect width="100" height="100" fill="none"/>
+                                    <path class="flecha3" d="M50.6999 95.3141C50.3111 95.6951 49.6889 95.6951 49.3001 95.3141L8.88899 55.7112C8.01016 54.85 9.16076 53.4703 10.1658 54.1802L49.4231 81.9078C49.7689 82.1521 50.2311 82.1521 50.5769 81.9078L89.8342 54.1802C90.8392 53.4703 91.9899 54.85 91.111 55.7112L50.6999 95.3141Z"/>
+                                    <path class="flecha2" d="M50.6999 48.3141C50.3111 48.6951 49.6889 48.6951 49.3001 48.3141L8.88899 8.71121C8.01016 7.84995 9.16076 6.4703 10.1658 7.18019L49.4231 34.9078C49.7689 35.1521 50.2311 35.1521 50.5769 34.9078L89.8342 7.1802C90.8392 6.47031 91.9899 7.84995 91.111 8.71121L50.6999 48.3141Z"/>
+                                    <path class="flecha1" d="M50.7071 72.2929C50.3166 72.6834 49.6834 72.6834 49.2929 72.2929L8.77039 31.7704C7.90054 30.9005 9.06422 29.5328 10.0622 30.252L49.4153 58.6146C49.7645 58.8663 50.2355 58.8663 50.5847 58.6146L89.9378 30.252C90.9358 29.5328 92.0995 30.9005 91.2296 31.7704L50.7071 72.2929Z"/>
+                                    </gid="clip0_0_1">
+                                    <rect width="100" height="100"/>
+                                    </clipPath>
+                                    </defs>
+                                </svg>
+                            </div>
+                            <div class="relaciones_tabla"><img src="media/envasado.svg" alt="envasado" class="relacion_tabla"></div>
+                        </div>
+                        <div class="normas">
+                            <h4>Dependencias funcionales válidas</h4>
+                            <p><strong>cod. líquido, cod. recipiente </strong>→ todos los atributos de la relación menos claves primarias</p>
+                            <h4>Dependencias funcionales inválidas</h4>
+                            <p>No hay, se cumple la forma normal de Boyce-Codd, es decir, todos los atributos de la relación solo pueden tomar valores atómicos y cada determinante funcional es una clave candidata</p>
+                        </div>
+                    </div>
+                    <div class="normalizacion">
+                        <div class="tablas">
+                            <div class="relaciones_tabla"><img src="media/colores.svg" alt="colores" class="relacion_tabla"></div>
+                            <div class="flechas flechas_normalizacion">
+                                <svg  viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <rect width="100" height="100" fill="none"/>
+                                    <g class="fancyflechas" clip-path="url(#clip0_0_1)">
+                                    <rect width="100" height="100" fill="none"/>
+                                    <path class="flecha3" d="M50.6999 95.3141C50.3111 95.6951 49.6889 95.6951 49.3001 95.3141L8.88899 55.7112C8.01016 54.85 9.16076 53.4703 10.1658 54.1802L49.4231 81.9078C49.7689 82.1521 50.2311 82.1521 50.5769 81.9078L89.8342 54.1802C90.8392 53.4703 91.9899 54.85 91.111 55.7112L50.6999 95.3141Z"/>
+                                    <path class="flecha2" d="M50.6999 48.3141C50.3111 48.6951 49.6889 48.6951 49.3001 48.3141L8.88899 8.71121C8.01016 7.84995 9.16076 6.4703 10.1658 7.18019L49.4231 34.9078C49.7689 35.1521 50.2311 35.1521 50.5769 34.9078L89.8342 7.1802C90.8392 6.47031 91.9899 7.84995 91.111 8.71121L50.6999 48.3141Z"/>
+                                    <path class="flecha1" d="M50.7071 72.2929C50.3166 72.6834 49.6834 72.6834 49.2929 72.2929L8.77039 31.7704C7.90054 30.9005 9.06422 29.5328 10.0622 30.252L49.4153 58.6146C49.7645 58.8663 50.2355 58.8663 50.5847 58.6146L89.9378 30.252C90.9358 29.5328 92.0995 30.9005 91.2296 31.7704L50.7071 72.2929Z"/>
+                                    </gid="clip0_0_1">
+                                    <rect width="100" height="100"/>
+                                    </clipPath>
+                                    </defs>
+                                </svg>
+                            </div>
+                            <div class="relaciones_tabla"><img src="media/colores.svg" alt="colores" class="relacion_tabla"></div>
+                        </div>
+                        <div class="normas">
+                            <h4>Dependencias funcionales válidas</h4>
+                            <p>No hay atributos no primos</p>
+                            <h4>Dependencias funcionales inválidas</h4>
+                            <p>No hay, se cumple la forma normal de Boyce-Codd, es decir, todos los atributos de la relación solo pueden tomar valores atómicos y cada determinante funcional es una clave candidata</p>
+                        </div>
+                    </div>
+                </div>
+                <p></p>
+            </section>
+            <section id="diagramanormalizado">
+                <div class="titulo fade fade-left">
+                    <h2>Diagrama Relacional Normalizado</h2>
+                </div>
+                <div class="bloque_img central">
+                    <img id="drelacional_horizontal" src="media/diagramanormalizado.svg" alt="diagrama_relacional_normalizado">
+                    <img id="drelacional_vertical" src="media/diagramanormalizado_vertical.svg" alt="diagrama_relacional_normalizado">
+                </div>
+            </section>
+        </main>
+        <script src="script/main.js"></script>
+    </body>
+</div>
 </html>
-

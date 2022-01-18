@@ -117,6 +117,10 @@ body  {
     overflow-x: hidden;
 }
 
+.all-content {
+    overflow-x: hidden;
+}
+
 .i {
     font-weight: 400;
 }
