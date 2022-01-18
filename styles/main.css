@@ -89,6 +89,7 @@
 
 html {
     background-color: var(--back-color);
+    overflow-x: hidden;
 }
 
 
