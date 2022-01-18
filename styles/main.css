@@ -118,6 +118,7 @@ body  {
 }
 
 .all-content {
+    width: 100vw;
     overflow-x: hidden;
 }
 
