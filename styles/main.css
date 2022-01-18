@@ -269,7 +269,7 @@ section {
 }
 
 .central {
-    margin: 0 1em;
+    margin: 0 2em 0 1em;
 }
 
 #idiagramaER {
@@ -685,6 +685,7 @@ section {
 
 .tablas_triple {
     grid-template-columns: 1fr;
+    margin-right: 1em;
 }
 
 
