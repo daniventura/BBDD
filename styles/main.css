@@ -25,8 +25,6 @@
 @font-face {
     font-family: 'Operator Mono';
     src: url('fonts/FontsFree-Net-OperatorMono-Book.ttf') format('ttf');
-    src: url('fonts/FontsFree-Net-OperatorMono-Book.woff2') format('woff2');
-    src: url('fonts/FontsFree-Net-OperatorMono-Book.woff') format('woff');
     font-style: normal;
     font-weight: normal;
 }
@@ -140,7 +138,7 @@ body {
     header {
         background-color: var(--secondary-color);
         display: grid;
-        margin: 0 auto;
+        width: 100%;
         padding-top: 12em;
         justify-items: center;
         position: relative;
@@ -156,6 +154,11 @@ body {
         
     }
 
+.cabecera_global {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
 
 .imgcab {
     width: 100%;
@@ -169,17 +172,18 @@ body {
 }
 
 .upper_cabecera {
+    min-height: 100vh;
     margin-bottom: -5px;
 }
-    .upper_cabecera::before {
+    .lower_cabecera::before {
         content: '';
         display: block;
         position: absolute;
-        top: 0;
+        inset: 0;
+        left: -10px;
         width: 100%;
-        height: 80px;
-        background: linear-gradient(to bottom, var(--secondary-color), transparent);
-        
+        background: linear-gradient(to right, var(--secondary-color), transparent, transparent, transparent);
+        box-shadow: inset 30px 100px 150px var(--secondary-color);
     }
 
 .lower_cabecera {
@@ -191,17 +195,17 @@ body {
 
 .lower_cabecera_img {
     position: relative;
-    z-index: 1000;
+    z-index: 10000;
 }
 
 
 .titulo_box {
-    position: fixed;
-    z-index: 10;
+    /* position: fixed; */
+    position: relative;
+    z-index: 1000;
 
-    width: 90vw;
+    width: 90%;
     margin: 0 auto;
-    left: calc(50% - 45vw);
 
     text-align: center;
     background-color: var(--primary-color);
@@ -244,7 +248,7 @@ main {
     padding: 4em 0;
     max-width: 1200px;
     position: relative;
-    z-index: 100;
+    z-index: 9999999;
     background-color: var(--back-color);
 }
 
@@ -753,5 +757,92 @@ section {
 
 
 
+  /* ##########################################################################
+     ==========================================================================
+        Efectos
+     ==========================================================================
+     ########################################################################## */
 
+
+.tn1 , .tn2 , .tn3  {
+
+    -webkit-transform: translateY(-1.2em);
+    transform: translateY(-1.2em);
+}
+
+.fade-left {
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+  }
+  
+  .fade-right {
+    -webkit-transform: translateX(50%);
+    transform: translateX(50%);
+  }
+  
+  .fade-left,
+  .fade-right,
+  .tn1 , .tn2 , .tn3  {
+    transition: opacity 250ms ease-in, -webkit-transform 500ms cubic-bezier(0.5, 0.1, 0.01, 0.63);
+    transition: opacity 250ms ease-in, transform 500ms cubic-bezier(0.5, 0.1, 0.01, 0.63);
+    transition: opacity 250ms ease-in, transform 500ms cubic-bezier(0.5, 0.1, 0.01, 0.63),
+      -webkit-transform 400ms cubic-bezier(0.5, 0.1, 0.01, 0.63);
+    opacity: 0;
+  }
+  .tn1  {
+    transition: opacity 250ms ease-in, transform 400ms cubic-bezier(0.25, 0, 0.37, 2.37)
+
+  }
+  .tn2  {
+    transition: opacity 250ms ease-in 250ms, transform 400ms cubic-bezier(0.25, 0, 0.37, 2.37) 250ms;
+
+  }
+  .tn3  {
+      transition: opacity 250ms ease-in 500ms, transform 400ms cubic-bezier(0.25, 0, 0.37, 2.37) 500ms;
+
+  }
+  
+  .fade-left.appear,
+  .fade-right.appear,
+  .central.appear,
+  .tn1.appear , .tn2.appear , .tn3.appear  {
+    -webkit-transform: translateY(0%);
+    transform: translateY(0%);
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+    opacity: 1;
+  }
+
+
+
+
+
+
+.titulo_box {
+    transition: transform 300ms linear;
+
+    box-shadow: 2px 4px 8px #666;
+}
+
+.titulo_box.liquidado {
+    color: var(--primary-color);
+    animation: liquidacion 1300ms ease-in-out;
+    animation-fill-mode: forwards;
+}
+
+@keyframes liquidacion {
+    0% {
+        transform: scaleX(100%) scaleY(100%);        
+    }
+    
+    12% {
+        transform: scaleX(20%) scaleY(110%);
+    }
+    25%{
+        transform: scaleX(15%) scaleY(180%) translateY(0);
+    }
+    100% {
+        transform: scaleX(15%) scaleY(180%) translateY(calc(60vh + 100%));
+    }
+}
 
