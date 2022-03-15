@@ -760,6 +760,53 @@ section {
 
 
 
+  /* ##########################################################################
+     ==========================================================================
+        Mediaquery para diagrama relacional
+     ==========================================================================
+     ########################################################################## */
+
+
+.ddl {
+    display: grid;
+    gap: 1em;    
+}
+.titulo_tabla.ddltitulo {
+    margin: 1em 0 0;
+}
+.tabla {
+    display: grid;
+    place-items: center;
+}
+.normas span {
+    color: var(--primary-color);
+}
+.botondescarga {
+    background-color: var(--primary-color);
+    border-radius: 1em;
+    box-shadow: 2px 4px 8px #666;
+    padding: 1em 2em;
+    text-decoration: none;
+    color: var(--font-negative);
+    text-align: center;
+    margin: 0 auto;
+    transition: 200ms ease-out;
+}
+.botondescarga:hover {
+    box-shadow: 2px 13px 15px #666;
+    padding: 1em 2em;
+    text-decoration: none;
+    color: var(--font-negative);
+    transform: translateY(-8px) scale(1.06);
+    
+}
+
+
+
+
+
+
+
 
   /* ##########################################################################
      ==========================================================================

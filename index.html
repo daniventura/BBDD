@@ -247,7 +247,7 @@
                                     </ul>
                                 </li>
                                 <li class="tn1 fade">
-                                    <p><strong>Tipo de Entidad:</strong> <i>Etiqueta Comercial</i> <strong>|| Hereda de: </strong><i>Recipiente, Líquido {debilidad or identificación</i></p>
+                                    <p><strong>Tipo de Entidad:</strong> <i>Etiqueta Comercial</i> <strong>|| Hereda de: </strong><i>Recipiente, Líquido {debilidad por identificación</i></p>
                                     <ul>
                                         <li class="tn2 fade">
                                             <p>Atributo: <i>cod. recipiente</i></p>
@@ -900,6 +900,153 @@
                     <img id="drelacional_horizontal" src="media/diagramanormalizado.svg" alt="diagrama_relacional_normalizado">
                     <img id="drelacional_vertical" src="media/diagramanormalizado_vertical.svg" alt="diagrama_relacional_normalizado">
                 </div>
+            </section>
+            <section id="DDL">
+                <div class="titulo fade fade-left">
+                    <h2>DDL en SQL</h2>
+                </div>
+                <div class="ddl central">
+                    <h3 class="titulo_tabla ddltitulo">Creamos y seleccionamos nuestra base de datos</h3>
+                    <div class="normas">
+                        <p>
+                            <span>CREATE DATABASE</span> fabricaELiquid;<br>
+                            <span>USE</span> fabricaELiquid;
+                        </p>
+                    </div>
+                    <h3 class="titulo_tabla ddltitulo">Creamos las tablas</h3>
+                    <div class="tabla"><img src="media/liquido basico.svg" alt=""></div>
+                    <div class="normas">
+                        <p>
+                            <span>CREATE TABLE</span> liquidoBasico (<br>
+                                nombreLiquido <span>VAR<span>CHAR(</span></span>20<span>)</span> <span>PRIMARY KEY</span>,<br>
+                                codBase <span>VAR<span>CHAR(</span></span>4<span>)</span> <span>NOT NULL</span>,<br>
+                                codAroma <span>VAR<span>CHAR(</span></span>4<span>)</span>  <span>NOT NULL</span><br>
+                              );
+                        </p>
+                    </div>
+                    <div class="tabla"><img src="media/maceracion.svg" alt=""></div>
+                    <div class="normas">
+                        <p>
+                            <span>CREATE TABLE</span> maceracion (<br>
+                                nombreLiquido <span>VAR<span>CHAR(</span></span>20<span>)</span>,<br>
+                                concentracionNicotina <span>CHAR(</span>8<span>)</span> <span>NOT NULL</span>,<br>
+                                tmacerado TINYINT <span>NOT NULL</span>,<br>
+                                <span>CONSTRAINT</span> Pkmaceracion <span>PRIMARY KEY</span> (nombreLiquido,concentracionNicotina),<br>
+                                <span>CONSTRAINT</span> CkconcentracionNicotina <span>CHECK</span> (concentracionNicotina='0,3mg/mL' <span>OR</span> concentracionNicotina='0,6mg/mL' <span>OR</span> concentracionNicotina='1,2mg/mL'),<br>
+                                <span>CONSTRAINT</span> Cktmaceracion <span>CHECK</span> (5<=tmacerado<=30)<br>
+                              );
+                        </p>
+                    </div>
+                    <div class="tabla"><img src="media/liquido final.svg" alt=""></div>
+                    <div class="normas">
+                        <p>
+                            <span>CREATE TABLE</span> liquidoFinal (<br>
+                                codLiquido <span>VAR<span>CHAR(</span></span>4<span>)</span> <span>PRIMARY KEY</span>,<br>
+                                nombreLiquido <span>VAR<span>CHAR(</span></span>20<span>)</span> <span>NOT NULL</span>,<br>
+                                concentracionNicotina <span>CHAR(</span>8<span>)</span> <span>NOT NULL</span>,<br>
+                                <span>CONSTRAINT</span> UkliquidoFinal <span>UNIQUE KEY</span> (nombreLiquido,concentracionNicotina),<br>
+                                <span>CONSTRAINT</span> CkconcentracionNicotina <span>CHECK</span> (concentracionNicotina='0,3mg/mL' <span>OR</span> concentracionNicotina='0,6mg/mL' <span>OR</span> concentracionNicotina='1,2mg/mL')<br>
+                              );
+                        </p>
+                    </div>
+                    <div class="tabla"><img src="media/aroma.svg" alt=""></div>
+                    <div class="normas">
+                        <p>
+                            <span>CREATE TABLE</span> aroma (<br>
+                                codAroma <span>VAR<span>CHAR(</span></span>4<span>)</span> <span>PRIMARY KEY</span>,<br>
+                                aroma <span>VAR<span>CHAR(</span></span>20<span>)</span> <span>NOT NULL</span> <span>UNIQUE KEY</span>,<br>
+                                categoria <span>VAR<span>CHAR(</span></span>10<span>)</span>,<br>
+                                <span>CONSTRAINT</span> Ckcategoria <span>CHECK</span> (categoria='frutal' <span>OR</span> categoria='postre' <span>OR</span> categoria='tabaquil' <span>OR</span> categoria='artificial')<br>
+                              );
+                        </p>
+                    </div>
+                    <div class="tabla"><img src="media/base.svg" alt=""></div>
+                    <div class="normas">
+                        <p>
+                            <span>CREATE TABLE</span> base (<br>
+                                codBase <span>VAR<span>CHAR(</span></span>4<span>)</span> <span>PRIMARY KEY</span>,<br>
+                                proporcion <span>VAR<span>CHAR(</span></span>6<span>)</span> <span>NOT NULL</span>,<br>
+                                <span>CONSTRAINT</span> Ckproporcion <span>CHECK</span> (proporcion <span>REGEXP</span> '(100|[0-9]{2})%VG')<br>
+                              );
+                        </p>
+                    </div>
+                    <div class="tabla"><img src="media/moleculas.svg" alt=""></div>
+                    <div class="normas">
+                        <p>
+                            <span>CREATE TABLE</span> moleculas (<br>
+                                molecula <span>VAR<span>CHAR(</span></span>17<span>)</span>,<br>
+                                codBase <span>VAR<span>CHAR(</span></span>4<span>)</span>,<br>
+                                <span>CONSTRAINT</span> Pkmoleculas <span>PRIMARY KEY</span> (molecula,codBase),<br>
+                                <span>CONSTRAINT</span> Ckmolecula <span>CHECK</span> (molecula='frescor' <span>OR</span> molecula='golpe de garganta')<br>
+                              );
+                        </p>
+                    </div>
+                    <div class="tabla"><img src="media/mezcla de aromas.svg" alt=""></div>
+                    <div class="normas">
+                        <p>
+                            <span>CREATE TABLE</span> mezclaAromas (<br>
+                                aroma <span>VAR<span>CHAR(</span></span>4<span>)</span>,<br>
+                                aromaCompuesto <span>VAR<span>CHAR(</span></span>4<span>)</span>,<br>
+                                <span>CONSTRAINT</span> PkmezclaAromas <span>PRIMARY KEY</span> (aroma,aromaCompuesto)<br>
+                              );
+                        </p>
+                    </div>
+                    <div class="tabla"><img src="media/recipiente.svg" alt=""></div>
+                    <div class="normas">
+                        <p>
+                            <span>CREATE TABLE</span> recipiente (<br>
+                                codRecipiente <span>VAR<span>CHAR(</span></span>4<span>)</span> <span>PRIMARY KEY</span>,<br>
+                                volumen <span>VAR<span>CHAR(</span></span>5<span>)</span> <span>NOT NULL</span>,<br>
+                                tipo <span>VAR<span>CHAR(</span></span>7<span>)</span> <span>NOT NULL</span> DEFAULT 'chubby',<br>
+                                <span>CONSTRAINT</span> Ukrecipiente <span>UNIQUE KEY</span> (volumen,tipo),<br>
+                                <span>CONSTRAINT</span> Ckvolumen <span>CHECK</span> (volumen='5mL' <span>OR</span> volumen='10mL' <span>OR</span> volumen='50nL' <span>OR</span> volumen='100mL'),<br>
+                                <span>CONSTRAINT</span> Cktipo <span>CHECK</span> (tipo='chubby' <span>OR</span> tipo='cristal')<br>
+                              );
+                        </p>
+                    </div>
+                    <div class="tabla"><img src="media/envasado.svg" alt=""></div>
+                    <div class="normas">
+                        <p>
+                            <span>CREATE TABLE</span> envasado (<br>
+                                codLiquido <span>VAR<span>CHAR(</span></span>4<span>)</span>,<br>
+                                codRecipiente <span>VAR<span>CHAR(</span></span>4<span>)</span>,<br>
+                                diseño <span>BINARY</span> <span>NOT NULL</span>,<br>
+                                <span>CONSTRAINT</span> Pkenvasado <span>PRIMARY KEY</span> (codLiquido,codRecipiente)<br>
+                              );                                      
+                        </p>
+                    </div>
+                    <div class="tabla"><img src="media/colores.svg" alt=""></div>
+                    <div class="normas">
+                        <p>
+                            <span>CREATE TABLE</span> colores (<br>
+                                color <span>VAR<span>CHAR(</span></span>15<span>)</span>,<br>
+                                codLiquido <span>VAR<span>CHAR(</span></span>4<span>)</span>,<br>
+                                codRecipiente <span>VAR<span>CHAR(</span></span>4),<br>
+                                <span>CONSTRAINT</span> Pkcolores <span>PRIMARY KEY</span> (color,codLiquido,codRecipiente),<br>
+                                <span>CONSTRAINT</span> Ckcolor <span>CHECK</span> (color <span>REGEXP</span> '((100)|([0-9]{2}),)((100)|([0-9]{2}),)((100)|([0-9]{2}),)((100)|([0-9]{2}))')<br>
+                              );
+                        </p>
+                    </div>
+                    <h3 class="titulo_tabla ddltitulo">Creamos las claves foráneas</h3>
+                    <div class="normas">
+                        <p>
+                            <span>ALTER TABLE</span> moleculas <span>ADD <span>CONSTRAINT</span></span> FkbaseMoleculas <span>FOREIGN KEY</span> (codBase) <span>REFERENCES</span> base(codBase);<br>
+                            <span>ALTER TABLE</span> liquidoBasico <span>ADD <span>CONSTRAINT</span></span> FkbaseLiquidoBasico <span>FOREIGN KEY</span> (codBase) <span>REFERENCES</span> base(codBase);<br>
+                            <span>ALTER TABLE</span> liquidoBasico <span>ADD <span>CONSTRAINT</span></span> FkaromaLiquidoBasico <span>FOREIGN KEY</span> (codAroma) <span>REFERENCES</span> aroma(codAroma);<br>
+                            <span>ALTER TABLE</span> mezclaAromas <span>ADD <span>CONSTRAINT</span></span> Fkmezclaaroma1 <span>FOREIGN KEY</span> (aroma) <span>REFERENCES</span> aroma(codAroma);<br>
+                            <span>ALTER TABLE</span> mezclaAromas <span>ADD <span>CONSTRAINT</span></span> Fkmezclaaroma2 <span>FOREIGN KEY</span> (aromaCompuesto) <span>REFERENCES</span> aroma(codAroma);<br>
+                            <span>ALTER TABLE</span> liquidoFinal <span>ADD <span>CONSTRAINT</span></span> FknliquidoLiquidoFinal <span>FOREIGN KEY</span> (nombreLiquido) <span>REFERENCES</span> liquidoBasico(nombreLiquido);<br>
+                            <span>ALTER TABLE</span> maceracion <span>ADD <span>CONSTRAINT</span></span> FknliquidoMaceracion <span>FOREIGN KEY</span> (nombreLiquido) <span>REFERENCES</span> liquidoBasico(nombreLiquido);<br>
+                            CREATE INDEX IndexconcentracionNicotina ON maceracion(concentracionNicotina);<br>
+                            <span>ALTER TABLE</span> liquidoFinal <span>ADD <span>CONSTRAINT</span></span> FknicotinaLiquidoFin <span>FOREIGN KEY</span> (concentracionNicotina) <span>REFERENCES</span> maceracion(concentracionNicotina);<br>
+                            <span>ALTER TABLE</span> envasado <span>ADD <span>CONSTRAINT</span></span> FkrecipienteEnvasado <span>FOREIGN KEY</span> (codRecipiente) <span>REFERENCES</span> recipiente(codRecipiente);<br>
+                            <span>ALTER TABLE</span> colores <span>ADD <span>CONSTRAINT</span></span> FkrecipienteColores <span>FOREIGN KEY</span> (codRecipiente) <span>REFERENCES</span> recipiente(codRecipiente);<br>
+                            <span>ALTER TABLE</span> envasado <span>ADD <span>CONSTRAINT</span></span> FkliquidoEnvasado <span>FOREIGN KEY</span> (codLiquido) <span>REFERENCES</span> liquidoFinal(codLiquido);<br>
+                            <span>ALTER TABLE</span> colores <span>ADD <span>CONSTRAINT</span></span> FkliquidoColores <span>FOREIGN KEY</span> (codLiquido) <span>REFERENCES</span> liquidoFinal(codLiquido);
+                        </p>
+                    </div>
+                </div>
+                <a href="archivos/Fábica E-Liquid DDL.sql" class="botondescarga" target="_blank" download="">Descargar DDL en texto plano</a>
             </section>
         </main>
         <script src="script/main.js"></script>
