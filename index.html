@@ -1138,6 +1138,77 @@
                     <div class="normas">
                         
                     </div>
+                    <h3 class="titulo_tabla ddltitulo">Consulta sobre dos tablas creada sin join</h3>
+                    <div class="normas">
+                        <p><strong>
+                            -- Nombres y codigos de los líquidos que tienen un tiempo de macerado mayor a 2 semanas
+                        </strong></p>
+                        </br>
+                        <p>
+                            SELECT liquidoFinal.nombreLiquido 'Nombre de Líquido', liquidoFinal.codLiquido 'Código' FROM liquidoFinal, maceracion </br>
+                            WHERE liquidoFinal.nombreLiquido = maceracion.nombreLiquido </br>
+                            AND maceracion.tmacerado > '14';  
+                        </p>
+                    </div>
+                    <div class="normas">
+                        
+                    </div>
+                    <h3 class="titulo_tabla ddltitulo">Consulta sobre dos tablas cerada con join</h3>
+                    <div class="normas">
+                        <p><strong>
+                            -- Distintas proporciones en la base en las que se las que se proporciona el líquido Don Juan Reserva
+                        </strong></p>
+                        </br>
+                        <p>
+                            SELECT codLiquido 'Código de Líquido' FROM colores </br>
+                            WHERE color LIKE '0,30,81,11';  
+                        </p>
+                    </div>
+                    <div class="normas">
+                        
+                    </div>
+                    <h3 class="titulo_tabla ddltitulo">Consulta de más de dos tablas creada con join</h3>
+                    <div class="normas">
+                        <p><strong>
+                            -- 
+                        </strong></p>
+                        </br>
+                        <p>
+                            SELECT codLiquido 'Código de Líquido' FROM colores </br>
+                            WHERE color LIKE '0,30,81,11';  
+                        </p>
+                    </div>
+                    <div class="normas">
+                        
+                    </div>
+                    <h3 class="titulo_tabla ddltitulo">Consulta con cálculos sobre agrupación de filas</h3>
+                    <div class="normas">
+                        <p><strong>
+                            -- 
+                        </strong></p>
+                        </br>
+                        <p>
+                            SELECT codLiquido 'Código de Líquido' FROM colores </br>
+                            WHERE color LIKE '0,30,81,11';  
+                        </p>
+                    </div>
+                    <div class="normas">
+                        
+                    </div>
+                    <h3 class="titulo_tabla ddltitulo">Consulta con subconsultas</h3>
+                    <div class="normas">
+                        <p><strong>
+                            -- 
+                        </strong></p>
+                        </br>
+                        <p>
+                            SELECT codLiquido 'Código de Líquido' FROM colores </br>
+                            WHERE color LIKE '0,30,81,11';  
+                        </p>
+                    </div>
+                    <div class="normas">
+                        
+                    </div>
                 </div>
                 <a href="archivos/Fábrica E-Liquid Consultas.sql" class="botondescarga" target="_blank" download="">Descargar consultas en texto plano</a>
             </section>
