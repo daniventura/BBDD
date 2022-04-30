@@ -1,3 +1,4 @@
+DROP DATABASE IF EXISTS fabricaEliquid;
 /*###########################################
     Crear y seleccionar base de datos
   ###########################################*/
@@ -14,24 +15,21 @@ CREATE TABLE liquidoBasico (
 );
 CREATE TABLE maceracion (
   nombreLiquido VARCHAR(20) ,
-  concentracionNicotina CHAR(8) NOT NULL,
+  concentracionNicotina ENUM('0,3mg/mL', '0,6mg/mL', '1.2mg/mL') NOT NULL,
   tmacerado TINYINT NOT NULL,
   CONSTRAINT Pkmaceracion PRIMARY KEY (nombreLiquido,concentracionNicotina),
-  CONSTRAINT CkconcentracionNicotina CHECK (concentracionNicotina='0,3mg/mL' OR concentracionNicotina='0,6mg/mL' OR concentracionNicotina='1,2mg/mL'),
   CONSTRAINT Cktmaceracion CHECK (5<=tmacerado<=30)
 );
 CREATE TABLE liquidoFinal (
   codLiquido VARCHAR(4) PRIMARY KEY,
   nombreLiquido VARCHAR(20) NOT NULL,
-  concentracionNicotina CHAR(8) NOT NULL,
-  CONSTRAINT UkliquidoFinal UNIQUE KEY (nombreLiquido,concentracionNicotina),
-  CONSTRAINT CkconcentracionNicotina CHECK (concentracionNicotina='0,3mg/mL' OR concentracionNicotina='0,6mg/mL' OR concentracionNicotina='1,2mg/mL')
+  concentracionNicotina ENUM('0,3mg/mL', '0,6mg/mL', '1.2mg/mL') NOT NULL,
+  CONSTRAINT UkliquidoFinal UNIQUE KEY (nombreLiquido,concentracionNicotina)
 );
 CREATE TABLE aroma (
   codAroma VARCHAR(4) PRIMARY KEY,
   aroma VARCHAR(20) NOT NULL UNIQUE KEY,
-  categoria VARCHAR(10),
-  CONSTRAINT Ckcategoria CHECK (categoria='frutal' OR categoria='postre' OR categoria='tabaquil' OR categoria='artificial')
+  categoria ENUM('frutal', 'postre', 'tabaquil', 'artificial')
 );
 CREATE TABLE base (
   codBase VARCHAR(4) PRIMARY KEY,
@@ -39,10 +37,9 @@ CREATE TABLE base (
   CONSTRAINT Ckproporcion CHECK (proporcion REGEXP '(100|[0-9]{2})%VG')
 );
 CREATE TABLE moleculas (
-  molecula VARCHAR(17),
+  molecula ENUM('frescor', 'golpe de garganta'),
   codBase VARCHAR(4),
-  CONSTRAINT Pkmoleculas PRIMARY KEY (molecula,codBase),
-  CONSTRAINT Ckmolecula CHECK (molecula='frescor' OR molecula='golpe de garganta')
+  CONSTRAINT Pkmoleculas PRIMARY KEY (molecula,codBase)
 );
 CREATE TABLE mezclaAromas (
   aroma VARCHAR(4),
@@ -51,11 +48,9 @@ CREATE TABLE mezclaAromas (
 );
 CREATE TABLE recipiente (
   codRecipiente VARCHAR(4) PRIMARY KEY,
-  volumen VARCHAR(5) NOT NULL,
-  tipo VARCHAR(7) NOT NULL DEFAULT 'chubby',
-  CONSTRAINT Ukrecipiente UNIQUE KEY (volumen,tipo),
-  CONSTRAINT Ckvolumen CHECK (volumen='5mL' OR volumen='10mL' OR volumen='50nL' OR volumen='100mL'),
-  CONSTRAINT Cktipo CHECK (tipo='chubby' OR tipo='cristal')
+  volumen ENUM('5mL', '10mL', '50mL', '100mL') NOT NULL,
+  tipo ENUM('chubby', 'cristal') DEFAULT 'chubby',
+  CONSTRAINT Ukrecipiente UNIQUE KEY (volumen,tipo)
 );
 CREATE TABLE envasado (
   codLiquido VARCHAR(4),
@@ -68,7 +63,7 @@ CREATE TABLE colores (
   codLiquido VARCHAR(4),
   codRecipiente VARCHAR(4),
   CONSTRAINT Pkcolores PRIMARY KEY (color,codLiquido,codRecipiente),
-  CONSTRAINT Ckcolor CHECK (color REGEXP '((100)|([0-9]{2}),)((100)|([0-9]{2}),)((100)|([0-9]{2}),)((100)|([0-9]{2}))')
+  CONSTRAINT Ckcolor CHECK (color REGEXP '((100)|([0-9]{2})),((100)|([0-9]{2})),((100)|([0-9]{2})),((100)|([0-9]{2}))')
 );
 
 /*###########################################

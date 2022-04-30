@@ -944,8 +944,7 @@
                                 codLiquido <span>VAR<span>CHAR(</span></span>4<span>)</span> <span>PRIMARY KEY</span>,<br>
                                 nombreLiquido <span>VAR<span>CHAR(</span></span>20<span>)</span> <span>NOT NULL</span>,<br>
                                 concentracionNicotina <span>CHAR(</span>8<span>)</span> <span>NOT NULL</span>,<br>
-                                <span>CONSTRAINT</span> UkliquidoFinal <span>UNIQUE KEY</span> (nombreLiquido,concentracionNicotina),<br>
-                                <span>CONSTRAINT</span> CkconcentracionNicotina <span>CHECK</span> (concentracionNicotina='0,3mg/mL' <span>OR</span> concentracionNicotina='0,6mg/mL' <span>OR</span> concentracionNicotina='1,2mg/mL')<br>
+                                <span>CONSTRAINT</span> UkliquidoFinal <span>UNIQUE KEY</span> (nombreLiquido,concentracionNicotina)<br>
                               );
                         </p>
                     </div>
@@ -954,9 +953,8 @@
                         <p>
                             <span>CREATE TABLE</span> aroma (<br>
                                 codAroma <span>VAR<span>CHAR(</span></span>4<span>)</span> <span>PRIMARY KEY</span>,<br>
-                                aroma <span>VAR<span>CHAR(</span></span>20<span>)</span> <span>NOT NULL</span> <span>UNIQUE KEY</span>,<br>
-                                categoria <span>VAR<span>CHAR(</span></span>10<span>)</span>,<br>
-                                <span>CONSTRAINT</span> Ckcategoria <span>CHECK</span> (categoria='frutal' <span>OR</span> categoria='postre' <span>OR</span> categoria='tabaquil' <span>OR</span> categoria='artificial')<br>
+                                aroma <span>ENUM(</span>'frutal', 'postre', 'tabaquil', 'artificial'<span>)</span> <span>NOT NULL</span> <span>UNIQUE KEY</span>,<br>
+                                categoria <span>VAR<span>CHAR(</span></span>10<span>)</span><br>
                               );
                         </p>
                     </div>
@@ -974,10 +972,9 @@
                     <div class="normas">
                         <p>
                             <span>CREATE TABLE</span> moleculas (<br>
-                                molecula <span>VAR<span>CHAR(</span></span>17<span>)</span>,<br>
+                                molecula <span>ENUM(</span>'frescor', 'golpe de garganta'<span>)</span>,<br>
                                 codBase <span>VAR<span>CHAR(</span></span>4<span>)</span>,<br>
-                                <span>CONSTRAINT</span> Pkmoleculas <span>PRIMARY KEY</span> (molecula,codBase),<br>
-                                <span>CONSTRAINT</span> Ckmolecula <span>CHECK</span> (molecula='frescor' <span>OR</span> molecula='golpe de garganta')<br>
+                                <span>CONSTRAINT</span> Pkmoleculas <span>PRIMARY KEY</span> (molecula,codBase)<br>
                               );
                         </p>
                     </div>
@@ -996,11 +993,9 @@
                         <p>
                             <span>CREATE TABLE</span> recipiente (<br>
                                 codRecipiente <span>VAR<span>CHAR(</span></span>4<span>)</span> <span>PRIMARY KEY</span>,<br>
-                                volumen <span>VAR<span>CHAR(</span></span>5<span>)</span> <span>NOT NULL</span>,<br>
-                                tipo <span>VAR<span>CHAR(</span></span>7<span>)</span> <span>NOT NULL</span> DEFAULT 'chubby',<br>
-                                <span>CONSTRAINT</span> Ukrecipiente <span>UNIQUE KEY</span> (volumen,tipo),<br>
-                                <span>CONSTRAINT</span> Ckvolumen <span>CHECK</span> (volumen='5mL' <span>OR</span> volumen='10mL' <span>OR</span> volumen='50nL' <span>OR</span> volumen='100mL'),<br>
-                                <span>CONSTRAINT</span> Cktipo <span>CHECK</span> (tipo='chubby' <span>OR</span> tipo='cristal')<br>
+                                volumen <span>ENUM(</span>'5mL', '10mL', '50mL', '100mL'<span>)</span> <span>NOT NULL</span>,<br>
+                                tipo <span>ENUM<span>(</span></span>'chubby', 'cristal'<span>)</span> <span>NOT NULL</span> DEFAULT 'chubby',<br>
+                                <span>CONSTRAINT</span> Ukrecipiente <span>UNIQUE KEY</span> (volumen,tipo)<br>
                               );
                         </p>
                     </div>
