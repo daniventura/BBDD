@@ -13,31 +13,38 @@ WHERE color LIKE '0,30,81,11';
   ###########################################*/
 SELECT liquidoFinal.nombreLiquido 'Nombre de Líquido', liquidoFinal.codLiquido 'Código' FROM liquidoFinal, maceracion
 WHERE liquidoFinal.nombreLiquido = maceracion.nombreLiquido
-AND maceracion.tmacerado > '7';
+AND maceracion.tmacerado > '14';
 
   /*###########################################
     Consulta sobre dos tablas creada con join
     --------------------------------------
-    Distintas proporciones en la base en las que se las que se proporciona cada líquido
+    Distintas proporciones en la base en las que se elabora el líquido Don Juan Reserva
   ###########################################*/
 
 
   /*###########################################
     Consulta de más de dos tablas creada con join
     --------------------------------------
-    
+    Codigos de líquidos que utilicen aromas de la categoria frutal
   ###########################################*/
 
 
   /*###########################################
     Consulta con cálculos sobre agrupación de filas
     --------------------------------------
-    
+    Media de dias de maceracion según la concentracion de nicotina en los líquidos
   ###########################################*/
 
 
   /*###########################################
     Consulta con subconsultas
     --------------------------------------
-    
+    Enumera los códigos de base las cuales poseen tanto la molécula de 'frescor' como la de 'golpe de garganta'
   ###########################################*/
+SELECT DISTINCT codBase 'Código de Base' FROM moleculas
+WHERE codBase IN
+    (SELECT codBase FROM moleculas
+    WHERE molecula = 'frescor')
+AND codBase IN 
+    (SELECT codBase FROM moleculas
+    WHERE molecula = 'golpe de garganta');

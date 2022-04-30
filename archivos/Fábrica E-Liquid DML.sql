@@ -26,3 +26,25 @@ VALUES
 ('0013', '50%VG'), 
 ('0014', '80%VG'), 
 ('0015', '100%VG');
+
+INSERT INTO `moleculas` (`molecula`, `codBase`) 
+VALUES ('frescor', '0001'), 
+('golpe de garganta', '0002'), 
+('frescor', '0003'), 
+('golpe de garganta', '0004'), 
+('frescor', '0005'), 
+('golpe de garganta', '0006'), 
+('frescor', '0007'), 
+('golpe de garganta', '0008'), 
+('frescor', '0009'), 
+('golpe de garganta', '0010'), 
+('frescor', '0011'), 
+('golpe de garganta', '0011'), 
+('frescor', '0012'), 
+('golpe de garganta', '0012'), 
+('frescor', '0013'), 
+('golpe de garganta', '0013'), 
+('frescor', '0014'), 
+('golpe de garganta', '0014'), 
+('frescor', '0015'), 
+('golpe de garganta', '0015');

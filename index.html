@@ -1200,8 +1200,13 @@
                         </strong></p>
                         </br>
                         <p>
-                            SELECT codLiquido 'Código de Líquido' FROM colores </br>
-                            WHERE color LIKE '0,30,81,11';  
+                            SELECT DISTINCT codBase 'Código de Base' FROM moleculas </br>
+                            WHERE codBase IN </br>
+                                (SELECT codBase FROM moleculas </br>
+                                WHERE molecula = 'frescor') </br>
+                            AND codBase IN  </br>
+                                (SELECT codBase FROM moleculas </br>
+                                WHERE molecula = 'golpe de garganta'); 
                         </p>
                     </div>
                     <div class="normas">
