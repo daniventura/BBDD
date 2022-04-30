@@ -929,10 +929,9 @@
                         <p>
                             <span>CREATE TABLE</span> maceracion (<br>
                                 nombreLiquido <span>VAR<span>CHAR(</span></span>20<span>)</span>,<br>
-                                concentracionNicotina <span>CHAR(</span>8<span>)</span> <span>NOT NULL</span>,<br>
+                                concentracionNicotina <span>ENUM(</span>'0,3mg/mL', '0,6mg/mL', '1.2mg/mL'<span>)</span> <span>NOT NULL</span>,<br>
                                 tmacerado TINYINT <span>NOT NULL</span>,<br>
                                 <span>CONSTRAINT</span> Pkmaceracion <span>PRIMARY KEY</span> (nombreLiquido,concentracionNicotina),<br>
-                                <span>CONSTRAINT</span> CkconcentracionNicotina <span>CHECK</span> (concentracionNicotina='0,3mg/mL' <span>OR</span> concentracionNicotina='0,6mg/mL' <span>OR</span> concentracionNicotina='1,2mg/mL'),<br>
                                 <span>CONSTRAINT</span> Cktmaceracion <span>CHECK</span> (5<=tmacerado<=30)<br>
                               );
                         </p>
@@ -943,7 +942,7 @@
                             <span>CREATE TABLE</span> liquidoFinal (<br>
                                 codLiquido <span>VAR<span>CHAR(</span></span>4<span>)</span> <span>PRIMARY KEY</span>,<br>
                                 nombreLiquido <span>VAR<span>CHAR(</span></span>20<span>)</span> <span>NOT NULL</span>,<br>
-                                concentracionNicotina <span>CHAR(</span>8<span>)</span> <span>NOT NULL</span>,<br>
+                                concentracionNicotina <span>ENUM(</span>'0,3mg/mL', '0,6mg/mL', '1.2mg/mL'<span>)</span> <span>NOT NULL</span>,<br>
                                 <span>CONSTRAINT</span> UkliquidoFinal <span>UNIQUE KEY</span> (nombreLiquido,concentracionNicotina)<br>
                               );
                         </p>
@@ -1042,6 +1041,115 @@
                     </div>
                 </div>
                 <a href="archivos/Fábica E-Liquid DDL.sql" class="botondescarga" target="_blank" download="">Descargar DDL en texto plano</a>
+            </section>
+            <section id="DML">
+                <div class="titulo fade fade-left">
+                    <h2>DML en SQL</h2>
+                </div>
+                <div class="ddl central">
+                    <h3 class="titulo_tabla ddltitulo">Insertamos datos en nuestra base de datos</h3>
+                    <div class="tabla"><img src="media/liquido basico.svg" alt=""></div>
+                    <div class="normas">
+                        <p>
+                            
+                        </p>
+                    </div>
+                    <div class="tabla"><img src="media/maceracion.svg" alt=""></div>
+                    <div class="normas">
+                        <p>
+                            
+                        </p>
+                    </div>
+                    <div class="tabla"><img src="media/liquido final.svg" alt=""></div>
+                    <div class="normas">
+                        <p>
+                            
+                        </p>
+                    </div>
+                    <div class="tabla"><img src="media/aroma.svg" alt=""></div>
+                    <div class="normas">
+                        <p>
+                            
+                        </p>
+                    </div>
+                    <div class="tabla"><img src="media/base.svg" alt=""></div>
+                    <div class="normas">
+                        <p>
+                            
+                        </p>
+                    </div>
+                    <div class="tabla"><img src="media/moleculas.svg" alt=""></div>
+                    <div class="normas">
+                        <p>
+                            
+                        </p>
+                    </div>
+                    <div class="tabla"><img src="media/mezcla de aromas.svg" alt=""></div>
+                    <div class="normas">
+                        <p>
+                            
+                        </p>
+                    </div>
+                    <div class="tabla"><img src="media/recipiente.svg" alt=""></div>
+                    <div class="normas">
+                        <p>
+                            
+                        </p>
+                    </div>
+                    <div class="tabla"><img src="media/envasado.svg" alt=""></div>
+                    <div class="normas">
+                        <p>
+                                                                  
+                        </p>
+                    </div>
+                    <div class="tabla"><img src="media/colores.svg" alt=""></div>
+                    <div class="normas">
+                        <p>
+                            
+                        </p>
+                    </div>
+                    <h3 class="titulo_tabla ddltitulo">Creamos las claves foráneas</h3>
+                    <div class="normas">
+                        <p>
+                            
+                        </p>
+                    </div>
+                </div>
+                <a href="archivos/Fábrica E-Liquid DML.sql" class="botondescarga" target="_blank" download="">Descargar exportación de la BBDD</a>
+                </br>
+                <a href="archivos/Fábrica E-Liquid DML.sql" class="botondescarga" target="_blank" download="">Descargar DML en texto plano</a>
+            </section>
+            <section id="consultas">
+                <div class="titulo fade fade-left">
+                    <h2>Consultas en SQL</h2>
+                </div>
+                <div class="ddl central">
+                    <h3 class="titulo_tabla ddltitulo">Consulta simple sobre una tabla</h3>
+                    <div class="normas">
+                        <p><strong>
+                            Cuales son los códigos de los líquidos que emplean el color 00,30,81,11
+                        </strong></p>
+                        </br>
+                        <p>
+                            SELECT codLiquido 'Código de Líquido' FROM colores </br>
+                            WHERE color LIKE '0,30,81,11';  
+                        </p>
+                    </div>
+                </div>
+                <a href="archivos/Fábrica E-Liquid Consultas.sql" class="botondescarga" target="_blank" download="">Descargar consultas en texto plano</a>
+            </section>
+            <section id="proyecto">
+                <div class="titulo fade fade-left">
+                    <h2>Proyecto Completo</h2>
+                </div>
+                <div class="ddl central">
+                    <div class="normas">
+                        <p>
+                          El proyecto completo contiene:  
+                        </p>
+                    </div>
+                </div>
+                <a href="archivos/Fábrica E-Liquid Consultas.sql" class="botondescarga" target="_blank" download="">Descargar el proyecto completo en texto plano</a>
             </section>
         </main>
         <script src="script/main.js"></script>

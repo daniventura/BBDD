@@ -1,5 +1,5 @@
 /*###########################################
-    Consulta simple soble una tabla
+    Consulta simple sobre una tabla
     --------------------------------------
     Cuales son los códigos de los líquidos que emplean el color (0,30,81,11)
   ###########################################*/
