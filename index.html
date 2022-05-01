@@ -1031,7 +1031,7 @@
                             <span>ALTER TABLE</span> mezclaAromas <span>ADD <span>CONSTRAINT</span></span> Fkmezclaaroma2 <span>FOREIGN KEY</span> (aromaCompuesto) <span>REFERENCES</span> aroma(codAroma);<br>
                             <span>ALTER TABLE</span> liquidoFinal <span>ADD <span>CONSTRAINT</span></span> FknliquidoLiquidoFinal <span>FOREIGN KEY</span> (nombreLiquido) <span>REFERENCES</span> liquidoBasico(nombreLiquido);<br>
                             <span>ALTER TABLE</span> maceracion <span>ADD <span>CONSTRAINT</span></span> FknliquidoMaceracion <span>FOREIGN KEY</span> (nombreLiquido) <span>REFERENCES</span> liquidoBasico(nombreLiquido);<br>
-                            CREATE INDEX IndexconcentracionNicotina ON maceracion(concentracionNicotina);<br>
+                            CREATE INDEX IndexconcentracionNicotina <span>ON</span> maceracion(concentracionNicotina);<br>
                             <span>ALTER TABLE</span> liquidoFinal <span>ADD <span>CONSTRAINT</span></span> FknicotinaLiquidoFin <span>FOREIGN KEY</span> (concentracionNicotina) <span>REFERENCES</span> maceracion(concentracionNicotina);<br>
                             <span>ALTER TABLE</span> envasado <span>ADD <span>CONSTRAINT</span></span> FkrecipienteEnvasado <span>FOREIGN KEY</span> (codRecipiente) <span>REFERENCES</span> recipiente(codRecipiente);<br>
                             <span>ALTER TABLE</span> colores <span>ADD <span>CONSTRAINT</span></span> FkrecipienteColores <span>FOREIGN KEY</span> (codRecipiente) <span>REFERENCES</span> recipiente(codRecipiente);<br>
@@ -1129,8 +1129,8 @@
                         </strong></p>
                         </br>
                         <p>
-                            SELECT codLiquido 'Código de Líquido' FROM colores </br>
-                            WHERE color LIKE '00,30,81,11';  
+                            <span>SELECT</span> codLiquido 'Código de Líquido' <span>FROM</span> colores </br>
+                            <span>WHERE</span> color LIKE '00,30,81,11';  
                         </p>
                     </div>
                     <div class="normas">
@@ -1143,10 +1143,10 @@
                         </strong></p>
                         </br>
                         <p>
-                            SELECT liquidoFinal.codLiquido 'Código de líquido', CONCAT(maceracion.tmacerado, ' ', 'días') 'Tiempo de macerado' FROM liquidoFinal, maceracion </br>
-                            WHERE liquidoFinal.nombreLiquido = maceracion.nombreLiquido </br>
-                            AND maceracion.tmacerado > '21' </br>
-                            ORDER BY maceracion.tmacerado;  
+                            <span>SELECT</span> liquidoFinal.codLiquido 'Código de líquido', CONCAT(maceracion.tmacerado, ' ', 'días') 'Tiempo de macerado' <span>FROM</span> liquidoFinal, maceracion </br>
+                            <span>WHERE</span> liquidoFinal.nombreLiquido <span>=</span> maceracion.nombreLiquido </br>
+                            AND maceracion.tmacerado <span>></span> '21' </br>
+                            <span>ORDER BY</span> maceracion.tmacerado;  
                         </p>
                     </div>
                     <div class="normas">
@@ -1159,9 +1159,9 @@
                         </strong></p>
                         </br>
                         <p>
-                            SELECT base.proporcion 'Proporción de Base' FROM base </br>
-                            JOIN liquidoBasico ON base.codBase = liquidoBasico.codBase </br>
-                            WHERE liquidoBasico.nombreLiquido = 'Don Juan Reserva';  
+                            <span>SELECT</span> base.proporcion 'Proporción de Base' <span>FROM</span> base </br>
+                            JOIN liquidoBasico <span>ON</span> base.codBase <span>=</span> liquidoBasico.codBase </br>
+                            <span>WHERE</span> liquidoBasico.nombreLiquido <span>=</span> 'Don Juan Reserva';  
                         </p>
                     </div>
                     <div class="normas">
@@ -1174,10 +1174,10 @@
                         </strong></p>
                         </br>
                         <p>
-                            SELECT DISTINCT liquidoFinal.nombreLiquido 'Nombre de líquido' FROM liquidofinal </br>
-                            JOIN liquidoBasico ON liquidoFinal.nombreLiquido = liquidoBasico.nombreLiquido </br>
-                            JOIN aroma on liquidoBasico.codAroma = aroma.codAroma </br>
-                            WHERE aroma.categoria = 'frutal';  
+                            <span>SELECT</span> <span>DISTINCT</span> liquidoFinal.nombreLiquido 'Nombre de líquido' <span>FROM</span> liquidofinal </br>
+                            JOIN liquidoBasico <span>ON</span> liquidoFinal.nombreLiquido <span>=</span> liquidoBasico.nombreLiquido </br>
+                            JOIN aroma <span>ON</span> liquidoBasico.codAroma <span>=</span> aroma.codAroma </br>
+                            <span>WHERE</span> aroma.categoria <span>=</span> 'frutal';  
                         </p>
                     </div>
                     <div class="normas">
@@ -1190,8 +1190,8 @@
                         </strong></p>
                         </br>
                         <p>
-                            SELECT concentracionNicotina 'Concentración de nicotina', CONCAT(ROUND(AVG(tmacerado), 0), ' ', 'días') 'Días de maceración' FROM maceracion </br>
-                            GROUP BY concentracionNicotina;  
+                            <span>SELECT</span> concentracionNicotina 'Concentración de nicotina', <span>CONCAT(ROUND(AVG(</span>tmacerado<span></span>)</span>, 0<span></span>)</span>, ' ', 'días')</span> 'Días de maceración' <span>FROM</span> maceracion </br>
+                            <span>GROUP BY</span> concentracionNicotina;  
                         </p>
                     </div>
                     <div class="normas">
@@ -1204,13 +1204,13 @@
                         </strong></p>
                         </br>
                         <p>
-                            SELECT DISTINCT codBase 'Código de Base' FROM moleculas </br>
-                            WHERE codBase IN </br>
-                                (SELECT codBase FROM moleculas </br>
-                                WHERE molecula = 'frescor') </br>
-                            AND codBase IN  </br>
-                                (SELECT codBase FROM moleculas </br>
-                                WHERE molecula = 'golpe de garganta'); 
+                            <span>SELECT</span> <span>DISTINCT</span> codBase 'Código de Base' <span>FROM</span> moleculas </br>
+                            <span>WHERE</span> codBase <span>IN</span> </br>
+                            <span>(SELECT</span> codBase <span>FROM</span> moleculas </br>
+                                <span>WHERE</span> molecula <span>=</span> 'frescor'<span>)</span> </br>
+                            AND codBase <span>IN</span>  </br>
+                            <span>(SELECT</span> codBase <span>FROM</span> moleculas </br>
+                                <span>WHERE</span> molecula <span>=</span> 'golpe de garganta'<span>)</span>; 
                         </p>
                     </div>
                     <div class="normas">
