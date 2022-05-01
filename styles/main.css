@@ -801,6 +801,37 @@ section {
     
 }
 
+  /* ##########################################################################
+     ==========================================================================
+        Estilos para tablas de consultas
+     ==========================================================================
+     ########################################################################## */
+
+table {
+    width: 100%;
+}
+
+
+
+th {
+    background-color: var(--primary-color);
+    color: var(--font-negative);
+    padding: 0.5em 2em;
+    margin: 0.5em;
+    width: fit-content;
+    border-radius: 20px 8px 20px 8px;
+   box-shadow: 3px 3px 6px var(--base-color);
+}
+
+td {
+    text-align: center;
+    padding: 0.2em 1em;
+    width: fit-content;
+    background-color: var(--detail-color);
+    width: fit-content;
+    border-radius: 20px 8px 20px 8px;
+   box-shadow: 3px 3px 6px var(--base-color);
+}
 
 
 
