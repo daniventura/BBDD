@@ -1166,7 +1166,7 @@
                         <p>
                             <span>SELECT</span> liquidoFinal.codLiquido 'Código de líquido', <span>CONCAT(</span>maceracion.tmacerado, ' ', 'días'<span>)</span> 'Tiempo de macerado' <span>FROM</span> liquidoFinal, maceracion </br>
                             <span>WHERE</span> liquidoFinal.nombreLiquido <span>=</span> maceracion.nombreLiquido </br>
-                            AND maceracion.tmacerado <span>></span> '21' </br>
+                            <span>AND</span> maceracion.tmacerado <span>></span> '21' </br>
                             <span>ORDER BY</span> maceracion.tmacerado;  
                         </p>
                     </div>
@@ -1197,7 +1197,7 @@
                         </br>
                         <p>
                             <span>SELECT</span> base.proporcion 'Proporción de Base' <span>FROM</span> base </br>
-                            JOIN liquidoBasico <span>ON</span> base.codBase <span>=</span> liquidoBasico.codBase </br>
+                            <span>JOIN</span> liquidoBasico <span>ON</span> base.codBase <span>=</span> liquidoBasico.codBase </br>
                             <span>WHERE</span> liquidoBasico.nombreLiquido <span>=</span> 'Don Juan Reserva';  
                         </p>
                     </div>
@@ -1212,8 +1212,8 @@
                         </br>
                         <p>
                             <span>SELECT</span> <span>DISTINCT</span> liquidoFinal.nombreLiquido 'Nombre de líquido' <span>FROM</span> liquidofinal </br>
-                            JOIN liquidoBasico <span>ON</span> liquidoFinal.nombreLiquido <span>=</span> liquidoBasico.nombreLiquido </br>
-                            JOIN aroma <span>ON</span> liquidoBasico.codAroma <span>=</span> aroma.codAroma </br>
+                            <span>JOIN</span> liquidoBasico <span>ON</span> liquidoFinal.nombreLiquido <span>=</span> liquidoBasico.nombreLiquido </br>
+                            <span>JOIN</span> aroma <span>ON</span> liquidoBasico.codAroma <span>=</span> aroma.codAroma </br>
                             <span>WHERE</span> aroma.categoria <span>=</span> 'frutal';  
                         </p>
                     </div>
@@ -1245,7 +1245,7 @@
                             <span>WHERE</span> codBase <span>IN</span> </br>
                             <span>(SELECT</span> codBase <span>FROM</span> moleculas </br>
                                 <span>WHERE</span> molecula <span>=</span> 'frescor'<span>)</span> </br>
-                            AND codBase <span>IN</span>  </br>
+                            <span>AND</span> codBase <span>IN</span>  </br>
                             <span>(SELECT</span> codBase <span>FROM</span> moleculas </br>
                                 <span>WHERE</span> molecula <span>=</span> 'golpe de garganta'<span>)</span>; 
                         </p>
