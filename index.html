@@ -1130,7 +1130,7 @@
                         </br>
                         <p>
                             SELECT codLiquido 'Código de Líquido' FROM colores </br>
-                            WHERE color LIKE '0,30,81,11';  
+                            WHERE color LIKE '00,30,81,11';  
                         </p>
                     </div>
                     <div class="normas">
@@ -1139,13 +1139,14 @@
                     <h3 class="titulo_tabla ddltitulo">Consulta sobre dos tablas creada sin join</h3>
                     <div class="normas">
                         <p><strong>
-                            <h4>-- Nombres y codigos de los líquidos que tienen un tiempo de macerado mayor a 2 semanas</h4>
+                            <h4>-- Códigos de los líquidos que tienen un tiempo de macerado mayor a 3 semanas, ordenados de mayor tiempo a menor, mostrando este también</h4>
                         </strong></p>
                         </br>
                         <p>
-                            SELECT liquidoFinal.nombreLiquido 'Nombre de Líquido', liquidoFinal.codLiquido 'Código' FROM liquidoFinal, maceracion </br>
+                            SELECT liquidoFinal.codLiquido 'Código de líquido', CONCAT(maceracion.tmacerado, ' ', 'días') 'Tiempo de macerado' FROM liquidoFinal, maceracion </br>
                             WHERE liquidoFinal.nombreLiquido = maceracion.nombreLiquido </br>
-                            AND maceracion.tmacerado > '14';  
+                            AND maceracion.tmacerado > '21' </br>
+                            ORDER BY maceracion.tmacerado;  
                         </p>
                     </div>
                     <div class="normas">
@@ -1154,12 +1155,13 @@
                     <h3 class="titulo_tabla ddltitulo">Consulta sobre dos tablas cerada con join</h3>
                     <div class="normas">
                         <p><strong>
-                            <h4>-- Distintas proporciones en la base en las que se las que se proporciona el líquido Don Juan Reserva</h4>
+                            <h4>-- Proporción en la base con la que se elabora el líquido Don Juan Reserva</h4>
                         </strong></p>
                         </br>
                         <p>
-                            SELECT codLiquido 'Código de Líquido' FROM colores </br>
-                            WHERE color LIKE '0,30,81,11';  
+                            SELECT base.proporcion 'Proporción de Base' FROM base </br>
+                            JOIN liquidoBasico ON base.codBase = liquidoBasico.codBase </br>
+                            WHERE liquidoBasico.nombreLiquido = 'Don Juan Reserva';  
                         </p>
                     </div>
                     <div class="normas">
@@ -1168,12 +1170,14 @@
                     <h3 class="titulo_tabla ddltitulo">Consulta de más de dos tablas creada con join</h3>
                     <div class="normas">
                         <p><strong>
-                            <h4>--</h4> 
+                            <h4>-- Nombres de líquidos que utilicen aromas de la categoria frutal</h4> 
                         </strong></p>
                         </br>
                         <p>
-                            SELECT codLiquido 'Código de Líquido' FROM colores </br>
-                            WHERE color LIKE '0,30,81,11';  
+                            SELECT DISTINCT liquidoFinal.nombreLiquido 'Nombre de líquido' FROM liquidofinal </br>
+                            JOIN liquidoBasico ON liquidoFinal.nombreLiquido = liquidoBasico.nombreLiquido </br>
+                            JOIN aroma on liquidoBasico.codAroma = aroma.codAroma </br>
+                            WHERE aroma.categoria = 'frutal';  
                         </p>
                     </div>
                     <div class="normas">
@@ -1182,12 +1186,12 @@
                     <h3 class="titulo_tabla ddltitulo">Consulta con cálculos sobre agrupación de filas</h3>
                     <div class="normas">
                         <p><strong>
-                            <h4>--</h4> 
+                            <h4>-- Media de días, redondeados a números enteros, de maceración según la concentracion de nicotina en los líquidos</h4> 
                         </strong></p>
                         </br>
                         <p>
-                            SELECT codLiquido 'Código de Líquido' FROM colores </br>
-                            WHERE color LIKE '0,30,81,11';  
+                            SELECT concentracionNicotina 'Concentración de nicotina', CONCAT(ROUND(AVG(tmacerado), 0), ' ', 'días') 'Días de maceración' FROM maceracion </br>
+                            GROUP BY concentracionNicotina;  
                         </p>
                     </div>
                     <div class="normas">
@@ -1196,7 +1200,7 @@
                     <h3 class="titulo_tabla ddltitulo">Consulta con subconsultas</h3>
                     <div class="normas">
                         <p><strong>
-                            <h4>--</h4> 
+                            <h4>-- Enumera los códigos de base las cuales poseen tanto la molécula de 'frescor' como la de 'golpe de garganta'</h4> 
                         </strong></p>
                         </br>
                         <p>
@@ -1213,7 +1217,7 @@
                         
                     </div>
                 </div>
-                <a href="archivos/Fábrica E-Liquid DML.sql" class="botondescarga" target="_blank" download="">Descargar exportación de la BBDD</a>
+                <a href="archivos/fabricaeliquid_Exportada.sql" class="botondescarga" target="_blank" download="">Descargar exportación de la BBDD</a>
                 <a href="archivos/Fábrica E-Liquid Consultas.sql" class="botondescarga" target="_blank" download="">Descargar consultas en texto plano</a>
             </section>
             <section id="proyecto">
