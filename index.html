@@ -1130,7 +1130,7 @@
                         </br>
                         <p>
                             <span>SELECT</span> codLiquido 'Código de Líquido' <span>FROM</span> colores </br>
-                            <span>WHERE</span> color LIKE '00,30,81,11';  
+                            <span>WHERE</span> color <span>LIKE</span> '00,30,81,11';  
                         </p>
                     </div>
                     <div class="normas">
@@ -1143,7 +1143,7 @@
                         </strong></p>
                         </br>
                         <p>
-                            <span>SELECT</span> liquidoFinal.codLiquido 'Código de líquido', CONCAT(maceracion.tmacerado, ' ', 'días') 'Tiempo de macerado' <span>FROM</span> liquidoFinal, maceracion </br>
+                            <span>SELECT</span> liquidoFinal.codLiquido 'Código de líquido', <span>CONCAT(</span>maceracion.tmacerado, ' ', 'días'<span>)</span> 'Tiempo de macerado' <span>FROM</span> liquidoFinal, maceracion </br>
                             <span>WHERE</span> liquidoFinal.nombreLiquido <span>=</span> maceracion.nombreLiquido </br>
                             AND maceracion.tmacerado <span>></span> '21' </br>
                             <span>ORDER BY</span> maceracion.tmacerado;  
