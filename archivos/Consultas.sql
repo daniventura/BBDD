@@ -1,3 +1,5 @@
+USE fabricaeliquidExportada;
+
 /*###########################################
     Consulta simple sobre una tabla
     --------------------------------------
