@@ -33,7 +33,7 @@ WHERE liquidoBasico.nombreLiquido = 'Don Juan Reserva';
     --------------------------------------
     Nombres de líquidos que utilicen aromas de la categoria frutal
   ###########################################*/
-SELECT DISTINCT liquidoFinal.nombreLiquido 'Nombre de líquido' FROM liquidofinal
+SELECT DISTINCT liquidoFinal.nombreLiquido 'Nombre de líquido' FROM liquidoFinal
 JOIN liquidoBasico ON liquidoFinal.nombreLiquido = liquidoBasico.nombreLiquido
 JOIN aroma on liquidoBasico.codAroma = aroma.codAroma
 WHERE aroma.categoria = 'frutal';
