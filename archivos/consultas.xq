@@ -40,6 +40,7 @@ return $liquidofinal/nombreLiquido || " " || $liquidofinal/codLiquido,
   for $aroma in /database/aroma 
   
   return <tr>
+    <td>{$aroma/codAroma/text()} </td>
     <td>{$aroma/aroma/text()} </td>
     <td>{$aroma/categoria/text()} </td>
   </tr>
