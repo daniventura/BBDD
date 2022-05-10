@@ -1,0 +1,498 @@
+<database>
+  <!-- Tabla aroma -->
+  <aroma>
+    <codAroma>0001</codAroma>
+    <aroma>manzana</aroma>
+    <categoria>frutal</categoria>
+  </aroma>
+  <aroma>
+    <codAroma>0002</codAroma>
+    <aroma>melón</aroma>
+    <categoria>frutal</categoria>
+  </aroma>
+  <aroma>
+    <codAroma>0003</codAroma>
+    <aroma>coco</aroma>
+    <categoria>frutal</categoria>
+  </aroma>
+  <aroma>
+    <codAroma>0004</codAroma>
+    <aroma>mango</aroma>
+    <categoria>frutal</categoria>
+  </aroma>
+  <aroma>
+    <codAroma>0005</codAroma>
+    <aroma>kiwi</aroma>
+    <categoria>frutal</categoria>
+  </aroma>
+  <aroma>
+    <codAroma>0006</codAroma>
+    <aroma>nata</aroma>
+    <categoria>postre</categoria>
+  </aroma>
+  <aroma>
+    <codAroma>0007</codAroma>
+    <aroma>galleta</aroma>
+    <categoria>postre</categoria>
+  </aroma>
+  <aroma>
+    <codAroma>0008</codAroma>
+    <aroma>vainilla</aroma>
+    <categoria>postre</categoria>
+  </aroma>
+  <aroma>
+    <codAroma>0009</codAroma>
+    <aroma>tabaco rubio</aroma>
+    <categoria>tabaquil</categoria>
+  </aroma>
+  <aroma>
+    <codAroma>0010</codAroma>
+    <aroma>ron</aroma>
+    <categoria>artificial</categoria>
+  </aroma>
+  <aroma>
+    <codAroma>0011</codAroma>
+    <aroma>cacao</aroma>
+    <categoria>postre</categoria>
+  </aroma>
+  <aroma>
+    <codAroma>0012</codAroma>
+    <aroma>leche</aroma>
+    <categoria>postre</categoria>
+  </aroma>
+  <aroma>
+    <codAroma>0013</codAroma>
+    <aroma>chocolate</aroma>
+    <categoria>postre</categoria>
+  </aroma>
+  <aroma>
+    <codAroma>0014</codAroma>
+    <aroma>reserva</aroma>
+    <categoria>artificial</categoria>
+  </aroma>
+  <aroma>
+    <codAroma>0015</codAroma>
+    <aroma>tutti frutti</aroma>
+    <categoria>frutal</categoria>
+  </aroma>
+  <aroma>
+    <codAroma>0016</codAroma>
+    <aroma>oreo</aroma>
+    <categoria>postre</categoria>
+  </aroma>
+  <!-- Tabla base -->
+  <base>
+    <codBase>0001</codBase>
+    <proporcion>00%VG</proporcion>
+  </base>
+  <base>
+    <codBase>0002</codBase>
+    <proporcion>00%VG</proporcion>
+  </base>
+  <base>
+    <codBase>0003</codBase>
+    <proporcion>30%VG</proporcion>
+  </base>
+  <base>
+    <codBase>0004</codBase>
+    <proporcion>30%VG</proporcion>
+  </base>
+  <base>
+    <codBase>0005</codBase>
+    <proporcion>50%VG</proporcion>
+  </base>
+  <base>
+    <codBase>0006</codBase>
+    <proporcion>50%VG</proporcion>
+  </base>
+  <base>
+    <codBase>0007</codBase>
+    <proporcion>80%VG</proporcion>
+  </base>
+  <base>
+    <codBase>0008</codBase>
+    <proporcion>80%VG</proporcion>
+  </base>
+  <base>
+    <codBase>0009</codBase>
+    <proporcion>100%VG</proporcion>
+  </base>
+  <base>
+    <codBase>0010</codBase>
+    <proporcion>100%VG</proporcion>
+  </base>
+  <base>
+    <codBase>0011</codBase>
+    <proporcion>00%VG</proporcion>
+  </base>
+  <base>
+    <codBase>0012</codBase>
+    <proporcion>30%VG</proporcion>
+  </base>
+  <base>
+    <codBase>0013</codBase>
+    <proporcion>50%VG</proporcion>
+  </base>
+  <base>
+    <codBase>0014</codBase>
+    <proporcion>80%VG</proporcion>
+  </base>
+  <base>
+    <codBase>0015</codBase>
+    <proporcion>100%VG</proporcion>
+  </base>
+  <!-- Tabla colores -->
+  <colores>
+    <color>00,30,81,11</color>
+    <codLiquido>0001</codLiquido>
+    <codRecipiente>0001</codRecipiente>
+  </colores>
+  <colores>
+    <color>00,30,81,11</color>
+    <codLiquido>0002</codLiquido>
+    <codRecipiente>0001</codRecipiente>
+  </colores>
+  <colores>
+    <color>00,30,81,11</color>
+    <codLiquido>0003</codLiquido>
+    <codRecipiente>0001</codRecipiente>
+  </colores>
+  <colores>
+    <color>00,30,81,11</color>
+    <codLiquido>0007</codLiquido>
+    <codRecipiente>0001</codRecipiente>
+  </colores>
+  <colores>
+    <color>00,30,81,11</color>
+    <codLiquido>0008</codLiquido>
+    <codRecipiente>0001</codRecipiente>
+  </colores>
+  <colores>
+    <color>00,30,81,11</color>
+    <codLiquido>0009</codLiquido>
+    <codRecipiente>0001</codRecipiente>
+  </colores>
+  <!-- Tabla envasado -->
+  <!-- Tabla liquidobasico -->
+  <liquidobasico>
+    <nombreLiquido>Apple Punch</nombreLiquido>
+    <codBase>0014</codBase>
+    <codAroma>0001</codAroma>
+  </liquidobasico>
+  <liquidobasico>
+    <nombreLiquido>Cookies &amp; Crème</nombreLiquido>
+    <codBase>0004</codBase>
+    <codAroma>0016</codAroma>
+  </liquidobasico>
+  <liquidobasico>
+    <nombreLiquido>Don Juan Reserva</nombreLiquido>
+    <codBase>0008</codBase>
+    <codAroma>0014</codAroma>
+  </liquidobasico>
+  <liquidobasico>
+    <nombreLiquido>Fruit Garden</nombreLiquido>
+    <codBase>0005</codBase>
+    <codAroma>0015</codAroma>
+  </liquidobasico>
+  <!-- Tabla liquidofinal -->
+  <liquidofinal>
+    <codLiquido>0001</codLiquido>
+    <nombreLiquido>Apple Punch</nombreLiquido>
+    <concentracionNicotina>0,3mg/mL</concentracionNicotina>
+  </liquidofinal>
+  <liquidofinal>
+    <codLiquido>0002</codLiquido>
+    <nombreLiquido>Apple Punch</nombreLiquido>
+    <concentracionNicotina>0,6mg/mL</concentracionNicotina>
+  </liquidofinal>
+  <liquidofinal>
+    <codLiquido>0003</codLiquido>
+    <nombreLiquido>Apple Punch</nombreLiquido>
+    <concentracionNicotina>1.2mg/mL</concentracionNicotina>
+  </liquidofinal>
+  <liquidofinal>
+    <codLiquido>0004</codLiquido>
+    <nombreLiquido>Cookies &amp; Crème</nombreLiquido>
+    <concentracionNicotina>0,3mg/mL</concentracionNicotina>
+  </liquidofinal>
+  <liquidofinal>
+    <codLiquido>0005</codLiquido>
+    <nombreLiquido>Cookies &amp; Crème</nombreLiquido>
+    <concentracionNicotina>0,6mg/mL</concentracionNicotina>
+  </liquidofinal>
+  <liquidofinal>
+    <codLiquido>0006</codLiquido>
+    <nombreLiquido>Cookies &amp; Crème</nombreLiquido>
+    <concentracionNicotina>1.2mg/mL</concentracionNicotina>
+  </liquidofinal>
+  <liquidofinal>
+    <codLiquido>0007</codLiquido>
+    <nombreLiquido>Don Juan Reserva</nombreLiquido>
+    <concentracionNicotina>0,3mg/mL</concentracionNicotina>
+  </liquidofinal>
+  <liquidofinal>
+    <codLiquido>0008</codLiquido>
+    <nombreLiquido>Don Juan Reserva</nombreLiquido>
+    <concentracionNicotina>0,6mg/mL</concentracionNicotina>
+  </liquidofinal>
+  <liquidofinal>
+    <codLiquido>0009</codLiquido>
+    <nombreLiquido>Don Juan Reserva</nombreLiquido>
+    <concentracionNicotina>1.2mg/mL</concentracionNicotina>
+  </liquidofinal>
+  <liquidofinal>
+    <codLiquido>0010</codLiquido>
+    <nombreLiquido>Fruit Garden</nombreLiquido>
+    <concentracionNicotina>0,3mg/mL</concentracionNicotina>
+  </liquidofinal>
+  <liquidofinal>
+    <codLiquido>0011</codLiquido>
+    <nombreLiquido>Fruit Garden</nombreLiquido>
+    <concentracionNicotina>0,6mg/mL</concentracionNicotina>
+  </liquidofinal>
+  <liquidofinal>
+    <codLiquido>0012</codLiquido>
+    <nombreLiquido>Fruit Garden</nombreLiquido>
+    <concentracionNicotina>1.2mg/mL</concentracionNicotina>
+  </liquidofinal>
+  <!-- Tabla maceracion -->
+  <maceracion>
+    <nombreLiquido>Apple Punch</nombreLiquido>
+    <concentracionNicotina>0,3mg/mL</concentracionNicotina>
+    <tmacerado>6</tmacerado>
+  </maceracion>
+  <maceracion>
+    <nombreLiquido>Apple Punch</nombreLiquido>
+    <concentracionNicotina>0,6mg/mL</concentracionNicotina>
+    <tmacerado>8</tmacerado>
+  </maceracion>
+  <maceracion>
+    <nombreLiquido>Apple Punch</nombreLiquido>
+    <concentracionNicotina>1.2mg/mL</concentracionNicotina>
+    <tmacerado>10</tmacerado>
+  </maceracion>
+  <maceracion>
+    <nombreLiquido>Cookies &amp; Crème</nombreLiquido>
+    <concentracionNicotina>0,3mg/mL</concentracionNicotina>
+    <tmacerado>16</tmacerado>
+  </maceracion>
+  <maceracion>
+    <nombreLiquido>Cookies &amp; Crème</nombreLiquido>
+    <concentracionNicotina>0,6mg/mL</concentracionNicotina>
+    <tmacerado>18</tmacerado>
+  </maceracion>
+  <maceracion>
+    <nombreLiquido>Cookies &amp; Crème</nombreLiquido>
+    <concentracionNicotina>1.2mg/mL</concentracionNicotina>
+    <tmacerado>20</tmacerado>
+  </maceracion>
+  <maceracion>
+    <nombreLiquido>Don Juan Reserva</nombreLiquido>
+    <concentracionNicotina>0,3mg/mL</concentracionNicotina>
+    <tmacerado>15</tmacerado>
+  </maceracion>
+  <maceracion>
+    <nombreLiquido>Don Juan Reserva</nombreLiquido>
+    <concentracionNicotina>0,6mg/mL</concentracionNicotina>
+    <tmacerado>20</tmacerado>
+  </maceracion>
+  <maceracion>
+    <nombreLiquido>Don Juan Reserva</nombreLiquido>
+    <concentracionNicotina>1.2mg/mL</concentracionNicotina>
+    <tmacerado>28</tmacerado>
+  </maceracion>
+  <maceracion>
+    <nombreLiquido>Fruit Garden</nombreLiquido>
+    <concentracionNicotina>0,3mg/mL</concentracionNicotina>
+    <tmacerado>10</tmacerado>
+  </maceracion>
+  <maceracion>
+    <nombreLiquido>Fruit Garden</nombreLiquido>
+    <concentracionNicotina>0,6mg/mL</concentracionNicotina>
+    <tmacerado>12</tmacerado>
+  </maceracion>
+  <maceracion>
+    <nombreLiquido>Fruit Garden</nombreLiquido>
+    <concentracionNicotina>1.2mg/mL</concentracionNicotina>
+    <tmacerado>15</tmacerado>
+  </maceracion>
+  <!-- Tabla mezclaaromas -->
+  <mezclaaromas>
+    <aroma>0001</aroma>
+    <aromaCompuesto>0015</aromaCompuesto>
+  </mezclaaromas>
+  <mezclaaromas>
+    <aroma>0002</aroma>
+    <aromaCompuesto>0015</aromaCompuesto>
+  </mezclaaromas>
+  <mezclaaromas>
+    <aroma>0003</aroma>
+    <aromaCompuesto>0014</aromaCompuesto>
+  </mezclaaromas>
+  <mezclaaromas>
+    <aroma>0004</aroma>
+    <aromaCompuesto>0015</aromaCompuesto>
+  </mezclaaromas>
+  <mezclaaromas>
+    <aroma>0005</aroma>
+    <aromaCompuesto>0015</aromaCompuesto>
+  </mezclaaromas>
+  <mezclaaromas>
+    <aroma>0006</aroma>
+    <aromaCompuesto>0016</aromaCompuesto>
+  </mezclaaromas>
+  <mezclaaromas>
+    <aroma>0007</aroma>
+    <aromaCompuesto>0016</aromaCompuesto>
+  </mezclaaromas>
+  <mezclaaromas>
+    <aroma>0008</aroma>
+    <aromaCompuesto>0014</aromaCompuesto>
+  </mezclaaromas>
+  <mezclaaromas>
+    <aroma>0009</aroma>
+    <aromaCompuesto>0014</aromaCompuesto>
+  </mezclaaromas>
+  <mezclaaromas>
+    <aroma>0010</aroma>
+    <aromaCompuesto>0014</aromaCompuesto>
+  </mezclaaromas>
+  <mezclaaromas>
+    <aroma>0011</aroma>
+    <aromaCompuesto>0013</aromaCompuesto>
+  </mezclaaromas>
+  <mezclaaromas>
+    <aroma>0012</aroma>
+    <aromaCompuesto>0013</aromaCompuesto>
+  </mezclaaromas>
+  <mezclaaromas>
+    <aroma>0013</aroma>
+    <aromaCompuesto>0014</aromaCompuesto>
+  </mezclaaromas>
+  <mezclaaromas>
+    <aroma>0013</aroma>
+    <aromaCompuesto>0016</aromaCompuesto>
+  </mezclaaromas>
+  <!-- Tabla moleculas -->
+  <moleculas>
+    <molecula>frescor</molecula>
+    <codBase>0001</codBase>
+  </moleculas>
+  <moleculas>
+    <molecula>frescor</molecula>
+    <codBase>0003</codBase>
+  </moleculas>
+  <moleculas>
+    <molecula>frescor</molecula>
+    <codBase>0005</codBase>
+  </moleculas>
+  <moleculas>
+    <molecula>frescor</molecula>
+    <codBase>0007</codBase>
+  </moleculas>
+  <moleculas>
+    <molecula>frescor</molecula>
+    <codBase>0009</codBase>
+  </moleculas>
+  <moleculas>
+    <molecula>frescor</molecula>
+    <codBase>0011</codBase>
+  </moleculas>
+  <moleculas>
+    <molecula>frescor</molecula>
+    <codBase>0012</codBase>
+  </moleculas>
+  <moleculas>
+    <molecula>frescor</molecula>
+    <codBase>0013</codBase>
+  </moleculas>
+  <moleculas>
+    <molecula>frescor</molecula>
+    <codBase>0014</codBase>
+  </moleculas>
+  <moleculas>
+    <molecula>frescor</molecula>
+    <codBase>0015</codBase>
+  </moleculas>
+  <moleculas>
+    <molecula>golpe de garganta</molecula>
+    <codBase>0002</codBase>
+  </moleculas>
+  <moleculas>
+    <molecula>golpe de garganta</molecula>
+    <codBase>0004</codBase>
+  </moleculas>
+  <moleculas>
+    <molecula>golpe de garganta</molecula>
+    <codBase>0006</codBase>
+  </moleculas>
+  <moleculas>
+    <molecula>golpe de garganta</molecula>
+    <codBase>0008</codBase>
+  </moleculas>
+  <moleculas>
+    <molecula>golpe de garganta</molecula>
+    <codBase>0010</codBase>
+  </moleculas>
+  <moleculas>
+    <molecula>golpe de garganta</molecula>
+    <codBase>0011</codBase>
+  </moleculas>
+  <moleculas>
+    <molecula>golpe de garganta</molecula>
+    <codBase>0012</codBase>
+  </moleculas>
+  <moleculas>
+    <molecula>golpe de garganta</molecula>
+    <codBase>0013</codBase>
+  </moleculas>
+  <moleculas>
+    <molecula>golpe de garganta</molecula>
+    <codBase>0014</codBase>
+  </moleculas>
+  <moleculas>
+    <molecula>golpe de garganta</molecula>
+    <codBase>0015</codBase>
+  </moleculas>
+  <!-- Tabla recipiente -->
+  <recipiente>
+    <codRecipiente>0001</codRecipiente>
+    <volumen>5mL</volumen>
+    <tipo>chubby</tipo>
+  </recipiente>
+  <recipiente>
+    <codRecipiente>0005</codRecipiente>
+    <volumen>5mL</volumen>
+    <tipo>cristal</tipo>
+  </recipiente>
+  <recipiente>
+    <codRecipiente>0002</codRecipiente>
+    <volumen>10mL</volumen>
+    <tipo>chubby</tipo>
+  </recipiente>
+  <recipiente>
+    <codRecipiente>0006</codRecipiente>
+    <volumen>10mL</volumen>
+    <tipo>cristal</tipo>
+  </recipiente>
+  <recipiente>
+    <codRecipiente>0003</codRecipiente>
+    <volumen>50mL</volumen>
+    <tipo>chubby</tipo>
+  </recipiente>
+  <recipiente>
+    <codRecipiente>0007</codRecipiente>
+    <volumen>50mL</volumen>
+    <tipo>cristal</tipo>
+  </recipiente>
+  <recipiente>
+    <codRecipiente>0004</codRecipiente>
+    <volumen>100mL</volumen>
+    <tipo>chubby</tipo>
+  </recipiente>
+  <recipiente>
+    <codRecipiente>0008</codRecipiente>
+    <volumen>100mL</volumen>
+    <tipo>cristal</tipo>
+  </recipiente>
+</database>

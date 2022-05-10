@@ -1,3 +1,7 @@
+(: Muestra la tabla liquidobasico para el nombre de liquido "Don Juan Reserva" con etiquetas :)
+for $liquido in //liquidobasico[nombreLiquido='Don Juan Reserva']
+return $liquido/node(),
+
 (: Muestra la tabla liquidobasico sin etiquetas :)
 for $liquido in //liquidobasico
 return $liquido/node()/text(),
