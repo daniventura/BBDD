@@ -32,7 +32,7 @@ return $liquidofinal/nombreLiquido || " " || $liquidofinal/codLiquido,
 <html>
 <table border="1" cellspacing="0">
   <tr>
-    <th>Código aroma</th>
+    <th>Código</th>
     <th>Aroma</th>
     <th>Categoría</th>
   </tr>
