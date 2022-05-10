@@ -30,7 +30,7 @@ return $liquidofinal/nombreLiquido || " " || $liquidofinal/codLiquido,
 
 (: Lista en forma de tabla html los aromas y las categoria a la que pertenecen, además de indicar el total de ellos :)
 <html>
-<table border="1">
+<table border="1" cellspacing="0">
   <tr>
     <th>Código aroma</th>
     <th>Aroma</th>
