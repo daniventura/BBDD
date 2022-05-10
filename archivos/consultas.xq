@@ -1,3 +1,4 @@
+(:CONSULTAS XML:)
 (: Muestra la tabla liquidobasico para el nombre de liquido "Don Juan Reserva" con etiquetas :)
 for $liquido in //liquidobasico[nombreLiquido='Don Juan Reserva']
 return $liquido/node(),
