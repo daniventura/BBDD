@@ -47,21 +47,22 @@ CREATE TABLE mezclaAromas (
   CONSTRAINT PkmezclaAromas PRIMARY KEY (aroma,aromaCompuesto)
 );
 CREATE TABLE recipiente (
-  codRecipiente VARCHAR(4) PRIMARY KEY,
+  codRecipiente TINYINT AUTO_INCREMENT,
   volumen ENUM('5mL', '10mL', '50mL', '100mL') NOT NULL,
   tipo ENUM('chubby', 'cristal') DEFAULT 'chubby',
-  CONSTRAINT Ukrecipiente UNIQUE KEY (volumen,tipo)
+  CONSTRAINT Ukrecipiente UNIQUE KEY (volumen,tipo),
+  CONSTRAINT Pkrecipiente PRIMARY KEY (codRecipiente)
 );
 CREATE TABLE envasado (
   codLiquido VARCHAR(4),
-  codRecipiente VARCHAR(4),
+  codRecipiente TINYINT,
   diseño BINARY NOT NULL,
   CONSTRAINT Pkenvasado PRIMARY KEY (codLiquido,codRecipiente)
 );
 CREATE TABLE colores (
   color VARCHAR(15),
   codLiquido VARCHAR(4),
-  codRecipiente VARCHAR(4),
+  codRecipiente TINYINT,
   CONSTRAINT Pkcolores PRIMARY KEY (color,codLiquido,codRecipiente),
   CONSTRAINT Ckcolor CHECK (color REGEXP '((100)|([0-9]{2})),((100)|([0-9]{2})),((100)|([0-9]{2})),((100)|([0-9]{2}))')
 );

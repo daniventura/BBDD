@@ -1,3 +1,89 @@
+DROP DATABASE IF EXISTS fabricaEliquid;
+/*###########################################
+    Crear y seleccionar base de datos
+  ###########################################*/
+CREATE DATABASE fabricaELiquid;
+USE fabricaELiquid;
+
+/*###########################################
+    Crear tablas
+  ###########################################*/
+CREATE TABLE liquidoBasico (
+  nombreLiquido VARCHAR(20) PRIMARY KEY,
+  codBase VARCHAR(4) NOT NULL,
+  codAroma VARCHAR(4)  NOT NULL
+);
+CREATE TABLE maceracion (
+  nombreLiquido VARCHAR(20) ,
+  concentracionNicotina ENUM('0,3mg/mL', '0,6mg/mL', '1.2mg/mL') NOT NULL,
+  tmacerado TINYINT NOT NULL,
+  CONSTRAINT Pkmaceracion PRIMARY KEY (nombreLiquido,concentracionNicotina),
+  CONSTRAINT Cktmaceracion CHECK (5<=tmacerado<=30)
+);
+CREATE TABLE liquidoFinal (
+  codLiquido VARCHAR(4) PRIMARY KEY,
+  nombreLiquido VARCHAR(20) NOT NULL,
+  concentracionNicotina ENUM('0,3mg/mL', '0,6mg/mL', '1.2mg/mL') NOT NULL,
+  CONSTRAINT UkliquidoFinal UNIQUE KEY (nombreLiquido,concentracionNicotina)
+);
+CREATE TABLE aroma (
+  codAroma VARCHAR(4) PRIMARY KEY,
+  aroma VARCHAR(20) NOT NULL UNIQUE KEY,
+  categoria ENUM('frutal', 'postre', 'tabaquil', 'artificial')
+);
+CREATE TABLE base (
+  codBase VARCHAR(4) PRIMARY KEY,
+  proporcion VARCHAR(6) NOT NULL,
+  CONSTRAINT Ckproporcion CHECK (proporcion REGEXP '(100|[0-9]{2})%VG')
+);
+CREATE TABLE moleculas (
+  molecula ENUM('frescor', 'golpe de garganta'),
+  codBase VARCHAR(4),
+  CONSTRAINT Pkmoleculas PRIMARY KEY (molecula,codBase)
+);
+CREATE TABLE mezclaAromas (
+  aroma VARCHAR(4),
+  aromaCompuesto VARCHAR(4),
+  CONSTRAINT PkmezclaAromas PRIMARY KEY (aroma,aromaCompuesto)
+);
+CREATE TABLE recipiente (
+  codRecipiente TINYINT AUTO_INCREMENT,
+  volumen ENUM('5mL', '10mL', '50mL', '100mL') NOT NULL,
+  tipo ENUM('chubby', 'cristal') DEFAULT 'chubby',
+  CONSTRAINT Ukrecipiente UNIQUE KEY (volumen,tipo),
+  CONSTRAINT Pkrecipiente PRIMARY KEY (codRecipiente)
+);
+CREATE TABLE envasado (
+  codLiquido VARCHAR(4),
+  codRecipiente TINYINT,
+  diseño BINARY NOT NULL,
+  CONSTRAINT Pkenvasado PRIMARY KEY (codLiquido,codRecipiente)
+);
+CREATE TABLE colores (
+  color VARCHAR(15),
+  codLiquido VARCHAR(4),
+  codRecipiente TINYINT,
+  CONSTRAINT Pkcolores PRIMARY KEY (color,codLiquido,codRecipiente),
+  CONSTRAINT Ckcolor CHECK (color REGEXP '((100)|([0-9]{2})),((100)|([0-9]{2})),((100)|([0-9]{2})),((100)|([0-9]{2}))')
+);
+
+/*###########################################
+    Crear relaciones de tablas // Claves foráneas
+  ###########################################*/
+ALTER TABLE moleculas ADD CONSTRAINT FkbaseMoleculas FOREIGN KEY (codBase) REFERENCES base(codBase);
+ALTER TABLE liquidoBasico ADD CONSTRAINT FkbaseLiquidoBasico FOREIGN KEY (codBase) REFERENCES base(codBase);
+ALTER TABLE liquidoBasico ADD CONSTRAINT FkaromaLiquidoBasico FOREIGN KEY (codAroma) REFERENCES aroma(codAroma);
+ALTER TABLE mezclaAromas ADD CONSTRAINT Fkmezclaaroma1 FOREIGN KEY (aroma) REFERENCES aroma(codAroma);
+ALTER TABLE mezclaAromas ADD CONSTRAINT Fkmezclaaroma2 FOREIGN KEY (aromaCompuesto) REFERENCES aroma(codAroma);
+ALTER TABLE liquidoFinal ADD CONSTRAINT FknliquidoLiquidoFinal FOREIGN KEY (nombreLiquido) REFERENCES liquidoBasico(nombreLiquido);
+ALTER TABLE maceracion ADD CONSTRAINT FknliquidoMaceracion FOREIGN KEY (nombreLiquido) REFERENCES liquidoBasico(nombreLiquido);
+CREATE INDEX IndexconcentracionNicotina ON maceracion(concentracionNicotina);
+ALTER TABLE liquidoFinal ADD CONSTRAINT FknicotinaLiquidoFin FOREIGN KEY (concentracionNicotina) REFERENCES maceracion(concentracionNicotina);
+ALTER TABLE envasado ADD CONSTRAINT FkrecipienteEnvasado FOREIGN KEY (codRecipiente) REFERENCES recipiente(codRecipiente);
+ALTER TABLE colores ADD CONSTRAINT FkrecipienteColores FOREIGN KEY (codRecipiente) REFERENCES recipiente(codRecipiente);
+ALTER TABLE envasado ADD CONSTRAINT FkliquidoEnvasado FOREIGN KEY (codLiquido) REFERENCES liquidoFinal(codLiquido);
+ALTER TABLE colores ADD CONSTRAINT FkliquidoColores FOREIGN KEY (codLiquido) REFERENCES liquidoFinal(codLiquido);
+
 /*###########################################
     Inserción de datos
   ###########################################*/
@@ -196,7 +282,7 @@ ON maceracion FOR EACH ROW
 
 /*-- El mismo caso del trigger al insertar el tiempo de macerado para líquidos con aromas tipo postre pero previniendo la actualización de datos --*/
 delimiter ::
-CREATE TRIGGER maceracion
+CREATE TRIGGER maceracionBU
 BEFORE UPDATE
 ON maceracion FOR EACH ROW
 BEGIN
@@ -222,3 +308,65 @@ JOIN base on liquidoBasico.codBase = base.codBase;
 /*-- Vista unicamente de los códigos de base, su código y molecula; esta información es la única relevante para el etiquetado en los laboratorios donde se preparan las bases, ya que no necesitan información comercial, con esta vista tienen un acceso rápido y sencillo --*/
 CREATE VIEW baseslaboratorio AS SELECT base.codBase, base.proporcion, moleculas.molecula FROM base
 JOIN moleculas ON base.codBase = moleculas.codBase;
+
+
+/* seleccionamos la base de datos*/
+USE fabricaeliquidExportada;
+
+/*###########################################
+    Consulta simple sobre una tabla
+    --------------------------------------
+    Cuales son los códigos de los líquidos que emplean el color 00,30,81,11
+  ###########################################*/
+SELECT codLiquido 'Código de Líquido' FROM colores
+WHERE color LIKE '00,30,81,11';
+
+/*###########################################
+  Consulta sobre dos tablas creada sin join
+  --------------------------------------
+  Códigos de los líquidos que tienen un tiempo de macerado mayor a 3 semanas, ordenados de mayor tiempo a menor, mostrando este también
+###########################################*/
+SELECT liquidoFinal.codLiquido 'Código de líquido', CONCAT(maceracion.tmacerado, ' ', 'días') 'Tiempo de macerado' FROM liquidoFinal, maceracion
+WHERE liquidoFinal.nombreLiquido = maceracion.nombreLiquido
+AND maceracion.tmacerado > '21'
+ORDER BY maceracion.tmacerado;
+
+/*###########################################
+  Consulta sobre dos tablas creada con join
+  --------------------------------------
+  Proporción en la base con la que se elabora el líquido Don Juan Reserva
+  ###########################################*/
+SELECT base.proporcion 'Proporción de Base' FROM base
+JOIN liquidoBasico ON base.codBase = liquidoBasico.codBase
+WHERE liquidoBasico.nombreLiquido = 'Don Juan Reserva';
+
+/*###########################################
+  Consulta de más de dos tablas creada con join
+  --------------------------------------
+  Nombres de líquidos y códigos que utilicen aromas de la categoria frutal
+  ###########################################*/
+SELECT DISTINCT liquidoFinal.nombreLiquido 'Nombre de líquido', liquidoFinal.codLiquido 'Código' FROM liquidoFinal
+JOIN liquidoBasico ON liquidoFinal.nombreLiquido = liquidoBasico.nombreLiquido
+JOIN aroma on liquidoBasico.codAroma = aroma.codAroma
+WHERE aroma.categoria = 'frutal';
+
+/*###########################################
+  Consulta con cálculos sobre agrupación de filas
+  --------------------------------------
+  Media de dias, redondeados a números enteros, de maceración según la concentracion de nicotina en los líquidos
+  ###########################################*/
+SELECT concentracionNicotina 'Concentración de nicotina', CONCAT(ROUND(AVG(tmacerado), 0), ' ', 'días') 'Días de maceración' FROM maceracion
+GROUP BY concentracionNicotina;
+
+/*###########################################
+  Consulta con subconsultas
+  --------------------------------------
+  Enumera los códigos de base las cuales poseen tanto la molécula de 'frescor' como la de 'golpe de garganta'
+  ###########################################*/
+SELECT DISTINCT codBase 'Código de Base' FROM moleculas
+WHERE codBase IN
+    (SELECT codBase FROM moleculas
+    WHERE molecula = 'frescor')
+AND codBase IN 
+    (SELECT codBase FROM moleculas
+    WHERE molecula = 'golpe de garganta');
