@@ -1212,20 +1212,24 @@
                     <h3 class="titulo_tabla ddltitulo">Actualización de datos</h3>
                     <div class="normas">
                         <p>
-                            <h4>-- </h4>
+                            <h4>-- El liquido Apple Punch ahora utilizá la base 0015</h4>
                         </p>
-                        </br>
+                    </br>
                         <p>
-                              
+                            UPDATE liquidoBasico</br>
+                            SET codBase = '0015'</br>
+                            WHERE nombreLiquido = 'Apple Punch';  
                         </p>
                     </div>
                     <div class="normas">
                         <p>
-                            <h4>-- </h4>
+                            <h4>-- El aroma ron pasa a llamarse whisky según nuestro proveedor, así que replicamos el cambio para consistencia</h4>
                         </p>
-                        </br>
+                    </br>
                         <p>
-                              
+                            UPDATE aroma</br>
+                            SET aroma = 'whisky'</br>
+                            WHERE aroma = 'ron';   
                         </p>
                     </div>
                     <h3 class="titulo_tabla ddltitulo">Eliminación de datos</h3>
@@ -1250,58 +1254,105 @@
                     <h3 class="titulo_tabla ddltitulo">Construcción de triggers de inserción</h3>
                     <div class="normas">
                         <p>
-                            <h4>-- </h4>
+                            <h4>-- Al añadir un nuevo volumen de recipiente, crear una variante en cristal, en esta fábrica todos los líquidos tienen su versión en envasado más premium, de este modo aceleramos la insersión de datos, para esto antes necesitamos modificar la columna volumen ya que tiene restricción ENUM</h4>
                         </p>
-                        </br>
+                    </br>
                         <p>
-                              
+                            CREATE TRIGGER recipienteAI </br>
+                            AFTER INSERT </br>
+                            ON recipiente FOR EACH ROW</br>
+                                INSERT INTO recipiente (volumen, tipo)</br>
+                                VALUES (NEW.volumen, 'cristal');   
                         </p>
                     </div>
                     <div class="normas">
                         <p>
-                            <h4>-- </h4>
+                            <h4>-- Si el tiempo de macerado en un líquido que se elabore con un aroma de categoría postre es inferior a 15 días, este se establecerá con un valor de 15, puesto que este tipo de aromas necesita mucho más tiempo de maceración como norma</h4>
                         </p>
                         </br>
                         <p>
-                              
+                            delimiter ::</br>
+                            CREATE TRIGGER maceracionBI</br>
+                            BEFORE INSERT</br>
+                            ON maceracion FOR EACH ROW</br>
+                            BEGIN</br>
+                              IF (SELECT nombreLiquido FROM maceracion) IN (</br>
+                                SELECT liquidoBasico.nombreLiquido FROM liquidoBasico</br>
+                                JOIN aroma ON liquidoBasico.codAroma = aroma.codAroma</br>
+                                WHERE aroma.categoria = 'postre'</br>
+                              )</br>
+                              AND NEW.tmacerado < 15 THEN</br></15>
+                              set NEW.tmacerado = 15;</br>
+                              END IF;</br>
+                            END::</br>
+                            delimiter ;    </br>
                         </p>
                     </div>
                     <h3 class="titulo_tabla ddltitulo">Construcción de triggers de actualización</h3>
                     <div class="normas">
                         <p>
-                            <h4>-- </h4>
+                            <h4>-- Para hacer un seguimiento en las pruebas del macerado de los líquidos crearemos un disparador que se ocupe de guardar los tiempos de macerado que hayan sido probados y la fecha en la que se alteró el valor del tiempo de macerado, para ello, además del trigger creamos la tabla de respaldo en la que guardaremos los datos antiguos</h4>
                         </p>
                         </br>
                         <p>
-                              
+                            CREATE TABLE testmacerado (</br>
+                                nombreLiquido VARCHAR(20),</br>
+                                concentracionNicotina ENUM('0,3mg/mL', '0,6mg/mL', '1.2mg/mL'),</br>
+                                anteriorTmacerado TINYINT,</br>
+                                nuevoTmacerado TINYINT,</br>
+                                modificado DATE</br>
+                            );</br>
+                        </br>
+                            CREATE TRIGGER testmaceradoBU </br>
+                            BEFORE UPDATE </br>
+                            ON maceracion FOR EACH ROW</br>
+                                INSERT INTO testmacerado (concentracionNicotina, nombreLiquido, anteriorTmacerado, nuevoTmacerado, modificado)</br>
+                                VALUES (OLD.concentracionNicotina, OLD.nombreLiquido, OLD.tmacerado, NEW.tmacerado, NOW());  
                         </p>
                     </div>
                     <div class="normas">
                         <p>
-                            <h4>-- </h4>
+                            <h4>-- El mismo caso del trigger al insertar el tiempo de macerado para líquidos con aromas tipo postre pero previniendo la actualización de datos</h4>
                         </p>
                         </br>
                         <p>
-                              
+                            delimiter ::</br>
+                            CREATE TRIGGER maceracion</br>
+                            BEFORE UPDATE</br>
+                            ON maceracion FOR EACH ROW</br>
+                            BEGIN</br>
+                                IF (SELECT nombreLiquido FROM maceracion) IN (</br>
+                                    SELECT liquidoBasico.nombreLiquido FROM liquidoBasico</br>
+                                    JOIN aroma ON liquidoBasico.codAroma = aroma.codAroma</br>
+                                    WHERE aroma.categoria = 'postre'</br>
+                                )</br>
+                                AND NEW.tmacerado < 15 THEN</br>
+                                set NEW.tmacerado = 15;</br>
+                                END IF;</br>
+                            END::</br>
+                            delimiter ;  </br>
                         </p>
                     </div>
                     <h3 class="titulo_tabla ddltitulo">Construcción de vistas</h3>
                     <div class="normas">
                         <p>
-                            <h4>-- </h4>
+                            <h4>-- Vista para definición de los líquidos de forma comercial, mostrando el nombre del liquido, el nombre del aroma y la proporcion de base con la que se elavoran cada uno. Esta vista sería util a la hora de elaborar documentación para catálogos o para pasar información de los productos a las tiendas clientes ahorrandonos los datos técnicos de nuestra BBDD</h4>
                         </p>
                         </br>
                         <p>
-                              
+                            CREATE VIEW liquidoscomercial AS SELECT liquidoBasico.nombreLiquido, aroma.aroma, base.proporcion FROM liquidoBasico</br>
+                            JOIN aroma ON liquidoBasico.codAroma = aroma.codAroma</br>
+                            JOIN base on liquidoBasico.codBase = base.codBase;  
                         </p>
                     </div>
                     <div class="normas">
                         <p>
-                            <h4>-- </h4>
+                            <h4>-- Vista unicamente de los códigos de base, su código y molecula; esta información es la única relevante para el etiquetado en los laboratorios donde se preparan las bases, ya que no necesitan información comercial, con esta vista tienen un acceso rápido y sencillo</h4>
                         </p>
                         </br>
                         <p>
-                              
+                            CREATE VIEW baseslaboratorio AS SELECT base.codBase, base.proporcion, moleculas.molecula FROM base</br>
+                            JOIN moleculas ON base.codBase = moleculas.codBase; 
                         </p>
                     </div>
                 </div>
