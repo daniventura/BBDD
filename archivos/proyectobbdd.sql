@@ -155,7 +155,7 @@ VALUES ('0001', 'manzana', 'frutal'),
 ('0015', 'tutti frutti', 'frutal'), 
 ('0016', 'oreo', 'postre');
 
-INSERT INTO `mezclaaromas` (`aroma`, `aromaCompuesto`) 
+INSERT INTO `mezclaAromas` (`aroma`, `aromaCompuesto`) 
 VALUES ('0013', '0016'), 
 ('0006', '0016'), 
 ('0007', '0016'), 
@@ -171,7 +171,7 @@ VALUES ('0013', '0016'),
 ('0005', '0015'), 
 ('0010', '0014');
 
-INSERT INTO `liquidobasico` (`nombreLiquido`, `codBase`, `codAroma`) 
+INSERT INTO `liquidoBasico` (`nombreLiquido`, `codBase`, `codAroma`) 
 VALUES ('Don Juan Reserva', '0008', '0014'), 
 ('Fruit Garden', '0005', '0015'), 
 ('Cookies & Crème', '0004', '0016'), 
@@ -191,7 +191,7 @@ VALUES ('Apple Punch', '0,3mg/mL', '6'),
 ('Fruit Garden', '0,6mg/mL', '12'), 
 ('Fruit Garden', '1.2mg/mL', '15');
 
-INSERT INTO `liquidofinal` (`codLiquido`, `nombreLiquido`, `concentracionNicotina`) 
+INSERT INTO `liquidoFinal` (`codLiquido`, `nombreLiquido`, `concentracionNicotina`) 
 VALUES ('0001', 'Apple Punch', '0,3mg/mL'), 
 ('0002', 'Apple Punch', '0,6mg/mL'), 
 ('0003', 'Apple Punch', '1.2mg/mL'), 
